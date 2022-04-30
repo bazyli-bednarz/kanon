@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.period_details'|trans({'%id%': period.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.period_details'|trans({'%id%': period.id|default('')}) }}</h1>
+    {% if period is defined and period|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>#{{ period.id }}</dd>
+            <dt>{{ 'label.period_name'|trans }}</dt>
+            <dd>{{ period.name }}</dd>
+            <dt>{{ 'label.period_start_year'|trans }}</dt>
+            <dd>{{ period.startYear }}</dd>
+            <dt>{{ 'label.period_end_year'|trans }}</dt>
+            <dd>{{ period.endYear }}</dd>
+            <dt>{{ 'label.period_description'|trans }}</dt>
+            <dd>{{ period.description }}</dd>
+            <dt>{{ 'label.created_at'|trans }}</dt>
+            <dd>{{ period.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
+            <dt>{{ 'label.updated_at'|trans }}</dt>
+            <dd>{{ period.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
+            <dt>{{ 'label.actions'|trans }}</dt>
+            <dd>
+{#                <a href="{{ url('period_edit', {slug: period.slug}) }}" title="{{ 'action.edit'|trans }}">#}
+{#                    {{ 'action.edit'|trans }}#}
+{#                </a>#}
+{#                <a href="{{ url('period_delete', {slug: period.slug}) }}" title="{{ 'action.delete'|trans }}">#}
+{#                    {{ 'action.delete'|trans }}#}
+{#                </a>#}
+            </dd>
+        </dl>
+
+        {% if pagination is defined and pagination.items|length %}
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'composer.id') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.composer_name'|trans, 'composer.name') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.composer_last_name'|trans, 'composer.lastName') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.composer_birth_year'|trans, 'composer.birthYear') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.composer_death_year'|trans, 'composer.deathYear') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.composer_description'|trans, 'composer.description') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'composer.createdAt') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'composer.updatedAt') }}</th>
+                    <th>{{ 'label.actions'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for composer in pagination %}
+                    <tr>
+                        <td>{{ composer.id }}</td>
+                        <td>{{ composer.name }}</td>
+                        <td>{{ composer.lastName }}</td>
+                        <td>{{ composer.birthYear }}</td>
+                        <td>{{ composer.deathYear }}</td>
+                        <td>{{ composer.description }}</td>
+                        <td>{{ composer.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
+                        <td>{{ composer.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
+                        <td>
+                            <a href="{{ url('composer_show', {slug: composer.slug}) }}" title="{{ 'action.view'|trans }}: {{ composer.name }} {{ composer.lastName }}">
+                                {{ 'action.view'|trans }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        {% else %}
+            <p>
+                {{ 'message.empty_list'|trans }}
+            </p>
+        {% endif %}
+
+        <p>
+            <a href="{{ url('period_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            {{ 'message.item_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.piece_details'|trans({'%id%': piece.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.piece_details'|trans({'%id%': piece.id|default('')}) }}</h1>
+    {% if piece is defined and piece|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>#{{ piece.id }}</dd>
+            <dt>{{ 'label.piece_name'|trans }}</dt>
+            <dd>{{ piece.name }}</dd>
+            <dt>{{ 'label.piece_year'|trans }}</dt>
+            <dd>{{ piece.year }}</dd>
+            <dt>{{ 'label.piece_description'|trans }}</dt>
+            <dd>{{ piece.description }}</dd>
+            <dt>{{ 'label.piece_link'|trans }}</dt>
+            <dd><a href="{{ piece.link }}">{{ piece.link }}</a></dd>
+            <dt>{{ 'label.piece_composer'|trans }}</dt>
+            <a href="{{ url('composer_show', {slug: piece.composer.slug}) }}"
+               title="{{ 'action.view'|trans }}: {{  piece.composer.name }} {{ piece.composer.lastName }}">
+                <dd>{{  piece.composer.name }} {{ piece.composer.lastName }}</dd>
+            </a>
+            <dt>{{ 'label.piece_tags'|trans }}</dt>
+            <dd>
+                <dd>
+                    {% if piece.tags|length > 0 %}
+                        {% for tag in piece.tags %}
+                            {{ tag.name }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        -
+                    {% endif %}
+                </dd>
+            </dd>
+            <dt>{{ 'label.piece_canons'|trans }}</dt>
+            <dd>
+                <dd>
+                    {% if piece.canons|length > 0 %}
+                        <ul>
+                            {% for canon in piece.canons %}
+                                <li>{{ canon.name }}</li>
+                            {% endfor %}
+                        </ul>
+
+                    {% else %}
+                        -
+                    {% endif %}
+                </dd>
+            </dd>
+            <dt>{{ 'label.created_at'|trans }}</dt>
+            <dd>{{ piece.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
+            <dt>{{ 'label.updated_at'|trans }}</dt>
+            <dd>{{ piece.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
+            <dt>{{ 'label.actions'|trans }}</dt>
+            <dd>
+                <a href="{{ url('piece_edit', {slug: piece.slug}) }}" title="{{ 'action.edit'|trans }}">
+                    {{ 'action.edit'|trans }}
+                </a>
+                <a href="{{ url('piece_delete', {slug: piece.slug}) }}" title="{{ 'action.delete'|trans }}">
+                    {{ 'action.delete'|trans }}
+                </a>
+            </dd>
+            <dt>{{ 'label.piece_author'|trans }}</dt>
+            <dd>{{ piece.author.name }}</dd>
+            <dt>{{ 'label.piece_edited_by'|trans }}</dt>
+            <dd>{{ piece.editedBy.name }}</dd>
+        </dl>
+        <p>
+            <a href="{{ url('piece_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            {{ 'message.item_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

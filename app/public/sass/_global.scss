@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  max-width: 1920px;
+  margin: auto;
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+table {
+  tbody {
+    tr {
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $table-hover-color;
+      }
+    }
+  }
+}

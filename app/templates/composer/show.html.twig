@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.composer_details'|trans({'%id%': composer.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.composer_details'|trans({'%id%': composer.id|default('')}) }}</h1>
+    {% if composer is defined and composer|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>#{{ composer.id }}</dd>
+            <dt>{{ 'label.composer_name'|trans }}</dt>
+            <dd>{{ composer.name }}</dd>
+            <dt>{{ 'label.composer_last_name'|trans }}</dt>
+            <dd>{{ composer.lastName }}</dd>
+            <dt>{{ 'label.composer_birth_year'|trans }}</dt>
+            <dd>{{ composer.birthYear }}</dd>
+            <dt>{{ 'label.composer_death_year'|trans }}</dt>
+            <dd>{{ composer.deathYear }}</dd>
+            <dt>{{ 'label.composer_description'|trans }}</dt>
+            <dd>{{ composer.description }}</dd>
+            <dt>{{ 'label.created_at'|trans }}</dt>
+            <dd>{{ composer.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
+            <dt>{{ 'label.updated_at'|trans }}</dt>
+            <dd>{{ composer.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
+            <dt>{{ 'label.actions'|trans }}</dt>
+            <dd>
+                <a href="{{ url('composer_edit', {slug: composer.slug}) }}" title="{{ 'action.edit'|trans }}">
+                    {{ 'action.edit'|trans }}
+                </a>
+                <a href="{{ url('composer_delete', {slug: composer.slug}) }}" title="{{ 'action.delete'|trans }}">
+                    {{ 'action.delete'|trans }}
+                </a>
+            </dd>
+        </dl>
+
+        {% if pagination is defined and pagination.items|length %}
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'piece.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.piece_name'|trans, 'piece.name') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.piece_year'|trans, 'piece.year') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.piece_description'|trans, 'piece.description') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.piece_link'|trans, 'piece.link') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'piece.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'piece.updatedAt') }}</th>
+                <th>{{ 'label.actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for piece in pagination %}
+                <tr>
+                    <td>{{ piece.id }}</td>
+                    <td>{{ piece.name }}</td>
+                    <td>{{ piece.year }}</td>
+                    <td>{{ piece.description }}</td>
+                    <td><a href="{{ piece.link }}">{{ piece.link }}</a></td>
+                    <td>{{ piece.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
+                    <td>{{ piece.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
+                    <td>
+                        <a href="{{ url('piece_show', {slug: piece.slug}) }}" title="{{ 'action.view'|trans }}">
+                            {{ 'action.view'|trans }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+        {% else %}
+            <p>
+                {{ 'message.empty_list'|trans }}
+            </p>
+        {% endif %}
+
+        <p>
+            <a href="{{ url('composer_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            {{ 'message.item_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

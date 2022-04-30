@@ -1,0 +1,6 @@
+{% include 'default/_form.html.twig' with {
+    page_title: 'title.piece_delete'|trans({'%name%': piece.name|default('')}),
+    form: form,
+    submit_label: 'action.delete'|trans,
+    back_to_list_path: 'piece_index',
+} %}

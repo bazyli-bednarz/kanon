@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.canon_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.canon_list'|trans }}</h1>
+    <a class="btn btn-primary btn-lg" href="{{ url('canon_create') }}">{{ 'action.add_canon'|trans }}</a>
+    {% if pagination is defined and pagination.items|length %}
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'canon.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.canon_name'|trans, 'canon.name') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.canon_description'|trans, 'canon.description') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'canon.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'canon.updatedAt') }}</th>
+                <th>{{ 'label.actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for canon in pagination.items %}
+                <tr>
+                    <td>{{ canon.id }}</td>
+                    <td>{{ canon.name }}</td>
+                    <td>{{ canon.description }}</td>
+                    <td>{{ canon.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
+                    <td>{{ canon.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
+
+                    <td>
+                        <a href="{{ url('canon_show', {slug: canon.slug}) }}" title="{{ 'action.view'|trans }}">
+                            {{ 'action.view'|trans }}
+                        </a>
+                        <a href="{{ url('canon_edit', {slug: canon.slug}) }}" title="{{ 'action.edit'|trans }}">
+                            {{ 'action.edit'|trans }}
+                        </a>
+                        <a href="{{ url('canon_delete', {slug: canon.slug}) }}" title="{{ 'action.delete'|trans }}">
+                            {{ 'action.delete'|trans }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+
+    {% else %}
+        <p>
+            {{ 'message.empty_list'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

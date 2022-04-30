@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.canon_details'|trans({'%id%': canon.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.canon_details'|trans({'%id%': canon.id|default('')}) }}</h1>
+    {% if canon is defined and canon|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>#{{ canon.id }}</dd>
+            <dt>{{ 'label.canon_name'|trans }}</dt>
+            <dd>{{ canon.name }}</dd>
+            <dt>{{ 'label.canon_description'|trans }}</dt>
+            <dd>{{ canon.description }}</dd>
+            <dt>{{ 'label.created_at'|trans }}</dt>
+            <dd>{{ canon.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
+            <dt>{{ 'label.updated_at'|trans }}</dt>
+            <dd>{{ canon.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
+            <dt>{{ 'label.canon_author'|trans }}</dt>
+            <dd>{{ canon.author.name }}</dd>
+            <dt>{{ 'label.actions'|trans }}</dt>
+            <dd>
+                <a href="{{ url('canon_edit', {slug: canon.slug}) }}" title="{{ 'action.edit'|trans }}">
+                    {{ 'action.edit'|trans }}
+                </a>
+                <a href="{{ url('canon_delete', {slug: canon.slug}) }}" title="{{ 'action.delete'|trans }}">
+                    {{ 'action.delete'|trans }}
+                </a>
+            </dd>
+        </dl>
+        <p>
+            <a href="{{ url('canon_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+
+        {% if pagination is defined and pagination.items|length %}
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'piece.id') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.piece_name'|trans, 'piece.name') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.piece_year'|trans, 'piece.year') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.piece_description'|trans, 'piece.description') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.piece_link'|trans, 'piece.link') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'piece.createdAt') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'piece.updatedAt') }}</th>
+                    <th>{{ 'label.actions'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for piece in pagination %}
+                    <tr>
+                        <td>{{ piece.id }}</td>
+                        <td>{{ piece.name }}</td>
+                        <td>{{ piece.year }}</td>
+                        <td>{{ piece.description }}</td>
+                        <td><a href="{{ piece.link }}">{{ piece.link }}</a></td>
+                        <td>{{ piece.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
+                        <td>{{ piece.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
+                        <td>
+                            <a href="{{ url('piece_show', {slug: piece.slug}) }}" title="{{ 'action.view'|trans }}">
+                                {{ 'action.view'|trans }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        {% else %}
+            <p>
+                {{ 'message.empty_list'|trans }}
+            </p>
+        {% endif %}
+
+    {% else %}
+        <p>
+            {{ 'message.item_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}
