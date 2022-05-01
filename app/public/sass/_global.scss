@@ -14,9 +14,33 @@
   margin: 0;
 }
 
+// Selectize UI fix
 .form-select {
-  padding: .375rem;
+  padding: 0;
   background-image: none;
+}
+
+.selectize-control.multi {
+  border: none;
+}
+.selectize-control.single {
+  .selectize-input {
+    border: none;
+    &:after {
+      content: url('../images/arrow.svg');
+      border: none;
+      width: 15px;
+      height: 9px;
+      display: block;
+      transition: 0.3s;
+    }
+
+    &.dropdown-active {
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
 }
 
 table {
