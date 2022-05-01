@@ -130,13 +130,52 @@
 
     <script>
         $(document).ready(function () {
-            $('.selectize').selectize();
+            $('.selectize').selectize({
+                openOnFocus: false,
+
+                onInitialize: function () {
+                    var that = this;
+
+                    this.$control.on("click", function () {
+                        that.ignoreFocusOpen = true;
+                        setTimeout(function () {
+                            that.ignoreFocusOpen = false;
+                        }, 50);
+                    });
+                },
+
+                onFocus: function () {
+                    if (!this.ignoreFocusOpen) {
+                        this.open();
+                    }
+                },
+
+            });
         });
 
         $(document).ready(function () {
             $('.selectize-multi').selectize(
                 {
                     maxOptions: null,
+                    openOnFocus: false,
+
+                    onInitialize: function () {
+                        var that = this;
+
+                        this.$control.on("click", function () {
+                            that.ignoreFocusOpen = true;
+                            setTimeout(function () {
+                                that.ignoreFocusOpen = false;
+                            }, 50);
+                        });
+                    },
+
+                    onFocus: function () {
+                        if (!this.ignoreFocusOpen) {
+                            this.open();
+                        }
+                    },
+
                 }
             );
         })
