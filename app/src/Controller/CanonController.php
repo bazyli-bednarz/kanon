@@ -13,6 +13,7 @@ use App\Form\Type\CanonType;
 use App\Service\CanonServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -76,6 +77,7 @@ class CanonController extends AbstractController
      *     name="canon_create",
      * )
      *
+     * @IsGranted("ROLE_USER")
      */
     public function create(Request $request): Response
     {
@@ -93,7 +95,7 @@ class CanonController extends AbstractController
                 $this->translator->trans('message.created_successfully')
             );
 
-            return $this->redirectToRoute('canon_index');
+            return $this->redirectToRoute('canon_show', ['slug' => $canon->getSlug()]);
         }
 
         return $this->render(
@@ -142,6 +144,8 @@ class CanonController extends AbstractController
      *     methods={"GET", "PUT"},
      *     name="canon_edit",
      * )
+     *
+     * @IsGranted("EDIT", subject="canon")
      */
     public function edit(Request $request, Canon $canon): Response
     {
@@ -159,7 +163,7 @@ class CanonController extends AbstractController
                 $this->translator->trans('message.edited_successfully')
             );
 
-            return $this->redirectToRoute('canon_index');
+            return $this->redirectToRoute('canon_show', ['slug' => $canon->getSlug()]);
         }
 
         return $this->render(
@@ -184,6 +188,8 @@ class CanonController extends AbstractController
      *     methods={"GET", "DELETE"},
      *     name="canon_delete",
      * )
+     *
+     * @IsGranted("DELETE", subject="canon")
      */
     public function delete(Request $request, Canon $canon): Response
     {

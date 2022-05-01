@@ -109,6 +109,22 @@ class Composer
      */
     private ?Period $period;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="composers", fetch="EXTRA_LAZY")
+     * @ORM\JoinColumn(nullable=false)
+     * @Assert\Type(type="App\Entity\User")
+     * @Assert\NotNull
+     */
+    private ?User $author;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="editedComposers", fetch="EXTRA_LAZY")
+     * @ORM\JoinColumn(nullable=false)
+     * @Assert\Type(type="App\Entity\User")
+     * @Assert\NotNull
+     */
+    private ?User $editedBy;
+
     public function __construct()
     {
         $this->pieces = new ArrayCollection();
@@ -253,6 +269,30 @@ class Composer
     public function setPeriod(?Period $period): self
     {
         $this->period = $period;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    public function getEditedBy(): ?User
+    {
+        return $this->editedBy;
+    }
+
+    public function setEditedBy(?User $editedBy): self
+    {
+        $this->editedBy = $editedBy;
 
         return $this;
     }

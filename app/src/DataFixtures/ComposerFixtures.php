@@ -47,6 +47,10 @@ class ComposerFixtures extends AbstractBaseFixtures implements DependentFixtureI
             $period = $this->getRandomReference('periods');
             $composer->setPeriod($period);
 
+            $author = $this->getRandomReference('users');
+            $composer->setAuthor($author);
+            $composer->setEditedBy($author);
+
             return $composer;
         });
 
@@ -58,6 +62,6 @@ class ComposerFixtures extends AbstractBaseFixtures implements DependentFixtureI
      */
     public function getDependencies() :array
     {
-        return [PeriodFixtures::class];
+        return [PeriodFixtures::class, UserFixtures::class];
     }
 }

@@ -12,6 +12,7 @@ use App\Form\Type\ComposerType;
 use App\Service\ComposerServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -75,10 +76,14 @@ class ComposerController extends AbstractController
      *     name="composer_create",
      * )
      *
+     * @IsGranted("ROLE_USER")
      */
     public function create(Request $request): Response
     {
+        $user = $this->getUser();
         $composer = new Composer();
+        $composer->setAuthor($user);
+        $composer->setEditedBy($user);
         $form = $this->createForm(ComposerType::class, $composer);
         $form->handleRequest($request);
 
@@ -90,7 +95,7 @@ class ComposerController extends AbstractController
                 $this->translator->trans('message.created_successfully')
             );
 
-            return $this->redirectToRoute('composer_index');
+            return $this->redirectToRoute('composer_show', ['slug' => $composer->getSlug()]);
         }
 
         return $this->render(
@@ -139,6 +144,8 @@ class ComposerController extends AbstractController
      *     methods={"GET", "PUT"},
      *     name="composer_edit",
      * )
+     *
+     * @IsGranted("EDIT", subject="composer")
      */
     public function edit(Request $request, Composer $composer): Response
     {
@@ -149,6 +156,8 @@ class ComposerController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $composer->setEditedBy($user);
             $this->composerService->save($composer);
 
             $this->addFlash(
@@ -156,7 +165,7 @@ class ComposerController extends AbstractController
                 $this->translator->trans('message.edited_successfully')
             );
 
-            return $this->redirectToRoute('composer_index');
+            return $this->redirectToRoute('composer_show', ['slug' => $composer->getSlug()]);
         }
 
         return $this->render(
@@ -181,6 +190,8 @@ class ComposerController extends AbstractController
      *     methods={"GET", "DELETE"},
      *     name="composer_delete",
      * )
+     *
+     * @IsGranted("DELETE", subject="composer")
      */
     public function delete(Request $request, Composer $composer): Response
     {
@@ -189,7 +200,7 @@ class ComposerController extends AbstractController
                 'warning',
                 $this->translator->trans('message.composer_has_pieces')
             );
-            return $this->redirectToRoute('composer_index');
+            return $this->redirectToRoute('composer_show', ['slug' => $composer->getSlug()]);
         }
 
         $form = $this->createForm(FormType::class, $composer, [

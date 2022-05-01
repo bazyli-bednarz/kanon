@@ -105,11 +105,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $canons;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Composer::class, mappedBy="author")
+     */
+    private $composers;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Composer::class, mappedBy="editedBy")
+     */
+    private $editedComposers;
+
     public function __construct()
     {
         $this->pieces = new ArrayCollection();
         $this->editedPieces = new ArrayCollection();
         $this->canons = new ArrayCollection();
+        $this->composers = new ArrayCollection();
+        $this->editedComposers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -325,6 +337,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($canon->getAuthor() === $this) {
                 $canon->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Composer>
+     */
+    public function getComposers(): Collection
+    {
+        return $this->composers;
+    }
+
+    public function addComposer(Composer $composer): self
+    {
+        if (!$this->composers->contains($composer)) {
+            $this->composers[] = $composer;
+            $composer->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComposer(Composer $composer): self
+    {
+        if ($this->composers->removeElement($composer)) {
+            // set the owning side to null (unless already changed)
+            if ($composer->getAuthor() === $this) {
+                $composer->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Composer>
+     */
+    public function getEditedComposers(): Collection
+    {
+        return $this->editedComposers;
+    }
+
+    public function addEditedComposer(Composer $editedComposer): self
+    {
+        if (!$this->editedComposers->contains($editedComposer)) {
+            $this->editedComposers[] = $editedComposer;
+            $editedComposer->setEditedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEditedComposer(Composer $editedComposer): self
+    {
+        if ($this->editedComposers->removeElement($editedComposer)) {
+            // set the owning side to null (unless already changed)
+            if ($editedComposer->getEditedBy() === $this) {
+                $editedComposer->setEditedBy(null);
             }
         }
 
