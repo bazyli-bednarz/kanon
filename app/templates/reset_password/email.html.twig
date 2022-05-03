@@ -1,0 +1,9 @@
+<h1>{{ 'app_name'|trans }} - {{ 'mail.reset_password'|trans }}</h1>
+
+<p>
+    {{ 'mail.reset_mail'|trans }} <br><br>
+    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+    {{ 'mail.mail_will_expire_in'|trans }} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+<p>
+    {{ 'mail.end_message'|trans }}
+</p>

@@ -97,6 +97,7 @@
                     </div>
                 {% else %}
                     <div>
+                        <a href="{{ url('app_register') }}">{{ 'action_register'|trans }}</a>
                         <a href="{{ url('app_login') }}">{{ 'action_login'|trans }}</a>
                     </div>
                 {% endif %}
