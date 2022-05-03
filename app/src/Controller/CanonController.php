@@ -81,13 +81,21 @@ class CanonController extends AbstractController
      */
     public function create(Request $request): Response
     {
+        $user = $this->getUser();
+        if (!$user->isVerified()) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.verify_email_first')
+            );
+            return $this->redirectToRoute('canon_index');
+        }
+
         $canon = new Canon();
+        $canon->setAuthor($user);
         $form = $this->createForm(CanonType::class, $canon);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $this->getUser();
-            $canon->setAuthor($user);
             $this->canonService->save($canon);
 
             $this->addFlash(
@@ -149,6 +157,14 @@ class CanonController extends AbstractController
      */
     public function edit(Request $request, Canon $canon): Response
     {
+        $user = $this->getUser();
+        if (!$user->isVerified()) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.verify_email_first')
+            );
+            return $this->redirectToRoute('canon_index');
+        }
         $form = $this->createForm(CanonType::class, $canon, [
             'method' => 'PUT',
             'action' => $this->generateUrl('canon_edit', ['slug' => $canon->getSlug()]),
@@ -193,6 +209,14 @@ class CanonController extends AbstractController
      */
     public function delete(Request $request, Canon $canon): Response
     {
+        $user = $this->getUser();
+        if (!$user->isVerified()) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.verify_email_first')
+            );
+            return $this->redirectToRoute('canon_index');
+        }
         if (!$this->canonService->canBeDeleted($canon)) {
             $this->addFlash(
                 'warning',

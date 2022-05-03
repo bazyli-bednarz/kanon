@@ -115,6 +115,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $editedComposers;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isVerified = false;
+
     public function __construct()
     {
         $this->pieces = new ArrayCollection();
@@ -399,6 +404,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $editedComposer->setEditedBy(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }

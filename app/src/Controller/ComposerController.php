@@ -81,6 +81,13 @@ class ComposerController extends AbstractController
     public function create(Request $request): Response
     {
         $user = $this->getUser();
+        if (!$user->isVerified()) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.verify_email_first')
+            );
+            return $this->redirectToRoute('composer_index');
+        }
         $composer = new Composer();
         $composer->setAuthor($user);
         $composer->setEditedBy($user);
@@ -149,6 +156,15 @@ class ComposerController extends AbstractController
      */
     public function edit(Request $request, Composer $composer): Response
     {
+        $user = $this->getUser();
+        if (!$user->isVerified()) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.verify_email_first')
+            );
+            return $this->redirectToRoute('composer_index');
+        }
+
         $form = $this->createForm(ComposerType::class, $composer, [
             'method' => 'PUT',
             'action' => $this->generateUrl('composer_edit', ['slug' => $composer->getSlug()]),
@@ -195,6 +211,15 @@ class ComposerController extends AbstractController
      */
     public function delete(Request $request, Composer $composer): Response
     {
+        $user = $this->getUser();
+        if (!$user->isVerified()) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.verify_email_first')
+            );
+            return $this->redirectToRoute('composer_index');
+        }
+
         if (!$this->composerService->canBeDeleted($composer)) {
             $this->addFlash(
                 'warning',

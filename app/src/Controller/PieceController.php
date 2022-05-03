@@ -55,8 +55,16 @@ class PieceController extends AbstractController
      */
     public function create(Request $request): Response
     {
-        $piece = new Piece();
         $user = $this->getUser();
+        if (!$user->isVerified()) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.verify_email_first')
+            );
+            return $this->redirectToRoute('piece_index');
+        }
+
+        $piece = new Piece();
         $piece->setAuthor($user);
         $piece->setEditedBy($user);
         $form = $this->createForm(PieceType::class, $piece);
@@ -142,6 +150,15 @@ class PieceController extends AbstractController
      */
     public function edit(Request $request, Piece $piece): Response
     {
+        $user = $this->getUser();
+        if (!$user->isVerified()) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.verify_email_first')
+            );
+            return $this->redirectToRoute('piece_index');
+        }
+
         $form = $this->createForm(PieceType::class, $piece, [
             'method' => 'PUT',
             'action' => $this->generateUrl('piece_edit', ['slug' => $piece->getSlug()]),
@@ -187,6 +204,15 @@ class PieceController extends AbstractController
      */
     public function delete(Request $request, Piece $piece): Response
     {
+        $user = $this->getUser();
+        if (!$user->isVerified()) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.verify_email_first')
+            );
+            return $this->redirectToRoute('piece_index');
+        }
+
         if (!$this->pieceService->canBeDeleted($piece)) {
             $this->addFlash(
                 'warning',

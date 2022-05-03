@@ -20,7 +20,7 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email',
-            EmailType::class,
+                EmailType::class,
                 [
                     'label' => 'label.user_email',
                     'required' => true,

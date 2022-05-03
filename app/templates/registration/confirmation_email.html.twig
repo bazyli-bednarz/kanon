@@ -1,0 +1,11 @@
+<h1>{{ 'app_name'|trans }} - {{ 'mail.hello'|trans }}</h1>
+
+<p>
+    {{ 'mail.confirm_mail_please'|trans }} <br><br>
+    <a href="{{ signedUrl }}">{{ 'mail.confirm'|trans }}</a>.
+    {{ 'mail.mail_will_expire_in'|trans }} {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+</p>
+
+<p>
+    {{ 'mail.end_message'|trans }}
+</p>

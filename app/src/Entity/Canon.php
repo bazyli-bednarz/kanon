@@ -85,9 +85,7 @@ class Canon
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="canons")
-     * @ORM\JoinColumn(nullable=false)
      * @Assert\Type(type="App\Entity\User")
-     * @Assert\NotNull
      */
     private ?User $author;
 

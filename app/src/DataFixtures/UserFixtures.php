@@ -42,6 +42,7 @@ class UserFixtures extends AbstractBaseFixtures
                 )
             );
             $user->setRoles([User::ROLE_USER]);
+            $user->setIsVerified(true);
             $user->setPassword(
                 $this->passwordHasher->hashPassword(
                     $user,
