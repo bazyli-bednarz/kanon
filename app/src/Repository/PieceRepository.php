@@ -6,6 +6,7 @@ use App\Entity\Canon;
 use App\Entity\Composer;
 use App\Entity\Piece;
 use App\Entity\Scale;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
@@ -39,6 +40,13 @@ class PieceRepository extends ServiceEntityRepository
      * @constant int
      */
     public const PAGINATOR_ITEMS_PER_PAGE_COMPOSER = 2;
+
+    /**
+     * Items per page on User subpage.
+     *
+     * @constant int
+     */
+    public const PAGINATOR_ITEMS_PER_PAGE_USER = 10;
 
     /**
      * Items per page on Scale subpage.
@@ -104,6 +112,14 @@ class PieceRepository extends ServiceEntityRepository
         $queryBuilder = $this->queryAll();
         $queryBuilder->andWhere('piece.composer = :composer')
             ->setParameter('composer', $composer);
+        return $queryBuilder;
+    }
+
+    public function queryByUser(User $user): QueryBuilder
+    {
+        $queryBuilder = $this->queryAll();
+        $queryBuilder->andWhere('piece.author = :author')
+            ->setParameter('author', $user);
         return $queryBuilder;
     }
 
