@@ -6,6 +6,20 @@
                 <source>app_name</source>
                 <target>Music history canon</target>
             </trans-unit>
+
+            <trans-unit id="action.login">
+                <source>action.login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="action.logout">
+                <source>action.logout</source>
+                <target>Logout</target>
+            </trans-unit>
+            <trans-unit id="action.register">
+                <source>action.register</source>
+                <target>Register</target>
+            </trans-unit>
+
             <trans-unit id="label.actions">
                 <source>label.actions</source>
                 <target>Actions</target>
@@ -26,6 +40,36 @@
                 <source>label.tags</source>
                 <target>Tags</target>
             </trans-unit>
+
+            <trans-unit id="menu.home">
+                <source>menu.home</source>
+                <target>Home</target>
+            </trans-unit>
+            <trans-unit id="menu.composers">
+                <source>menu.composers</source>
+                <target>Composers</target>
+            </trans-unit>
+            <trans-unit id="menu.pieces">
+                <source>menu.pieces</source>
+                <target>Pieces</target>
+            </trans-unit>
+            <trans-unit id="menu.periods">
+                <source>menu.periods</source>
+                <target>Periods</target>
+            </trans-unit>
+            <trans-unit id="menu.scales">
+                <source>menu.scales</source>
+                <target>Scales</target>
+            </trans-unit>
+            <trans-unit id="menu.canons">
+                <source>menu.canons</source>
+                <target>Canons</target>
+            </trans-unit>
+            <trans-unit id="menu.users">
+                <source>menu.users</source>
+                <target>Leaderboard</target>
+            </trans-unit>
+
             <trans-unit id="message.empty_list">
                 <source>message.empty_list</source>
                 <target>List is empty.</target>

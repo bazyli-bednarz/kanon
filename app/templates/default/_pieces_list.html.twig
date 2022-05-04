@@ -1,0 +1,70 @@
+{#
+Piece list template
+
+parameters:
+    - pagination: Pagination with items list
+#}
+{% if pagination is defined and pagination.items|length %}
+    <div class="navigation text-center">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>{{ knp_pagination_sortable(pagination, 'label.piece_name'|trans, 'piece.name') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'label.piece_year'|trans, 'piece.year') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'label.piece_description'|trans, 'piece.description') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'label.piece_link'|trans, 'piece.link') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'label.composer'|trans, 'composer.name') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'label.period'|trans, 'period.name') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'label.scale'|trans, 'scale.name') }}</th>
+            <th>{{ 'label.tags'|trans }}</th>
+            <th>{{ 'label.actions'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for piece in pagination.items %}
+            <tr>
+                <td>{{ piece.name }}</td>
+                <td>{{ piece.year }}</td>
+                <td>{{ piece.description }}</td>
+                <td><a href="{{ piece.link }}">{{ piece.link }}</a></td>
+                <td>
+                    <a href="{{ url('composer_show', {slug: piece.composer.slug}) }}">{{ piece.composer.name }} {{ piece.composer.lastName }}</a>
+                </td>
+                <td>
+                    <a href="{{ url('period_show', {slug: piece.composer.period.slug}) }}">{{ piece.composer.period.name }}</a>
+                </td>
+                <td><a href="{{ url('scale_show', {slug: piece.scale.slug}) }}">{{ piece.scale.name }}</a></td>
+                <td>
+                    {% for tag in piece.tags %}
+                        {{ tag.name }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    <a href="{{ url('piece_show', {slug: piece.slug}) }}" title="{{ 'action.view'|trans }}">
+                        {{ 'action.view'|trans }}
+                    </a>
+                    <a href="{{ url('piece_edit', {slug: piece.slug}) }}" title="{{ 'action.edit'|trans }}">
+                        {{ 'action.edit'|trans }}
+                    </a>
+                    <a href="{{ url('piece_delete', {slug: piece.slug}) }}" title="{{ 'action.delete'|trans }}">
+                        {{ 'action.delete'|trans }}
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation text-center">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+
+{% else %}
+    <p>
+        {{ 'message.empty_list'|trans }}
+    </p>
+{% endif %}

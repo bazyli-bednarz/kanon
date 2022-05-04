@@ -1,6 +1,7 @@
 nav {
   color: $nav-text-color;
   a {
+    text-align: center;
     color: $nav-text-color;
     transition: 0.3s;
     &:hover {

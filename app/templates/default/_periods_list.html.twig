@@ -1,0 +1,48 @@
+{#
+Periods list template
+
+parameters:
+    - pagination: Pagination with items list
+#}
+{% if pagination is defined and pagination.items|length %}
+    <div class="navigation text-center">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>{{ knp_pagination_sortable(pagination, 'label.period_name'|trans, 'period.name') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'label.period_start_year'|trans, 'period.startYear') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'label.period_end_year'|trans, 'period.endYear') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'label.period_description'|trans, 'period.description') }}</th>
+            <th>{{ 'label.actions'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for period in pagination.items %}
+            <tr>
+                <td>{{ period.name|trans }}</td>
+                <td>{{ period.startYear }}</td>
+                <td>{{ period.endYear }}</td>
+                <td>{{ period.description }}</td>
+
+                <td>
+                    <a href="{{ url('period_show', {slug: period.slug}) }}" title="{{ 'action.view'|trans }}">
+                        {{ 'action.view'|trans }}
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation text-center">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+
+{% else %}
+    <p>
+        {{ 'message.empty_list'|trans }}
+    </p>
+{% endif %}

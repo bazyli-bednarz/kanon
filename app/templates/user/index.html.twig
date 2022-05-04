@@ -6,64 +6,7 @@
 
 {% block body %}
     <h1>{{ 'title.user_list'|trans }}</h1>
-    {% if pagination is defined and pagination.items|length %}
-        <div class="navigation text-center">
-            {{ knp_pagination_render(pagination) }}
-        </div>
-
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'user.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.user_name'|trans, 'user.name') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.user_roles'|trans, 'user.roles') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.registered_at'|trans, 'user.createdAt') }}</th>
-                <th>{{ 'label.actions'|trans }}</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for user in pagination.items %}
-                <tr>
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.name }}</td>
-                    <td>
-                        {% if 'ROLE_ADMIN' in user.roles %}
-                        <span class="role role--admin">
-                                {{ 'role.admin'|trans }}
-                            </span>
-                        {% else %}
-                            <span class="role role--user">
-                                {{ 'role.user'|trans }}
-                            </span>
-                        {% endif %}
-                    </td>
-
-                    </td>
-                    <td>{{ user.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
-
-                    <td>
-                        <a href="{{ url('user_show', {slug: user.slug}) }}" title="{{ 'action.view'|trans }}">
-                            {{ 'action.view'|trans }}
-                        </a>
-{#                        <a href="{{ url('user_edit', {slug: user.slug}) }}" title="{{ 'action.edit'|trans }}">#}
-{#                            {{ 'action.edit'|trans }}#}
-{#                        </a>#}
-{#                        <a href="{{ url('user_delete', {slug: user.slug}) }}" title="{{ 'action.delete'|trans }}">#}
-{#                            {{ 'action.delete'|trans }}#}
-{#                        </a>#}
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        <div class="navigation text-center">
-            {{ knp_pagination_render(pagination) }}
-        </div>
-
-
-    {% else %}
-        <p>
-            {{ 'message.empty_list'|trans }}
-        </p>
-    {% endif %}
+    {% include 'default/_users_list.html.twig' with {
+        pagination: pagination,
+    } %}
 {% endblock %}

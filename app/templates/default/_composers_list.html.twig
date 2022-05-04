@@ -1,0 +1,56 @@
+{#
+Composer list template
+
+parameters:
+    - pagination: Pagination with items list
+#}
+ {% if pagination is defined and pagination.items|length %}
+
+     <div class="navigation text-center">
+         {{ knp_pagination_render(pagination) }}
+     </div>
+     <table class="table table-striped">
+         <thead>
+         <tr>
+             <th>{{ knp_pagination_sortable(pagination, 'label.composer_name'|trans, 'composer.name') }}</th>
+             <th>{{ knp_pagination_sortable(pagination, 'label.composer_last_name'|trans, 'composer.lastName') }}</th>
+             <th>{{ knp_pagination_sortable(pagination, 'label.composer_birth_year'|trans, 'composer.birthYear') }}</th>
+             <th>{{ knp_pagination_sortable(pagination, 'label.composer_death_year'|trans, 'composer.deathYear') }}</th>
+             <th>{{ knp_pagination_sortable(pagination, 'label.composer_description'|trans, 'composer.description') }}</th>
+
+             <th>{{ 'label.actions'|trans }}</th>
+         </tr>
+         </thead>
+         <tbody>
+         {% for composer in pagination %}
+             <tr>
+                 <td>{{ composer.name }}</td>
+                 <td>{{ composer.lastName }}</td>
+                 <td>{{ composer.birthYear }}</td>
+                 <td>{{ composer.deathYear }}</td>
+                 <td>{{ composer.description }}</td>
+
+                 <td>
+                     <a href="{{ url('composer_show', {slug: composer.slug}) }}" title="{{ 'action.view'|trans }}: {{ composer.name }} {{ composer.lastName }}">
+                         {{ 'action.view'|trans }}
+                     </a>
+                     <a href="{{ url('composer_edit', {slug: composer.slug}) }}" title="{{ 'action.edit'|trans }}: {{ composer.name }} {{ composer.lastName }}">
+                         {{ 'action.edit'|trans }}
+                     </a>
+                     <a href="{{ url('composer_delete', {slug: composer.slug}) }}" title="{{ 'action.delete'|trans }}: {{ composer.name }} {{ composer.lastName }}">
+                         {{ 'action.delete'|trans }}
+                     </a>
+                 </td>
+             </tr>
+         {% endfor %}
+         </tbody>
+     </table>
+
+     <div class="navigation text-center">
+         {{ knp_pagination_render(pagination) }}
+     </div>
+ {% else %}
+     <p>
+         {{ 'message.empty_list'|trans }}
+     </p>
+ {% endif %}

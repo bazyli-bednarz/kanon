@@ -100,9 +100,11 @@ class PieceRepository extends ServiceEntityRepository
             ->select(
                 'partial piece.{id, name, description, year, link, createdAt, updatedAt, author, editedBy, slug}',
                 'partial composer.{id, name, lastName, slug}',
+                'partial period.{id, name, slug}',
                 'partial scale.{id, name, slug}'
             )
             ->join('piece.composer', 'composer')
+            ->join('composer.period', 'period')
             ->join('piece.scale', 'scale')
             ->orderBy('piece.updatedAt', 'DESC');
     }

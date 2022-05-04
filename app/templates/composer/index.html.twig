@@ -7,62 +7,7 @@
 {% block body %}
     <h1>{{ 'title.composer_list'|trans }}</h1>
     <a class="btn btn-primary btn-lg" href="{{ url('composer_create') }}">{{ 'action.add_composer'|trans }}</a>
-    {% if pagination is defined and pagination.items|length %}
-        <div class="navigation text-center">
-            {{ knp_pagination_render(pagination) }}
-        </div>
-
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'composer.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.composer_name'|trans, 'composer.name') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.composer_last_name'|trans, 'composer.flastName') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.composer_birth_year'|trans, 'composer.birthYear') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.composer_death_year'|trans, 'composer.deathYear') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.composer_description'|trans, 'composer.description') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.composer_period'|trans, 'period.name') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'composer.createdAt') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'composer.updatedAt') }}</th>
-                <th>{{ 'label.actions'|trans }}</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for composer in pagination.items %}
-                <tr>
-                    <td>{{ composer.id }}</td>
-                    <td>{{ composer.name }}</td>
-                    <td>{{ composer.lastName }}</td>
-                    <td>{{ composer.birthYear }}</td>
-                    <td>{{ composer.deathYear }}</td>
-                    <td>{{ composer.description }}</td>
-                    <td>{{ composer.period.name }}</td>
-                    <td>{{ composer.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
-                    <td>{{ composer.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
-
-                    <td>
-                        <a href="{{ url('composer_show', {slug: composer.slug}) }}" title="{{ 'action.view'|trans }}">
-                            {{ 'action.view'|trans }}
-                        </a>
-                        <a href="{{ url('composer_edit', {slug: composer.slug}) }}" title="{{ 'action.edit'|trans }}">
-                            {{ 'action.edit'|trans }}
-                        </a>
-                        <a href="{{ url('composer_delete', {slug: composer.slug}) }}" title="{{ 'action.delete'|trans }}">
-                            {{ 'action.delete'|trans }}
-                        </a>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        <div class="navigation text-center">
-            {{ knp_pagination_render(pagination) }}
-        </div>
-
-
-    {% else %}
-        <p>
-            {{ 'message.empty_list'|trans }}
-        </p>
-    {% endif %}
+    {% include 'default/_composers_list.html.twig' with {
+        pagination: pagination
+    } %}
 {% endblock %}

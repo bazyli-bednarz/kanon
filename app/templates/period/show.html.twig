@@ -33,54 +33,9 @@
             </dd>
         </dl>
 
-        {% if pagination is defined and pagination.items|length %}
-
-            <div class="navigation text-center">
-                {{ knp_pagination_render(pagination) }}
-            </div>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'composer.id') }}</th>
-                    <th>{{ knp_pagination_sortable(pagination, 'label.composer_name'|trans, 'composer.name') }}</th>
-                    <th>{{ knp_pagination_sortable(pagination, 'label.composer_last_name'|trans, 'composer.lastName') }}</th>
-                    <th>{{ knp_pagination_sortable(pagination, 'label.composer_birth_year'|trans, 'composer.birthYear') }}</th>
-                    <th>{{ knp_pagination_sortable(pagination, 'label.composer_death_year'|trans, 'composer.deathYear') }}</th>
-                    <th>{{ knp_pagination_sortable(pagination, 'label.composer_description'|trans, 'composer.description') }}</th>
-                    <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'composer.createdAt') }}</th>
-                    <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'composer.updatedAt') }}</th>
-                    <th>{{ 'label.actions'|trans }}</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for composer in pagination %}
-                    <tr>
-                        <td>{{ composer.id }}</td>
-                        <td>{{ composer.name }}</td>
-                        <td>{{ composer.lastName }}</td>
-                        <td>{{ composer.birthYear }}</td>
-                        <td>{{ composer.deathYear }}</td>
-                        <td>{{ composer.description }}</td>
-                        <td>{{ composer.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
-                        <td>{{ composer.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
-                        <td>
-                            <a href="{{ url('composer_show', {slug: composer.slug}) }}" title="{{ 'action.view'|trans }}: {{ composer.name }} {{ composer.lastName }}">
-                                {{ 'action.view'|trans }}
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-
-            <div class="navigation text-center">
-                {{ knp_pagination_render(pagination) }}
-            </div>
-        {% else %}
-            <p>
-                {{ 'message.empty_list'|trans }}
-            </p>
-        {% endif %}
+        {% include 'default/_composers_list.html.twig' with {
+            pagination: pagination
+        } %}
 
         <p>
             <a href="{{ url('period_index') }}" title="{{ 'action.back_to_list'|trans }}">

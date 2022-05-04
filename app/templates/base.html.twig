@@ -79,6 +79,12 @@
                              </a>
                          </li>
 
+                         <li class="nav-item">
+                             <a class="nav-link" href="{{ url('user_index') }}">
+                                 <i class="fa-solid fa-trophy"></i> {{ 'menu.users'|trans }}
+                             </a>
+                         </li>
+
 {#                 {% if is_granted('ROLE_ADMIN') %} #}
 {#                 <li class="nav-item"><a class="nav-link" href="{{ url('category_index') }}"><i class="fas fa-tags"></i> {{ 'menu_categories'|trans }}</a></li> #}
 {#                 {% endif %} #}
@@ -93,12 +99,12 @@
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <div>{{ app.user.name }}</div>
                     <div>
-                        <a href="{{ url('app_logout') }}" title="{{ 'action_logout'|trans }}"><i class="fa-solid fa-power-off"></i></a>
+                        <a href="{{ url('app_logout') }}" title="{{ 'action.logout'|trans }}"><i class="fa-solid fa-power-off"></i></a>
                     </div>
                 {% else %}
                     <div>
-                        <a href="{{ url('app_register') }}">{{ 'action_register'|trans }}</a>
-                        <a href="{{ url('app_login') }}">{{ 'action_login'|trans }}</a>
+                        <a href="{{ url('app_register') }}">{{ 'action.register'|trans }}</a>
+                        <a href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
                     </div>
                 {% endif %}
                 {# <a class="profile" href="{{ path('user_show', {'id': app.user.id}) }}" title="{{ 'my_profile'|trans }}"><i class="fas fa-user"></i> {{ app.user.username }}</a> #}
