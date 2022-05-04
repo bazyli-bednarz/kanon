@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Canon;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
@@ -34,6 +35,13 @@ class CanonRepository extends ServiceEntityRepository
      * @constant int
      */
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
+
+    /**
+     * Items per page on User subpage.
+     *
+     * @constant int
+     */
+    public const PAGINATOR_ITEMS_PER_PAGE_USER = 10;
     
     /**
      * Save entity.
@@ -66,11 +74,18 @@ class CanonRepository extends ServiceEntityRepository
     {
         return $this->getOrCreateQueryBuilder()
             ->select(
-                'partial canon.{id, name, description, createdAt, updatedAt, slug}'
+                'partial canon.{id, name, description, createdAt, updatedAt, slug, author}'
             )
             ->orderBy('canon.updatedAt', 'DESC');
     }
 
+    public function queryByUser(User $user): QueryBuilder
+    {
+        $queryBuilder = $this->queryAll();
+        $queryBuilder->andWhere('canon.author = :author')
+            ->setParameter('author', $user);
+        return $queryBuilder;
+    }
 
     /**
      * Get or create new query builder.

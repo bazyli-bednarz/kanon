@@ -26,9 +26,31 @@ interface UserServiceInterface
      * Get paginated list of pieces by user.
      *
      * @param int $page Page number
+     * @param User $user User
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
     public function getPaginatedListByUserPieces(int $page, User $user): PaginationInterface;
+
+    /**
+     * Get paginated list of canons by user.
+     *
+     * @param int $page Page number
+     * @param User $user User
+     *
+     * @return PaginationInterface<string, mixed> Paginated list
+     */
+    public function getPaginatedListByUserCanons(int $page, User $user): PaginationInterface;
+
+    /**
+     * Get paginated list of composers by user.
+     *
+     * @param int $page Page number
+     * @param User $user User
+     *
+     * @return PaginationInterface<string, mixed> Paginated list
+     */
+
+    public function getPaginatedListByUserComposers(int $page, User $user): PaginationInterface;
 
 }

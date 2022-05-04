@@ -6,6 +6,8 @@
 namespace App\Service;
 
 use App\Entity\User;
+use App\Repository\CanonRepository;
+use App\Repository\ComposerRepository;
 use App\Repository\UserRepository;
 use App\Repository\PieceRepository;
 use Doctrine\ORM\NonUniqueResultException;
@@ -29,6 +31,16 @@ class UserService implements UserServiceInterface
     private PieceRepository $pieceRepository;
 
     /**
+     * Canon repository.
+     */
+    private CanonRepository $canonRepository;
+
+    /**
+     * Composer repository.
+     */
+    private ComposerRepository $composerRepository;
+
+    /**
      * Paginator.
      */
     private PaginatorInterface $paginator;
@@ -39,10 +51,12 @@ class UserService implements UserServiceInterface
      * @param UserRepository     $userRepository User repository
      * @param PaginatorInterface $paginator      Paginator
      */
-    public function __construct(UserRepository $userRepository, PieceRepository $pieceRepository, PaginatorInterface $paginator)
+    public function __construct(UserRepository $userRepository, PieceRepository $pieceRepository, PaginatorInterface $paginator, CanonRepository $canonRepository, ComposerRepository $composerRepository)
     {
         $this->userRepository = $userRepository;
         $this->pieceRepository = $pieceRepository;
+        $this->canonRepository = $canonRepository;
+        $this->composerRepository = $composerRepository;
         $this->paginator = $paginator;
     }
 
@@ -74,10 +88,18 @@ class UserService implements UserServiceInterface
     public function getPaginatedListByUserCanons(int $page, User $user): PaginationInterface
     {
         return $this->paginator->paginate(
-            $this->pieceRepository->queryByUser($user),
+            $this->canonRepository->queryByUser($user),
             $page,
-            PieceRepository::PAGINATOR_ITEMS_PER_PAGE_USER
+            CanonRepository::PAGINATOR_ITEMS_PER_PAGE_USER
         );
     }
 
+    public function getPaginatedListByUserComposers(int $page, User $user): PaginationInterface
+    {
+        return $this->paginator->paginate(
+            $this->composerRepository->queryByUser($user),
+            $page,
+            ComposerRepository::PAGINATOR_ITEMS_PER_PAGE_USER
+        );
+    }
 }

@@ -87,7 +87,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * Show action.
+     * Show user pieces action.
      *
      * @param User $user User entity
      *
@@ -105,6 +105,32 @@ class UserController extends AbstractController
 
         return $this->render(
             'user/show_pieces.html.twig',
+            [
+                'pagination' => $pagination,
+                'user' => $user
+            ]
+        );
+    }
+
+    /**
+     * Show user canons action.
+     *
+     * @param User $user User entity
+     *
+     * @return Response HTTP response
+     *
+     * @Route(
+     *     "/{slug}/canons",
+     *     methods={"GET"},
+     *     name="user_canons",
+     * )
+     */
+    public function showCanons(User $user, Request $request): Response
+    {
+        $pagination = $this->userService->getPaginatedListByUserCanons($request->query->getInt('page', 1), $user);
+
+        return $this->render(
+            'user/show_canons.html.twig',
             [
                 'pagination' => $pagination,
                 'user' => $user

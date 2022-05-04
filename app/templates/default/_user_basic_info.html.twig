@@ -1,0 +1,34 @@
+{#
+User basic info template
+
+parameters:
+    - user: User object
+#}
+{% if user is defined and user|length %}
+    <dl class="dl-horizontal">
+        <dt>{{ 'label.id'|trans }}</dt>
+        <dd>#{{ user.id }}</dd>
+        <dt>{{ 'label.user_name'|trans }}</dt>
+        <dd>{{ user.name }}</dd>
+        <dt>{{ 'label.registered_at'|trans }}</dt>
+        <dd>{{ user.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
+        <dt>{{ 'label.actions'|trans }}</dt>
+        <dd>
+            <a href="{{ url('user_canons', {slug: user.slug}) }}" title="{{ 'action.user_canons'|trans }}">
+                {{ 'action.user_canons'|trans }}
+            </a>
+            <a href="{{ url('user_pieces', {slug: user.slug}) }}" title="{{ 'action.user_pieces'|trans }}">
+                {{ 'action.user_pieces'|trans }}
+            </a>
+            <a href="{{ url('user_show', {slug: user.slug}) }}" title="{{ 'action.user_composers'|trans }}">
+                {{ 'action.user_composers'|trans }}
+            </a>
+            {#                <a href="{{ url('user_edit', {slug: user.slug}) }}" title="{{ 'action.edit'|trans }}">#}
+            {#                    {{ 'action.edit'|trans }}#}
+            {#                </a>#}
+            {#                <a href="{{ url('user_delete', {slug: user.slug}) }}" title="{{ 'action.delete'|trans }}">#}
+            {#                    {{ 'action.delete'|trans }}#}
+            {#                </a>#}
+        </dd>
+    </dl>
+{% endif %}

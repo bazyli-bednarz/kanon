@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.user_details'|trans({'%id%': user.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.user_canons'|trans({'%id%': user.id|default('')}) }}</h1>
+
+        {% include 'default/_user_basic_info.html.twig' with {
+            user: user
+        } %}
+
+        {% include 'default/_canons_list.html.twig' with {
+            pagination: pagination
+        } %}
+
+{% endblock %}
