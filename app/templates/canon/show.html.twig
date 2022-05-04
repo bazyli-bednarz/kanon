@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.canon_details'|trans({'%id%': canon.id|default('')}) }}
+    {{ 'title.canon_details'|trans({'%name%': canon.name|default('')}) }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.canon_details'|trans({'%id%': canon.id|default('')}) }}</h1>
+    <h1>{{ 'title.canon_details'|trans({'%name%': canon.name|default('')}) }}</h1>
     {% if canon is defined and canon|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>

@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.scale_details'|trans({'%id%': scale.id|default('')}) }}
+    {{ 'title.scale_details'|trans({'%name%': scale.name|default('')}) }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.scale_details'|trans({'%id%': scale.id|default('')}) }}</h1>
+    <h1>{{ 'title.scale_details'|trans({'%name%': scale.name|default('')}) }}</h1>
     {% if scale is defined and scale|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>

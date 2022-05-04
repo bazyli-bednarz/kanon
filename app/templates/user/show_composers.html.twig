@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.user_pieces'|trans({'%name%': user.name|default('')}) }}
+    {{ 'title.user_composers'|trans({'%name%': user.name|default('')}) }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.user_pieces'|trans({'%name%': user.name|default('')}) }}</h1>
+    <h1>{{ 'title.user_composers'|trans({'%name%': user.name|default('')}) }}</h1>
     {% include 'default/_user_basic_info.html.twig' with {
         user: user
     } %}
 
-    {% include 'default/_pieces_list.html.twig' with {
+    {% include 'default/_composers_list.html.twig' with {
         pagination: pagination
     } %}
 

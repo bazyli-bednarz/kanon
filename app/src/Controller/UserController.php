@@ -138,4 +138,30 @@ class UserController extends AbstractController
         );
     }
 
+    /**
+     * Show user composers action.
+     *
+     * @param User $user User entity
+     *
+     * @return Response HTTP response
+     *
+     * @Route(
+     *     "/{slug}/composers",
+     *     methods={"GET"},
+     *     name="user_composers",
+     * )
+     */
+    public function showComposers(User $user, Request $request): Response
+    {
+        $pagination = $this->userService->getPaginatedListByUserComposers($request->query->getInt('page', 1), $user);
+
+        return $this->render(
+            'user/show_composers.html.twig',
+            [
+                'pagination' => $pagination,
+                'user' => $user
+            ]
+        );
+    }
+
 }

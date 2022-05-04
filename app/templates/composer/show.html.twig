@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.composer_details'|trans({'%id%': composer.id|default('')}) }}
+    {{ 'title.composer_details'|trans({'%name%': composer.name|default('')}) }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.composer_details'|trans({'%id%': composer.id|default('')}) }}</h1>
+    <h1>{{ 'title.composer_details'|trans({'%name%': composer.name|default('')}) }}</h1>
     {% if composer is defined and composer|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>
@@ -14,6 +14,8 @@
             <dd>{{ composer.name }}</dd>
             <dt>{{ 'label.composer_last_name'|trans }}</dt>
             <dd>{{ composer.lastName }}</dd>
+            <dt>{{ 'label.composer_period'|trans }}</dt>
+            <dd><a href="{{ url('period_show', {slug: composer.period.slug}) }}">{{ composer.period.name }}</a></dd>
             <dt>{{ 'label.composer_birth_year'|trans }}</dt>
             <dd>{{ composer.birthYear }}</dd>
             <dt>{{ 'label.composer_death_year'|trans }}</dt>
@@ -34,57 +36,14 @@
                 </a>
             </dd>
             <dt>{{ 'label.composer_author'|trans }}</dt>
-            <dd>{{ composer.author.name }}</dd>
+            <dd><a href="{{ url('user_show', {slug: composer.author.slug}) }}">{{ composer.author.name }}</a></dd>
             <dt>{{ 'label.composer_edited_by'|trans }}</dt>
-            <dd>{{ composer.editedBy.name }}</dd>
+            <dd><a href="{{ url('user_show', {slug: composer.editedBy.slug}) }}">{{ composer.editedBy.name }}</a></dd>
         </dl>
 
-        {% if pagination is defined and pagination.items|length %}
-
-        <div class="navigation text-center">
-            {{ knp_pagination_render(pagination) }}
-        </div>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'piece.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.piece_name'|trans, 'piece.name') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.piece_year'|trans, 'piece.year') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.piece_description'|trans, 'piece.description') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.piece_link'|trans, 'piece.link') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'piece.createdAt') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'piece.updatedAt') }}</th>
-                <th>{{ 'label.actions'|trans }}</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for piece in pagination %}
-                <tr>
-                    <td>{{ piece.id }}</td>
-                    <td>{{ piece.name }}</td>
-                    <td>{{ piece.year }}</td>
-                    <td>{{ piece.description }}</td>
-                    <td><a href="{{ piece.link }}">{{ piece.link }}</a></td>
-                    <td>{{ piece.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
-                    <td>{{ piece.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
-                    <td>
-                        <a href="{{ url('piece_show', {slug: piece.slug}) }}" title="{{ 'action.view'|trans }}">
-                            {{ 'action.view'|trans }}
-                        </a>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
-        <div class="navigation text-center">
-            {{ knp_pagination_render(pagination) }}
-        </div>
-        {% else %}
-            <p>
-                {{ 'message.empty_list'|trans }}
-            </p>
-        {% endif %}
+        {% include 'default/_pieces_list.html.twig' with {
+            pagination: pagination
+        } %}
 
         <p>
             <a href="{{ url('composer_index') }}" title="{{ 'action.back_to_list'|trans }}">

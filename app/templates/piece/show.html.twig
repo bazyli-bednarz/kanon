@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.piece_details'|trans({'%id%': piece.id|default('')}) }}
+    {{ 'title.piece_details'|trans({'%name%': piece.name|default('')}) }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.piece_details'|trans({'%id%': piece.id|default('')}) }}</h1>
+    <h1>{{ 'title.piece_details'|trans({'%name%': piece.name|default('')}) }}</h1>
     {% if piece is defined and piece|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>

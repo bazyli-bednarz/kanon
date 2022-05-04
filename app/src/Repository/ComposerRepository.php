@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Composer;
 use App\Entity\Period;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
@@ -36,7 +37,14 @@ class ComposerRepository extends ServiceEntityRepository
      *
      * @constant int
      */
-    public const PAGINATOR_ITEMS_PER_PAGE_PERIOD = 2;
+    public const PAGINATOR_ITEMS_PER_PAGE_PERIOD = 10;
+
+    /**
+     * Items per page on User subpage.
+     *
+     * @constant int
+     */
+    public const PAGINATOR_ITEMS_PER_PAGE_USER = 10;
 
 
     public function __construct(ManagerRegistry $registry)
@@ -100,11 +108,19 @@ class ComposerRepository extends ServiceEntityRepository
     {
         return $this->getOrCreateQueryBuilder()
             ->select(
-                'partial composer.{id, name, lastName, description, birthYear, deathYear, createdAt, updatedAt, slug}',
+                'partial composer.{id, name, lastName, description, birthYear, deathYear, createdAt, author, updatedAt, slug}',
                 'partial period.{id, name, slug}'
             )
             ->join('composer.period', 'period')
             ->orderBy('composer.updatedAt', 'DESC');
+    }
+
+    public function queryByUser(User $user): QueryBuilder
+    {
+        $queryBuilder = $this->queryAll();
+        $queryBuilder->andWhere('composer.author = :author')
+            ->setParameter('author', $user);
+        return $queryBuilder;
     }
 
     public function queryByPeriod(Period $period): QueryBuilder

@@ -14,6 +14,7 @@ parameters:
          <tr>
              <th>{{ knp_pagination_sortable(pagination, 'label.composer_name'|trans, 'composer.name') }}</th>
              <th>{{ knp_pagination_sortable(pagination, 'label.composer_last_name'|trans, 'composer.lastName') }}</th>
+             <th>{{ knp_pagination_sortable(pagination, 'label.composer_period_name'|trans, 'composer.period.name') }}</th>
              <th>{{ knp_pagination_sortable(pagination, 'label.composer_birth_year'|trans, 'composer.birthYear') }}</th>
              <th>{{ knp_pagination_sortable(pagination, 'label.composer_death_year'|trans, 'composer.deathYear') }}</th>
              <th>{{ knp_pagination_sortable(pagination, 'label.composer_description'|trans, 'composer.description') }}</th>
@@ -26,6 +27,7 @@ parameters:
              <tr>
                  <td>{{ composer.name }}</td>
                  <td>{{ composer.lastName }}</td>
+                 <td><a href="{{ url('period_show', {slug: composer.period.slug}) }}">{{ composer.period.name }}</a></td>
                  <td>{{ composer.birthYear }}</td>
                  <td>{{ composer.deathYear }}</td>
                  <td>{{ composer.description }}</td>
