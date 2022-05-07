@@ -3,8 +3,31 @@ User basic info template
 
 parameters:
     - user: User object
+    - form: Add friend form
 #}
 {% if user is defined and user|length %}
+    {% if form is defined %}
+
+    {{ form_start(form) }}
+    {% if false == form.vars.valid %}
+        {% include 'default/_single_alert_message.html.twig' with {
+            type: 'danger',
+            message: 'message.form_error'|trans,
+        }%}
+    {% endif %}
+    {% if user in app.user.friends %}
+        <div class="button-friend button-friend__remove">
+            {{ form_widget(form.save, {'label': 'action.remove_friend'}) }}
+        </div>
+    {% else %}
+        <div class="button-friend button-friend__add">
+            {{ form_widget(form.save, {'label': 'action.add_friend'}) }}
+        </div>
+    {% endif %}
+    {{ form_end(form) }}
+
+    {% endif %}
+
     <dl class="dl-horizontal">
         <dt>{{ 'label.id'|trans }}</dt>
         <dd>#{{ user.id }}</dd>

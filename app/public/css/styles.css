@@ -57,4 +57,22 @@ nav a:hover {
   color: rgba(255, 255, 255, 0.75);
 }
 
+.button-friend button:after {
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  vertical-align: middle;
+  display: block;
+  line-height: initial;
+  font-weight: 900;
+}
+.button-friend__remove button:after {
+  content: "\f503";
+}
+.button-friend__add button:after {
+  content: "\f234";
+}
+
 /*# sourceMappingURL=styles.css.map */

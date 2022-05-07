@@ -1,0 +1,27 @@
+.button-friend {
+  button {
+    &:after {
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Font Awesome 5 Free";
+      vertical-align: middle;
+      display: block;
+      line-height: initial;
+      font-weight: 900;
+    }
+  }
+
+  &__remove button {
+    &:after {
+      content: "\f503";
+    }
+  }
+
+  &__add button {
+    &:after {
+      content: "\f234";
+    }
+  }
+}

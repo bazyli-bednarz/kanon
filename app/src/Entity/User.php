@@ -93,32 +93,43 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\OneToMany(targetEntity=Piece::class, mappedBy="author")
      */
-    private $pieces;
+    private Collection $pieces;
 
     /**
      * @ORM\OneToMany(targetEntity=Piece::class, mappedBy="editedBy")
      */
-    private $editedPieces;
+    private Collection $editedPieces;
 
     /**
      * @ORM\OneToMany(targetEntity=Canon::class, mappedBy="author")
      */
-    private $canons;
+    private Collection $canons;
 
     /**
      * @ORM\OneToMany(targetEntity=Composer::class, mappedBy="author")
      */
-    private $composers;
+    private Collection $composers;
 
     /**
      * @ORM\OneToMany(targetEntity=Composer::class, mappedBy="editedBy")
      */
-    private $editedComposers;
+    private Collection $editedComposers;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isVerified = false;
+    private bool $isVerified = false;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="friendsWithMe", fetch="EXTRA_LAZY")
+     * @ORM\JoinTable(name="friends")
+     */
+    private Collection $friends;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="friends", fetch="EXTRA_LAZY")
+     */
+    private Collection $friendsWithMe;
 
     public function __construct()
     {
@@ -127,6 +138,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->canons = new ArrayCollection();
         $this->composers = new ArrayCollection();
         $this->editedComposers = new ArrayCollection();
+        $this->friends = new ArrayCollection();
+        $this->friendsWithMe = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -416,6 +429,57 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getFriends(): Collection
+    {
+        return $this->friends;
+    }
+
+    public function addFriend(self $friend): self
+    {
+        if (!$this->friends->contains($friend)) {
+            $this->friends[] = $friend;
+        }
+
+        return $this;
+    }
+
+    public function removeFriend(self $friend): self
+    {
+        $this->friends->removeElement($friend);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getFriendsWithMe(): Collection
+    {
+        return $this->friendsWithMe;
+    }
+
+    public function addFriendsWithMe(self $friendsWithMe): self
+    {
+        if (!$this->friendsWithMe->contains($friendsWithMe)) {
+            $this->friendsWithMe[] = $friendsWithMe;
+            $friendsWithMe->addFriend($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFriendsWithMe(self $friendsWithMe): self
+    {
+        if ($this->friendsWithMe->removeElement($friendsWithMe)) {
+            $friendsWithMe->removeFriend($this);
+        }
 
         return $this;
     }

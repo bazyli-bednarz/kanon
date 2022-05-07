@@ -77,6 +77,9 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
+            ->select(
+                'partial user.{id, name, createdAt, slug, friends, friendsWithMe}'
+            )
             ->orderBy('user.id', 'ASC');
     }
 
@@ -85,12 +88,16 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
      *
      * @param User $user
      *
-     * @throws ORMException
-     * @throws OptimisticLockException
      */
     public function save(User $user): void
     {
         $this->_em->persist($user);
+        $this->_em->flush();
+    }
+
+    public function delete(User $user)
+    {
+        $this->_em->remove($user);
         $this->_em->flush();
     }
 

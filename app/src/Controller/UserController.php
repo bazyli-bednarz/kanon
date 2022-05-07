@@ -8,6 +8,7 @@ namespace App\Controller;
 
 
 use App\Entity\User;
+use App\Form\Type\FriendsType;
 use App\Form\Type\UserType;
 use App\Service\UserServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -72,16 +73,64 @@ class UserController extends AbstractController
      *
      * @Route(
      *     "/{slug}",
-     *     methods={"GET"},
+     *     methods={"GET", "PUT"},
      *     name="user_show",
      * )
      */
     public function show(User $user, Request $request): Response
     {
+        $activeUser = $this->getUser();
+        $form = null;
+        if ($activeUser !== null && $activeUser->isVerified() && $activeUser !== $user) {
+            $form = $this->createForm(FriendsType::class, $user, [
+                'method' => 'PUT',
+                'action' => $this->generateUrl('user_show', ['slug' => $user->getSlug()]),
+            ]);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                if ($activeUser->getFriends()->contains($user)) {
+                    $user->removeFriendsWithMe($activeUser);
+                    $activeUser->removeFriend($user);
+
+                    $this->userService->save($user);
+                    $this->userService->save($activeUser);
+
+                    $this->addFlash(
+                        'success',
+                        $this->translator->trans('message.removed_from_friends')
+                    );
+                }
+                else {
+                    $user->addFriendsWithMe($activeUser);
+                    $activeUser->addFriend($user);
+
+                    $this->userService->save($user);
+                    $this->userService->save($activeUser);
+
+                    $this->addFlash(
+                        'success',
+                        $this->translator->trans('message.added_to_friends')
+                    );
+                }
+
+                return $this->redirectToRoute('user_show', ['slug' => $user->getSlug()]);
+            }
+
+        }
+        if ($form) {
+            return $this->render(
+                'user/show.html.twig',
+                [
+                    'user' => $user,
+                    'form' => $form->createView()
+                ]
+            );
+        }
         return $this->render(
             'user/show.html.twig',
             [
-                'user' => $user
+                'user' => $user,
             ]
         );
     }
@@ -163,5 +212,4 @@ class UserController extends AbstractController
             ]
         );
     }
-
 }

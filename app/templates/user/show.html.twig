@@ -10,4 +10,57 @@
         user: user
     } %}
 
+
+
+    {% if user is defined and user|length %}
+        <div class="friends-container">
+            <div class="friends-container--element friends-container--element__my-friends">
+                <h2>
+                    {{ 'label.friends'|trans }}
+                </h2>
+                {% if user.friends is defined and user.friends|length %}
+                    <table class="table table-striped">
+                        <tbody>
+                        {% for friend in user.friends %}
+                            <tr>
+                                <td>
+                                    <a href="{{ url('user_show', {slug: friend.slug}) }}" title="{{ 'action.view'|trans }}">
+                                        {{ friend.name }}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>-</p>
+                {% endif %}
+
+            </div>
+            <div class="friends-container--element friends-container--element__friends-with-me">
+                <h2>
+                    {{ 'label.friends_with_me'|trans }}
+                </h2>
+                {% if user.friendsWithMe is defined and user.friendsWithMe|length %}
+                    <table class="table table-striped">
+                        <tbody>
+                        {% for friend in user.friendsWithMe %}
+                            <tr>
+                                <td>
+                                    <a href="{{ url('user_show', {slug: friend.slug}) }}" title="{{ 'action.view'|trans }}">
+                                        {{ friend.name }}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>-</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+
 {% endblock %}

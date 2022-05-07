@@ -12,6 +12,8 @@ use App\Repository\UserRepository;
 use App\Repository\PieceRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -102,4 +104,19 @@ class UserService implements UserServiceInterface
             ComposerRepository::PAGINATOR_ITEMS_PER_PAGE_USER
         );
     }
+
+    /**
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
+    public function save(User $user): void
+    {
+        $this->userRepository->save($user);
+    }
+
+    public function delete(User $user): void
+    {
+        $this->userRepository->delete($user);
+    }
+
 }
