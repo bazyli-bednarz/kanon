@@ -27,6 +27,10 @@ parameters:
     {{ form_end(form) }}
 
     {% endif %}
+    {% if user is defined and user==app.user %}
+        <a class="btn btn-primary btn-lg" href="{{ url('user_edit', {slug: user.slug}) }}">{{ 'action.edit_user_data'|trans }}
+            <i class="fa-solid fa-user-pen"></i></a>
+    {% endif %}
 
     <dl class="dl-horizontal">
         <dt>{{ 'label.id'|trans }}</dt>

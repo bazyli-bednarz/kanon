@@ -84,11 +84,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private array $roles = [];
 
     /**
-     * @var string The hashed password
+     * @var string|null The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank
      */
-    private string $password;
+    private ?string $password;
 
     /**
      * @ORM\OneToMany(targetEntity=Piece::class, mappedBy="author")
@@ -239,12 +239,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      *
      * @see PasswordAuthenticatedUserInterface
      */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword(?string $password): self
     {
         $this->password = $password;
 
