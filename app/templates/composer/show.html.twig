@@ -28,12 +28,16 @@
             <dd>{{ composer.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
             <dt>{{ 'label.actions'|trans }}</dt>
             <dd>
-                <a href="{{ url('composer_edit', {slug: composer.slug}) }}" title="{{ 'action.edit'|trans }}">
-                    {{ 'action.edit'|trans }}
-                </a>
-                <a href="{{ url('composer_delete', {slug: composer.slug}) }}" title="{{ 'action.delete'|trans }}">
-                    {{ 'action.delete'|trans }}
-                </a>
+                {% if is_granted('EDIT', composer) %}
+                    <a href="{{ url('composer_edit', {slug: composer.slug}) }}" title="{{ 'action.edit'|trans }}">
+                        {{ 'action.edit'|trans }}
+                    </a>
+                {% endif %}
+                {% if is_granted('DELETE', composer) %}
+                    <a href="{{ url('composer_delete', {slug: composer.slug}) }}" title="{{ 'action.delete'|trans }}">
+                        {{ 'action.delete'|trans }}
+                    </a>
+                {% endif %}
             </dd>
             <dt>{{ 'label.composer_author'|trans }}</dt>
             <dd><a href="{{ url('user_show', {slug: composer.author.slug}) }}">{{ composer.author.name }}</a></dd>

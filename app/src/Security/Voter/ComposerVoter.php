@@ -55,7 +55,9 @@ class ComposerVoter extends Voter
 
     private function canEdit(Composer $composer, User $user): bool
     {
-        return true;
+        $userFriends = $composer->getAuthor()->getFriends();
+
+        return ($userFriends->contains($user)) || ($composer->getAuthor() === $user);
     }
 
     private function canDelete(Composer $composer, User $user): bool

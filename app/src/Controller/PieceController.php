@@ -10,12 +10,15 @@ namespace App\Controller;
 use App\Entity\Piece;
 use App\Form\Type\PieceType;
 use App\Service\PieceServiceInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -29,11 +32,13 @@ class PieceController extends AbstractController
 {
     private PieceServiceInterface $pieceService;
     private TranslatorInterface $translator;
+    private Security $security;
 
-    public function __construct(PieceServiceInterface $pieceService, TranslatorInterface $translator)
+    public function __construct(PieceServiceInterface $pieceService, TranslatorInterface $translator, Security $security)
     {
         $this->pieceService = $pieceService;
         $this->translator = $translator;
+        $this->security = $security;
     }
 
 
@@ -71,6 +76,10 @@ class PieceController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $canonList = $form->get('canons')->getData();
+            foreach ($canonList->getIterator() as $i => $item) {
+                $piece->addCanon($item);
+            }
             $this->pieceService->save($piece);
 
             $this->addFlash(
@@ -147,6 +156,7 @@ class PieceController extends AbstractController
      * )
      *
      * @IsGranted("EDIT", subject="piece")
+     * @throws Exception
      */
     public function edit(Request $request, Piece $piece): Response
     {
@@ -163,11 +173,41 @@ class PieceController extends AbstractController
             'method' => 'PUT',
             'action' => $this->generateUrl('piece_edit', ['slug' => $piece->getSlug()]),
         ]);
+
         $form->handleRequest($request);
+        if (!$form->isSubmitted()) {
+            $form->get('canons')->setData($piece->getCanons());
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->getUser();
             $piece->setEditedBy($user);
+            $oldCanons = $piece->getCanons();
+            $newCanons = $form->get('canons')->getData();
+
+            $canonsOfOtherUsers = $oldCanons->filter(
+                function ($item) {
+                    $userFriends = $item->getAuthor()->getFriends();
+                    $currentUser = $this->security->getUser();
+
+                    return !($userFriends->contains($currentUser) || $item->getAuthor() === $currentUser );
+                }
+            );
+
+            $canonList = new ArrayCollection(array_merge((array) $canonsOfOtherUsers, (array) $newCanons));
+            echo $canonList;
+
+            $piece->getCanons()->clear();
+
+
+            foreach ($canonsOfOtherUsers->getIterator() as $i => $item) {
+                $piece->addCanon($item);
+            }
+
+            foreach ($newCanons->getIterator() as $i => $item) {
+                $piece->addCanon($item);
+            }
+
             $this->pieceService->save($piece);
 
             $this->addFlash(

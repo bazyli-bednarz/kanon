@@ -55,7 +55,9 @@ class CanonVoter extends Voter
 
     private function canEdit(Canon $canon, User $user): bool
     {
-        return $canon->getAuthor() === $user;
+        $userFriends = $canon->getAuthor()->getFriends();
+
+        return ($userFriends->contains($user)) || ($canon->getAuthor() === $user);
     }
 
     private function canDelete(Canon $canon, User $user): bool

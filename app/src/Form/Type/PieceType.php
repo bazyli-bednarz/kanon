@@ -9,10 +9,12 @@ use App\Entity\Scale;
 use App\Form\DataTransformer\TagsDataTransformer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\ChoiceList\ChoiceList;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 
@@ -26,10 +28,13 @@ class PieceType extends AbstractType
 
     private TagsDataTransformer $tagsDataTransformer;
 
-    public function __construct(TranslatorInterface $translator, TagsDataTransformer $tagsDataTransformer)
+    private Security $security;
+
+    public function __construct(TranslatorInterface $translator, TagsDataTransformer $tagsDataTransformer, Security $security)
     {
         $this->translator = $translator;
         $this->tagsDataTransformer = $tagsDataTransformer;
+        $this->security = $security;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -99,22 +104,25 @@ class PieceType extends AbstractType
                 ]
             )
             ->add(
-                'tags',
-                TextType::class,
-                [
-                    'label' => 'label.tags',
-                    'required' => false,
-                    'attr' => ['max_length' => 200],
-                ]
-            )
-            ->add(
                 'canons',
                 EntityType::class,
                 [
+                    'mapped' => false,
                     'class' => Canon::class,
                     'choice_label' => function ($canon): string {
                         return $canon->getName();
                     },
+                    'choice_filter' => ChoiceList::filter(
+                        $this,
+                        function ($canon) {
+                            $userFriends = $canon->getAuthor()->getFriends();
+                            $user = $this->security->getUser();
+
+
+                            return ($userFriends->contains($user)) || ($canon->getAuthor() === $user);
+                        },
+                        'canon'
+                    ),
                     'attr' => [
                         'class' => 'selectize-multi',
                     ],
@@ -123,6 +131,15 @@ class PieceType extends AbstractType
                     'required' => false,
                     'expanded' => false,
                     'multiple' => true,
+                ]
+            )
+            ->add(
+                'tags',
+                TextType::class,
+                [
+                    'label' => 'label.tags',
+                    'required' => false,
+                    'attr' => ['max_length' => 200],
                 ]
             )
 

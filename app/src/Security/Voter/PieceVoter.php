@@ -60,7 +60,9 @@ class PieceVoter extends Voter
 
     private function canEdit(Piece $piece, User $user): bool
     {
-        return true;
+        $userFriends = $piece->getAuthor()->getFriends();
+
+        return ($userFriends->contains($user)) || ($piece->getAuthor() === $user);
     }
 
     private function canDelete(Piece $piece, User $user): bool

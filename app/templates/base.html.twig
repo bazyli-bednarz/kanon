@@ -97,7 +97,7 @@
                 </div>
 
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <div>{{ app.user.name }}</div>
+                    <div><a href="{{ url('user_show', {slug: app.user.slug}) }}">{{ app.user.name }}</a></div>
                     <div>
                         <a href="{{ url('app_logout') }}" title="{{ 'action.logout'|trans }}"><i class="fa-solid fa-power-off"></i></a>
                     </div>

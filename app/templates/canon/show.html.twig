@@ -19,15 +19,19 @@
             <dt>{{ 'label.updated_at'|trans }}</dt>
             <dd>{{ canon.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
             <dt>{{ 'label.canon_author'|trans }}</dt>
-            <dd>{{ canon.author.name }}</dd>
+            <dd><a href="{{ url('user_show', {slug: canon.author.slug }) }}">{{ canon.author.name }}</a></dd>
             <dt>{{ 'label.actions'|trans }}</dt>
             <dd>
-                <a href="{{ url('canon_edit', {slug: canon.slug}) }}" title="{{ 'action.edit'|trans }}">
-                    {{ 'action.edit'|trans }}
-                </a>
-                <a href="{{ url('canon_delete', {slug: canon.slug}) }}" title="{{ 'action.delete'|trans }}">
-                    {{ 'action.delete'|trans }}
-                </a>
+                {% if is_granted('EDIT', canon) %}
+                    <a href="{{ url('canon_edit', {slug: canon.slug}) }}" title="{{ 'action.edit'|trans }}">
+                        {{ 'action.edit'|trans }}
+                    </a>
+                {% endif %}
+                {% if is_granted('DELETE', canon) %}
+                    <a href="{{ url('canon_delete', {slug: canon.slug}) }}" title="{{ 'action.delete'|trans }}">
+                        {{ 'action.delete'|trans }}
+                    </a>
+                {% endif %}
             </dd>
         </dl>
         <p>
