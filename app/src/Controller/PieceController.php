@@ -10,6 +10,7 @@ namespace App\Controller;
 use App\Entity\Piece;
 use App\Form\Type\PieceType;
 use App\Service\PieceServiceInterface;
+use App\Service\UserServiceInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -31,12 +32,14 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class PieceController extends AbstractController
 {
     private PieceServiceInterface $pieceService;
+    private UserServiceInterface $userService;
     private TranslatorInterface $translator;
     private Security $security;
 
-    public function __construct(PieceServiceInterface $pieceService, TranslatorInterface $translator, Security $security)
+    public function __construct(PieceServiceInterface $pieceService, UserServiceInterface $userService, TranslatorInterface $translator, Security $security)
     {
         $this->pieceService = $pieceService;
+        $this->userService = $userService;
         $this->translator = $translator;
         $this->security = $security;
     }
@@ -81,6 +84,10 @@ class PieceController extends AbstractController
                 $piece->addCanon($item);
             }
             $this->pieceService->save($piece);
+
+            $user = $this->security->getUser();
+            $user->addExperience(15);
+            $this->userService->save($user);
 
             $this->addFlash(
                 'success',
@@ -194,9 +201,6 @@ class PieceController extends AbstractController
                 }
             );
 
-            $canonList = new ArrayCollection(array_merge((array) $canonsOfOtherUsers, (array) $newCanons));
-            echo $canonList;
-
             $piece->getCanons()->clear();
 
 
@@ -209,6 +213,9 @@ class PieceController extends AbstractController
             }
 
             $this->pieceService->save($piece);
+            $user = $this->security->getUser();
+            $user->addExperience(5);
+            $this->userService->save($user);
 
             $this->addFlash(
                 'success',

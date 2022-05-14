@@ -6,11 +6,70 @@
 
 {% block body %}
     <h1>{{ 'title.user_details'|trans({'%name%': user.name|default('')}) }}</h1>
-    {% include 'default/_user_basic_info.html.twig' with {
-        user: user
-    } %}
+    <div class="user-container">
 
+        {% if user is defined and user|length %}
+        <div class="user-container__text">
+            {% if form is defined %}
 
+                {{ form_start(form) }}
+                {% if false == form.vars.valid %}
+                    {% include 'default/_single_alert_message.html.twig' with {
+                        type: 'danger',
+                        message: 'message.form_error'|trans,
+                    } %}
+                {% endif %}
+                {% if user in app.user.friends %}
+                    <div class="button-friend button-friend__remove">
+                        {{ form_widget(form.save, {'label': 'action.remove_friend'}) }}
+                    </div>
+                {% else %}
+                    <div class="button-friend button-friend__add">
+                        {{ form_widget(form.save, {'label': 'action.add_friend'}) }}
+                    </div>
+                {% endif %}
+                {{ form_end(form) }}
+
+            {% endif %}
+            {% if user is defined and user==app.user %}
+                <a class="btn btn-primary btn-lg"
+                   href="{{ url('user_edit', {slug: user.slug}) }}">{{ 'action.edit_user_data'|trans }}
+                    <i class="fa-solid fa-user-pen"></i></a>
+            {% endif %}
+
+            <dl class="dl-horizontal">
+                <dt>{{ 'label.id'|trans }}</dt>
+                <dd>#{{ user.id }}</dd>
+                <dt>{{ 'label.user_name'|trans }}</dt>
+                <dd>{{ user.name }}</dd>
+                <dt>{{ 'label.user_level'|trans }}</dt>
+                <dd>{{ user.level }}</dd>
+                <dt>{{ 'label.user_experience'|trans }}</dt>
+                <dd>
+                    {{ app.user.experience }}/{{ (app.user.level) ** 2 * 50 }}
+                </dd>
+                <dt>{{ 'label.registered_at'|trans }}</dt>
+                <dd>{{ user.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
+            </dl>
+            {% endif %}
+
+            {% include 'default/_user_basic_info.html.twig' with {
+                user: user
+            } %}
+
+        </div>
+        <div class="user-container__image">
+            {% if user is defined and user==app.user %}
+            <a href="#">
+                {% endif %}
+                <img class="user-image user-image--big"
+                     src="{{ asset('images/avatars/' ~ user.image) ~ '.jpg' }}"
+                     alt="{{ 'label.user_image'|trans({'%name%': user.name|default('')}) }}">
+                {% if user is defined and user==app.user %}
+            </a>
+            {% endif %}
+        </div>
+    </div>
 
     {% if user is defined and user|length %}
         <div class="friends-container">
@@ -24,7 +83,8 @@
                         {% for friend in user.friends %}
                             <tr>
                                 <td>
-                                    <a href="{{ url('user_show', {slug: friend.slug}) }}" title="{{ 'action.view'|trans }}">
+                                    <a href="{{ url('user_show', {slug: friend.slug}) }}"
+                                       title="{{ 'action.view'|trans }}">
                                         {{ friend.name }}
                                     </a>
                                 </td>
@@ -47,7 +107,8 @@
                         {% for friend in user.friendsWithMe %}
                             <tr>
                                 <td>
-                                    <a href="{{ url('user_show', {slug: friend.slug}) }}" title="{{ 'action.view'|trans }}">
+                                    <a href="{{ url('user_show', {slug: friend.slug}) }}"
+                                       title="{{ 'action.view'|trans }}">
                                         {{ friend.name }}
                                     </a>
                                 </td>

@@ -43,6 +43,10 @@ class UserFixtures extends AbstractBaseFixtures
             );
             $user->setRoles([User::ROLE_USER]);
             $user->setIsVerified(true);
+            $user->setExperience(0);
+            $user->setLevel(1);
+            $user->setImage($this->faker->numberBetween(1,20));
+
             $user->setPassword(
                 $this->passwordHasher->hashPassword(
                     $user,
@@ -64,12 +68,15 @@ class UserFixtures extends AbstractBaseFixtures
             );
             $user->setRoles([User::ROLE_USER, User::ROLE_ADMIN]);
             $user->setIsVerified(true);
+            $user->setImage($this->faker->numberBetween(11,20));
             $user->setPassword(
                 $this->passwordHasher->hashPassword(
                     $user,
                     'admin'
                 )
             );
+            $user->setExperience(0);
+            $user->setLevel(10);
 
             return $user;
         });

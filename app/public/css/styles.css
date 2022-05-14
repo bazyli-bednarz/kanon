@@ -48,6 +48,58 @@ table tbody tr:hover {
 nav {
   color: rgba(255, 255, 255, 0.55);
 }
+nav .nav__user-data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+nav .nav__user-data .level-progress {
+  padding: 0.3rem 2rem;
+  background-color: #fff;
+  border-radius: 100vh;
+  color: #111010;
+}
+nav .nav__user-data .level-circle--small {
+  position: relative;
+  left: -1rem;
+  top: 0.3rem;
+  color: #111010;
+  width: 1.7rem;
+  height: 1.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav .nav__user-data .level-circle--small span {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-45%, -50%);
+  font-weight: bold;
+}
+nav .nav__user-data .level-circle--small i {
+  font-size: 1.7rem;
+  color: #e3c102;
+  display: inline-block;
+  position: absolute;
+  text-shadow: -2px -1px 1px #474747;
+  top: 0;
+  left: 0;
+}
+nav .nav__user-data .user-data a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+}
+nav .nav__user-data .user-data .user-image--small {
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  margin: 0 0.4rem;
+}
 nav a {
   text-align: center;
   color: rgba(255, 255, 255, 0.55);

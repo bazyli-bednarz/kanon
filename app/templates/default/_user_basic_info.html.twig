@@ -6,39 +6,7 @@ parameters:
     - form: Add friend form
 #}
 {% if user is defined and user|length %}
-    {% if form is defined %}
-
-    {{ form_start(form) }}
-    {% if false == form.vars.valid %}
-        {% include 'default/_single_alert_message.html.twig' with {
-            type: 'danger',
-            message: 'message.form_error'|trans,
-        }%}
-    {% endif %}
-    {% if user in app.user.friends %}
-        <div class="button-friend button-friend__remove">
-            {{ form_widget(form.save, {'label': 'action.remove_friend'}) }}
-        </div>
-    {% else %}
-        <div class="button-friend button-friend__add">
-            {{ form_widget(form.save, {'label': 'action.add_friend'}) }}
-        </div>
-    {% endif %}
-    {{ form_end(form) }}
-
-    {% endif %}
-    {% if user is defined and user==app.user %}
-        <a class="btn btn-primary btn-lg" href="{{ url('user_edit', {slug: user.slug}) }}">{{ 'action.edit_user_data'|trans }}
-            <i class="fa-solid fa-user-pen"></i></a>
-    {% endif %}
-
     <dl class="dl-horizontal">
-        <dt>{{ 'label.id'|trans }}</dt>
-        <dd>#{{ user.id }}</dd>
-        <dt>{{ 'label.user_name'|trans }}</dt>
-        <dd>{{ user.name }}</dd>
-        <dt>{{ 'label.registered_at'|trans }}</dt>
-        <dd>{{ user.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
         <dt>{{ 'label.actions'|trans }}</dt>
         <dd>
             <a href="{{ url('user_canons', {slug: user.slug}) }}" title="{{ 'action.user_canons'|trans }}">
@@ -50,12 +18,6 @@ parameters:
             <a href="{{ url('user_composers', {slug: user.slug}) }}" title="{{ 'action.user_composers'|trans }}">
                 {{ 'action.user_composers'|trans }}
             </a>
-            {#                <a href="{{ url('user_edit', {slug: user.slug}) }}" title="{{ 'action.edit'|trans }}">#}
-            {#                    {{ 'action.edit'|trans }}#}
-            {#                </a>#}
-            {#                <a href="{{ url('user_delete', {slug: user.slug}) }}" title="{{ 'action.delete'|trans }}">#}
-            {#                    {{ 'action.delete'|trans }}#}
-            {#                </a>#}
         </dd>
     </dl>
 {% endif %}

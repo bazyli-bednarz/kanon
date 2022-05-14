@@ -131,6 +131,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private Collection $friendsWithMe;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private ?int $experience = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private ?int $level = 1;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private ?int $image;
+
     public function __construct()
     {
         $this->pieces = new ArrayCollection();
@@ -480,6 +495,69 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if ($this->friendsWithMe->removeElement($friendsWithMe)) {
             $friendsWithMe->removeFriend($this);
         }
+
+        return $this;
+    }
+
+    public function getExperience(): ?int
+    {
+        return $this->experience;
+    }
+
+    public function setExperience(int $experience): self
+    {
+        $this->experience = $experience;
+
+        return $this;
+    }
+
+    public function getLevel(): ?int
+    {
+        return $this->level;
+    }
+
+    public function setLevel(int $level): self
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    public function addExperience(int $experience): self
+    {
+        $currentExp = $this->getExperience();
+        $newExp = $currentExp + $experience;
+        $currentLevel = $this->getLevel();
+
+        // each following level requires more experience to obtain, it goes as follows:
+        // formula: current_level ^ 2 * constant (50exp)
+        // lvl 1: default
+        // lvl 2: 50 exp
+        // lvl 3: 200 exp
+        // lvl 4: 450 exp
+        // lvl 5: 800 exp
+        // and so on
+        $requiredExp = $currentLevel * $currentLevel * 50;
+
+        if ($newExp >= $requiredExp) {
+            $this->setExperience($newExp - $requiredExp);
+            $this->setLevel($currentLevel + 1);
+        }
+        else {
+            $this->setExperience($newExp);
+        }
+
+        return $this;
+    }
+
+    public function getImage(): ?int
+    {
+        return $this->image;
+    }
+
+    public function setImage(int $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

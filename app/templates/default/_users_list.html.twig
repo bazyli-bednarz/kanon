@@ -14,6 +14,7 @@ parameters:
         <tr>
             <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'user.id') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.user_name'|trans, 'user.name') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'label.user_level'|trans, 'user.level') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.user_roles'|trans, 'user.roles') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.registered_at'|trans, 'user.createdAt') }}</th>
             <th>{{ 'label.actions'|trans }}</th>
@@ -23,7 +24,13 @@ parameters:
         {% for user in pagination.items %}
             <tr>
                 <td>{{ user.id }}</td>
-                <td>{{ user.name }}</td>
+                <td>
+                    <img class="user-image user-image--small"
+                         src="{{ asset('images/avatars/' ~ user.image) ~ '.jpg' }}"
+                         alt="{{ 'label.user_image'|trans({'%name%': user.name|default('')}) }}">
+                    {{ user.name }}
+                </td>
+                <td>{{ user.level }}</td>
                 <td>
                     {% if 'ROLE_ADMIN' in user.roles %}
                         <span class="role role--admin">
@@ -36,7 +43,7 @@ parameters:
                     {% endif %}
                 </td>
 
-                </td>
+
                 <td>{{ user.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
 
                 <td>

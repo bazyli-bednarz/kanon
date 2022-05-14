@@ -10,6 +10,7 @@ namespace App\Controller;
 use App\Entity\Composer;
 use App\Form\Type\ComposerType;
 use App\Service\ComposerServiceInterface;
+use App\Service\UserServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -28,15 +29,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class ComposerController extends AbstractController
 {
     private ComposerServiceInterface $composerService;
+    private UserServiceInterface $userService;
 
     private TranslatorInterface $translator;
 
     /**
      * ComposerController constructor.
      */
-    public function __construct(ComposerServiceInterface $composerService, TranslatorInterface $translator)
+    public function __construct(ComposerServiceInterface $composerService, UserServiceInterface $userService, TranslatorInterface $translator)
     {
         $this->composerService = $composerService;
+        $this->userService = $userService;
         $this->translator = $translator;
     }
 
@@ -96,6 +99,9 @@ class ComposerController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->composerService->save($composer);
+            $user = $this->getUser();
+            $user->addExperience(20);
+            $this->userService->save($user);
 
             $this->addFlash(
                 'success',
@@ -175,6 +181,8 @@ class ComposerController extends AbstractController
             $user = $this->getUser();
             $composer->setEditedBy($user);
             $this->composerService->save($composer);
+            $user->addExperience(5);
+            $this->userService->save($user);
 
             $this->addFlash(
                 'success',

@@ -11,6 +11,7 @@ use App\Entity\Canon;
 
 use App\Form\Type\CanonType;
 use App\Service\CanonServiceInterface;
+use App\Service\UserServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -29,15 +30,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class CanonController extends AbstractController
 {
     private CanonServiceInterface $canonService;
+    private UserServiceInterface $userService;
 
     private TranslatorInterface $translator;
 
     /**
      * CanonController constructor.
      */
-    public function __construct(CanonServiceInterface $canonService, TranslatorInterface $translator)
+    public function __construct(CanonServiceInterface $canonService, UserServiceInterface $userService, TranslatorInterface $translator)
     {
         $this->canonService = $canonService;
+        $this->userService = $userService;
         $this->translator = $translator;
     }
 
@@ -97,6 +100,9 @@ class CanonController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->canonService->save($canon);
+            $user = $this->getUser();
+            $user->addExperience(5);
+            $this->userService->save($user);
 
             $this->addFlash(
                 'success',
