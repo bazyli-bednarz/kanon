@@ -1,0 +1,50 @@
+.user-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  &__image {
+    a {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      border-radius: 50%;
+
+      &:hover {
+        .user-image--editable {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+
+        .user-image {
+          transform: scale(1.1);
+        }
+      }
+
+      .user-image {
+        transition: 0.7s ease;
+
+        &--editable {
+          background-color: rgba(0, 0, 0, 0.6);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 0;
+          transform: translate(0, 100%);
+          transition: 0.3s ease;
+          p {
+            color: $nav-text-color-hover;
+            text-decoration: none;
+          }
+          //opacity: 0;
+
+
+        }
+      }
+    }
+  }
+}

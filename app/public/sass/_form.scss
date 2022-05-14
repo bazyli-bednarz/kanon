@@ -25,3 +25,43 @@
     }
   }
 }
+
+.form__profile-image {
+
+  #profile_image_image {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    label {
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid white;
+      transition: 0.3s;
+    }
+
+    input {
+      opacity: 0;
+      position: absolute;
+    }
+
+    input:checked {
+      & ~ label {
+        border: 5px solid $color-main;
+      }
+    }
+
+    input:focus-visible {
+      & ~ label {
+        border: 5px solid red;
+      }
+    }
+
+
+    .user-image{
+      &--medium {
+        width: 150px;
+      }
+    }
+  }
+}

@@ -9,6 +9,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\Type\FriendsType;
+use App\Form\Type\ProfileImageType;
 use App\Form\Type\UserType;
 use App\Security\LoginFormAuthenticator;
 use App\Service\UserServiceInterface;
@@ -225,6 +226,62 @@ class UserController extends AbstractController
         );
     }
 
+    /**
+     * Edit profile image action.
+     *
+     * @param Request  $request  HTTP request
+     * @param User $user User entity
+     *
+     * @return Response HTTP response
+     *
+     * @Route(
+     *     "/{slug}/profile-image",
+     *     methods={"GET", "PUT"},
+     *     name="user_image",
+     * )
+     *
+     * @IsGranted("EDIT", subject="user")
+     */
+    public function editImage(Request $request, User $user): Response
+    {
+        $activeUser = $this->getUser();
+        if (!$activeUser->isVerified()) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.verify_email_first')
+            );
+            return $this->redirectToRoute('user_index');
+        }
+
+        $form = $this->createForm(ProfileImageType::class, $user, [
+            'method' => 'PUT',
+            'action' => $this->generateUrl('user_image', ['slug' => $user->getSlug()]),
+        ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $chosenImage = $form->get('image')->getData();
+            $user->setImage($chosenImage);
+
+            $this->userService->save($user);
+
+            $this->addFlash(
+                'success',
+                $this->translator->trans('message.edited_successfully')
+            );
+
+            return $this->redirectToRoute('user_show', ['slug' => $user->getSlug()]);
+        }
+
+        return $this->render(
+            'user/profile_image.html.twig',
+            [
+                'form' => $form->createView(),
+                'user' => $user,
+            ]
+        );
+    }
 
     /**
      * Show user pieces action.
