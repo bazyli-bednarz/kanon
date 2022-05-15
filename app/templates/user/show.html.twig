@@ -46,7 +46,7 @@
                 <dd>{{ user.level }}</dd>
                 <dt>{{ 'label.user_experience'|trans }}</dt>
                 <dd>
-                    {{ app.user.experience }}/{{ (app.user.level) ** 2 * 50 }}
+                    {{ user.experience }}/{{ (user.level) ** 2 * 50 }}
                 </dd>
                 <dt>{{ 'label.registered_at'|trans }}</dt>
                 <dd>{{ user.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>

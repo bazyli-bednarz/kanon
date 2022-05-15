@@ -6,10 +6,12 @@
 namespace App\Service;
 
 use App\Entity\Canon;
+use App\Entity\Piece;
 use App\Repository\CanonRepository;
 use App\Repository\PieceRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
+use Doctrine\ORM\QueryBuilder;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -69,6 +71,15 @@ class CanonService implements CanonServiceInterface
             $page,
             PieceRepository::PAGINATOR_ITEMS_PER_PAGE_CANON
         );
+    }
+
+
+    /**
+     * @throws NonUniqueResultException
+     */
+    public function getRandomPieceByCanon(Canon $canon): ?Piece
+    {
+        return $this->pieceRepository->getRandomPieceByCanon($canon);
     }
 
     /**

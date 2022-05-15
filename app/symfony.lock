@@ -2,6 +2,9 @@
     "aalaap/faker-youtube": {
         "version": "2.0.3"
     },
+    "beberlei/doctrineextensions": {
+        "version": "v1.3.0"
+    },
     "behat/transliterator": {
         "version": "v1.5.0"
     },

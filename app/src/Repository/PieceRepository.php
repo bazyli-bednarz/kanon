@@ -168,6 +168,18 @@ class PieceRepository extends ServiceEntityRepository
 
     /**
      * @throws NonUniqueResultException
+     */
+    public function getRandomPieceByCanon(Canon $canon): ?Piece
+    {
+        return $this->queryByCanon($canon)
+            ->orderBy('RAND()')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    /**
+     * @throws NonUniqueResultException
      * @throws NoResultException
      */
     public function countByCanon(Canon $canon): int

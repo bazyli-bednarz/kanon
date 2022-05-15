@@ -69,6 +69,10 @@
                 <source>menu.users</source>
                 <target>Leaderboard</target>
             </trans-unit>
+            <trans-unit id="menu.flashcards">
+                <source>menu.flashcards</source>
+                <target>Flashcards</target>
+            </trans-unit>
 
             <trans-unit id="message.empty_list">
                 <source>message.empty_list</source>

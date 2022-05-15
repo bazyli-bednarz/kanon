@@ -12,7 +12,7 @@ parameters:
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'user.id') }}</th>
+            <th>{{ 'label.user_place'|trans }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.user_name'|trans, 'user.name') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.user_level'|trans, 'user.level') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.user_roles'|trans, 'user.roles') }}</th>
@@ -23,7 +23,7 @@ parameters:
         <tbody>
         {% for user in pagination.items %}
             <tr>
-                <td>{{ user.id }}</td>
+                <td>{{ loop.index }}</td>
                 <td>
                     <img class="user-image user-image--small"
                          src="{{ asset('images/avatars/' ~ user.image) ~ '.jpg' }}"

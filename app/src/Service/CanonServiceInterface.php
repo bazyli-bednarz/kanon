@@ -6,6 +6,7 @@
 namespace App\Service;
 
 use App\Entity\Canon;
+use App\Entity\Piece;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
@@ -30,6 +31,13 @@ interface CanonServiceInterface
      * @return PaginationInterface<string, mixed> Paginated list
      */
     public function getPaginatedListByCanon(int $page, Canon $canon): PaginationInterface;
+
+    /**
+     * Get random piece by canon.
+     *
+     * @return Piece Random piece
+     */
+    public function getRandomPieceByCanon(Canon $canon): ?Piece;
 
     /**
      * Save entity.

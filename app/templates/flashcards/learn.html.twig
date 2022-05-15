@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.flashcards_learn'|trans({'%name%': canon.name|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.flashcards_learn'|trans({'%name%': canon.name|default('')}) }}</h1>
+
+    {% if canon is defined %}
+        {{ canon.name }}
+        {% if piece is defined and piece is not null %}
+            {{ piece.name }}
+        {% else %}
+            <p>
+                {{ 'message.canon_is_empty'|trans }}
+            </p>
+        {% endif %}
+    {% else %}
+        <p>
+            {{ 'message.item_not_found'|trans }}
+        </p>
+    {% endif %}
+    <p>
+        <a href="{{ url('flashcards_index') }}" title="{{ 'action.back_to_list'|trans }}">
+            {{ 'action.back_to_list'|trans }}
+        </a>
+    </p>
+
+{% endblock %}
