@@ -150,12 +150,24 @@ nav a:hover {
 }
 .form__profile-image #profile_image_image .user-image--medium {
   width: 150px;
+  cursor: pointer;
 }
 
 .user-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+}
+.user-container__image {
+  overflow: hidden;
+  border-radius: 50%;
+}
+.user-container__image .user-image {
+  transition: 0.7s ease;
+  border-radius: 50%;
+}
+.user-container__image .user-image:hover {
+  transform: scale(1.1);
 }
 .user-container__image a {
   position: relative;
@@ -169,9 +181,6 @@ nav a:hover {
 }
 .user-container__image a:hover .user-image {
   transform: scale(1.1);
-}
-.user-container__image a .user-image {
-  transition: 0.7s ease;
 }
 .user-container__image a .user-image--editable {
   background-color: rgba(0, 0, 0, 0.6);

@@ -65,8 +65,8 @@
                 <img class="user-image user-image--big"
                      src="{{ asset('images/avatars/' ~ user.image) ~ '.jpg' }}"
                      alt="{{ 'label.user_image'|trans({'%name%': user.name|default('')}) }}">
-                <div class="user-image--editable"><p>{{ 'action.change_image'|trans }} <i class="fa-solid fa-brush"></i></p></div>
                 {% if user is defined and user==app.user %}
+                <div class="user-image--editable"><p>{{ 'action.change_image'|trans }} <i class="fa-solid fa-brush"></i></p></div>
             </a>
             {% endif %}
         </div>

@@ -3,6 +3,17 @@
   flex-wrap: wrap;
   flex-direction: row;
   &__image {
+    overflow: hidden;
+    border-radius: 50%;
+    .user-image {
+      transition: 0.7s ease;
+      border-radius: 50%;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
     a {
       position: relative;
       overflow: hidden;
@@ -21,8 +32,6 @@
       }
 
       .user-image {
-        transition: 0.7s ease;
-
         &--editable {
           background-color: rgba(0, 0, 0, 0.6);
           position: absolute;
