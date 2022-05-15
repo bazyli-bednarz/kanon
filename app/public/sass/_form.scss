@@ -43,6 +43,7 @@
     input {
       opacity: 0;
       position: absolute;
+      left: -5000px;
     }
 
     input:checked {
@@ -63,6 +64,49 @@
         width: 150px;
         cursor: pointer;
       }
+    }
+  }
+
+  .form-check {
+    &--locked {
+      position: relative;
+
+      &:hover {
+        i {
+          animation: shake 1s ease;
+        }
+      }
+
+      .required-level {
+        font-size: 1.6rem;
+        color: $nav-text-color-hover;
+        font-weight: bolder;
+        position: absolute;
+        top: 50%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        i{
+          font-size: 1rem;
+          line-height: 1.6rem;
+          transform: translate(-10%, -20%);
+        }
+      }
+    }
+  }
+
+  .user-image {
+    &--locked {
+      border-radius: 50%;
+      border: 5px solid $color-dark;
+      margin: 5px;
+      cursor: default !important;
+      filter: grayscale(1) brightness(0.5);
+      transition: 0.3s;
+      &:hover {
+        filter: grayscale(1) brightness(0.4);
+      }
+
+
     }
   }
 }

@@ -1,3 +1,29 @@
+@keyframes shake {
+  0% {
+    transform: translate(-10%, -20%) rotate(0deg);
+  }
+  20% {
+    transform: translate(-10%, -20%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-10%, -20%) rotate(-30deg);
+  }
+  35% {
+    transform: translate(-10%, -20%) rotate(30deg);
+  }
+  45% {
+    transform: translate(-10%, -20%) rotate(-30deg);
+  }
+  55% {
+    transform: translate(-10%, -20%) rotate(30deg);
+  }
+  60% {
+    transform: translate(-10%, -20%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-10%, -20%) rotate(0deg);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -141,6 +167,7 @@ nav a:hover {
 .form__profile-image #profile_image_image input {
   opacity: 0;
   position: absolute;
+  left: -5000px;
 }
 .form__profile-image #profile_image_image input:checked ~ label {
   border: 5px solid #0040ff;
@@ -151,6 +178,37 @@ nav a:hover {
 .form__profile-image #profile_image_image .user-image--medium {
   width: 150px;
   cursor: pointer;
+}
+.form__profile-image .form-check--locked {
+  position: relative;
+}
+.form__profile-image .form-check--locked:hover i {
+  animation: shake 1s ease;
+}
+.form__profile-image .form-check--locked .required-level {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: bolder;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+.form__profile-image .form-check--locked .required-level i {
+  font-size: 1rem;
+  line-height: 1.6rem;
+  transform: translate(-10%, -20%);
+}
+.form__profile-image .user-image--locked {
+  border-radius: 50%;
+  border: 5px solid #111010;
+  margin: 5px;
+  cursor: default !important;
+  filter: grayscale(1) brightness(0.5);
+  transition: 0.3s;
+}
+.form__profile-image .user-image--locked:hover {
+  filter: grayscale(1) brightness(0.4);
 }
 
 .user-container {

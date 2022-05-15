@@ -242,7 +242,7 @@ class UserController extends AbstractController
      *
      * @IsGranted("EDIT", subject="user")
      */
-    public function editImage(Request $request, User $user): Response
+    public function editImage(Request $request, User $user, UserAuthenticatorInterface $userAuthenticator, LoginFormAuthenticator $authenticator): Response
     {
         $activeUser = $this->getUser();
         if (!$activeUser->isVerified()) {
@@ -271,6 +271,13 @@ class UserController extends AbstractController
                 $this->translator->trans('message.edited_successfully')
             );
 
+            if ($activeUser === $user) {
+                return $userAuthenticator->authenticateUser(
+                    $user,
+                    $authenticator,
+                    $request
+                );
+            }
             return $this->redirectToRoute('user_show', ['slug' => $user->getSlug()]);
         }
 
