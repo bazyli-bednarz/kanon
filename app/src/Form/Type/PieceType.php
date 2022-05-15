@@ -7,6 +7,7 @@ use App\Entity\Composer;
 use App\Entity\Piece;
 use App\Entity\Scale;
 use App\Form\DataTransformer\TagsDataTransformer;
+use App\Form\DataTransformer\YouTubeLinkDataTransformer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\ChoiceList;
@@ -28,12 +29,15 @@ class PieceType extends AbstractType
 
     private TagsDataTransformer $tagsDataTransformer;
 
+    private YouTubeLinkDataTransformer $youTubeLinkDataTransformer;
+
     private Security $security;
 
-    public function __construct(TranslatorInterface $translator, TagsDataTransformer $tagsDataTransformer, Security $security)
+    public function __construct(TranslatorInterface $translator, TagsDataTransformer $tagsDataTransformer, YouTubeLinkDataTransformer $youTubeLinkDataTransformer, Security $security)
     {
         $this->translator = $translator;
         $this->tagsDataTransformer = $tagsDataTransformer;
+        $this->youTubeLinkDataTransformer = $youTubeLinkDataTransformer;
         $this->security = $security;
     }
 
@@ -147,6 +151,10 @@ class PieceType extends AbstractType
                 $this->tagsDataTransformer
             )
         ;
+
+        $builder->get('link')->addModelTransformer(
+            $this->youTubeLinkDataTransformer
+        );
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -29,7 +29,7 @@ parameters:
                 <td>{{ piece.name }}</td>
                 <td>{{ piece.year }}</td>
                 <td>{{ piece.description }}</td>
-                <td><a href="{{ piece.link }}">{{ piece.link }}</a></td>
+                <td><a href="https://youtu.be/{{ piece.link }}" target="_blank">https://youtu.be/{{ piece.link }}</a></td>
                 <td>
                     <a href="{{ url('composer_show', {slug: piece.composer.slug}) }}">{{ piece.composer.name }} {{ piece.composer.lastName }}</a>
                 </td>

@@ -17,7 +17,16 @@
             <dt>{{ 'label.piece_description'|trans }}</dt>
             <dd>{{ piece.description }}</dd>
             <dt>{{ 'label.piece_link'|trans }}</dt>
-            <dd><a href="{{ piece.link }}">{{ piece.link }}</a></dd>
+            <dd>
+                <a href="https://youtu.be/{{ piece.link }}" target="_blank">https://youtu.be/{{ piece.link }}</a>
+                <br>
+                <iframe id="ytplayer" type="text/html"
+                        src="https://www.youtube.com/embed/{{ piece.link }}"
+                        frameborder="0" allowfullscreen>
+                </iframe>
+
+
+            </dd>
             <dt>{{ 'label.piece_composer'|trans }}</dt>
             <dd>
                 <a href="{{ url('composer_show', {slug: piece.composer.slug}) }}"
