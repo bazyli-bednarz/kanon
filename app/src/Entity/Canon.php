@@ -78,12 +78,6 @@ class Canon
     private ?string $slug;
 
     /**
-     * @ORM\Column(type="boolean")
-     * @Assert\Type(type="boolean")
-     */
-    private ?bool $visibility;
-
-    /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="canons")
      * @Assert\Type(type="App\Entity\User")
      */
@@ -183,18 +177,6 @@ class Canon
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
-
-        return $this;
-    }
-
-    public function getVisibility(): ?bool
-    {
-        return $this->visibility;
-    }
-
-    public function setVisibility(bool $visibility): self
-    {
-        $this->visibility = $visibility;
 
         return $this;
     }

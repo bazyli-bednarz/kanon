@@ -105,10 +105,11 @@ class FlashcardsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->security->getUser();
-            if ($user->isVerified()) {
-                $user->addExperience(1);
-                $this->userService->save($user);
-
+            if ($user) {
+                if ($user->isVerified()) {
+                    $user->addExperience(1);
+                    $this->userService->save($user);
+                }
             }
         }
 

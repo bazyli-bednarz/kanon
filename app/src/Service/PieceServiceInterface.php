@@ -20,7 +20,7 @@ interface PieceServiceInterface
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
-    public function getPaginatedList(int $page): PaginationInterface;
+    public function getPaginatedList(int $page, array $filters): PaginationInterface;
 
     /**
      * Save entity.

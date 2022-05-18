@@ -70,14 +70,14 @@ class CanonType extends AbstractType
                     'multiple' => true,
                 ]
             )
-            ->add(
-                'visibility',
-                CheckboxType::class,
-                [
-                    'label' => 'label.canon_visibility',
-                    'required' => false,
-                ]
-            )
+//            ->add(
+//                'visibility',
+//                CheckboxType::class,
+//                [
+//                    'label' => 'label.canon_visibility',
+//                    'required' => false,
+//                ]
+//            )
 
         ;
     }

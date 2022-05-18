@@ -29,7 +29,8 @@ parameters:
                 <td>{{ piece.name }}</td>
                 <td>{{ piece.year }}</td>
                 <td>{{ piece.description }}</td>
-                <td><a href="https://youtu.be/{{ piece.link }}" target="_blank">https://youtu.be/{{ piece.link }}</a></td>
+                <td><a href="https://youtu.be/{{ piece.link }}" target="_blank">https://youtu.be/{{ piece.link }}</a>
+                </td>
                 <td>
                     <a href="{{ url('composer_show', {slug: piece.composer.slug}) }}">{{ piece.composer.name }} {{ piece.composer.lastName }}</a>
                 </td>
@@ -38,9 +39,14 @@ parameters:
                 </td>
                 <td><a href="{{ url('scale_show', {slug: piece.scale.slug}) }}">{{ piece.scale.name }}</a></td>
                 <td>
-                    {% for tag in piece.tags %}
-                        {{ tag.name }}{% if not loop.last %}, {% endif %}
-                    {% endfor %}
+                    {% if piece.tags is defined and piece.tags|length %}
+                        {% for tag in piece.tags %}
+                        <a href="{{ url('piece_index', {'filters_tag_slug': tag.slug}) }}">
+                            {{ tag.name }}</a>{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        -
+                    {% endif %}
                 </td>
 
                 <td>
@@ -48,14 +54,14 @@ parameters:
                         {{ 'action.view'|trans }}
                     </a>
                     {% if is_granted('EDIT', piece) %}
-                    <a href="{{ url('piece_edit', {slug: piece.slug}) }}" title="{{ 'action.edit'|trans }}">
-                        {{ 'action.edit'|trans }}
-                    </a>
+                        <a href="{{ url('piece_edit', {slug: piece.slug}) }}" title="{{ 'action.edit'|trans }}">
+                            {{ 'action.edit'|trans }}
+                        </a>
                     {% endif %}
                     {% if is_granted('EDIT', piece) %}
-                    <a href="{{ url('piece_delete', {slug: piece.slug}) }}" title="{{ 'action.delete'|trans }}">
-                        {{ 'action.delete'|trans }}
-                    </a>
+                        <a href="{{ url('piece_delete', {slug: piece.slug}) }}" title="{{ 'action.delete'|trans }}">
+                            {{ 'action.delete'|trans }}
+                        </a>
                     {% endif %}
                 </td>
             </tr>

@@ -6,6 +6,7 @@ use App\Entity\Canon;
 use App\Entity\Composer;
 use App\Entity\Piece;
 use App\Entity\Scale;
+use App\Entity\Tag;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
@@ -94,19 +95,24 @@ class PieceRepository extends ServiceEntityRepository
      *
      * @return QueryBuilder Query builder
      */
-    public function queryAll(): QueryBuilder
+    public function queryAll(array $filters = []): QueryBuilder
     {
-        return $this->getOrCreateQueryBuilder()
+        $queryBuilder = $this->getOrCreateQueryBuilder()
             ->select(
                 'partial piece.{id, name, description, year, link, createdAt, updatedAt, author, editedBy, slug}',
                 'partial composer.{id, name, lastName, slug}',
                 'partial period.{id, name, slug}',
-                'partial scale.{id, name, slug}'
+                'partial scale.{id, name, slug}',
+                'partial tags.{id, name, slug}'
+
             )
             ->join('piece.composer', 'composer')
             ->join('composer.period', 'period')
             ->join('piece.scale', 'scale')
+            ->leftJoin('piece.tags', 'tags')
             ->orderBy('piece.updatedAt', 'DESC');
+
+        return $this->applyFilters($queryBuilder, $filters);
     }
 
     public function queryByComposer(Composer $composer): QueryBuilder
@@ -227,6 +233,16 @@ class PieceRepository extends ServiceEntityRepository
         if ($flush) {
             $this->_em->flush();
         }
+    }
+
+    private function applyFilters(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
+    {
+        if (isset($filters['tag']) && $filters['tag'] instanceof Tag) {
+            $queryBuilder->andWhere('tags IN (:tag)')
+                ->setParameter('tag', $filters['tag']);
+        }
+
+        return $queryBuilder;
     }
 
     // /**

@@ -23,7 +23,7 @@ class PieceFixtures extends AbstractBaseFixtures implements DependentFixtureInte
             $piece->setName($this->faker->sentence());
             $piece->setDescription($this->faker->realText());
             $piece->setYear(intval($this->faker->year('-100 years')));
-            $link = substr($this->faker->youtubeShortUri(),25).'?start='.$this->faker->randomNumber(3);
+            $link = substr($this->faker->youtubeShortUri(),17).'?start='.$this->faker->randomNumber(3);
             $piece->setLink($link);
             $piece->setCreatedAt(
                 DateTimeImmutable::createFromMutable(

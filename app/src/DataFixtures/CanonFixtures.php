@@ -30,7 +30,6 @@ class CanonFixtures extends AbstractBaseFixtures implements DependentFixtureInte
                     $this->faker->dateTimeBetween('-100 days', '-1 days')
                 )
             );
-            $canon->setVisibility($this->faker->boolean());
 
             /** @var User $author */
             $author = $this->getRandomReference('users');

@@ -117,14 +117,22 @@ class PieceController extends AbstractController
      */
     public function index(Request $request): Response
     {
+        $filters = $this->getFilters($request);
         $pagination = $this->pieceService->getPaginatedList(
-            $request->query->getInt('page', 1),
+            $request->query->getInt('page', 1), $filters
         );
 
         return $this->render(
             'piece/index.html.twig',
             ['pagination' => $pagination]
         );
+    }
+
+    private function getFilters(Request $request): array {
+        $filters = [];
+        $filters['tag_slug'] = $request->query->get('filters_tag_slug');
+
+        return $filters;
     }
 
     /**
