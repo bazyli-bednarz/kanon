@@ -1,0 +1,59 @@
+.flashcards-container {
+  #ytplayer {
+    width: 5rem;
+    height: 4rem;
+    @include mainColorBorder(7px, 0.5rem);
+    @include responsive_margin(3rem, 3rem, 3rem, 3rem);
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__flashcards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 100rem;
+  }
+
+  &__flashcard {
+    width: 80vmin;
+    height: 80vmin;
+    border-radius: 3rem;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+
+    @include mainColorBorder(7px, 3rem);
+    cursor: pointer;
+
+    &--active {
+      transform: rotateY(180deg);
+    }
+
+    .flashcard {
+      @include responsive_padding(2rem, 2rem, 2rem, 2rem);
+      @include flexbox(row, center, center);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      backface-visibility: hidden;
+      overflow: hidden;
+      background-color: $color-white;
+      border-radius: 3rem;
+
+      i {
+        font-size: 2rem;
+        color: $color-main;
+      }
+
+      &--back {
+        transform: rotateY(180deg);
+      }
+    }
+
+  }
+}

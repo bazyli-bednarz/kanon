@@ -43,8 +43,9 @@ class UserFixtures extends AbstractBaseFixtures
             );
             $user->setRoles([User::ROLE_USER]);
             $user->setIsVerified(true);
-            $user->setExperience(0);
-            $user->setLevel(1);
+            $level = $this->faker->numberBetween(1,10);
+            $user->setExperience($this->faker->numberBetween(0,$level ** 2 * 50 - 1));
+            $user->setLevel($level);
             $user->setImage($this->faker->numberBetween(1,20));
 
             $user->setPassword(

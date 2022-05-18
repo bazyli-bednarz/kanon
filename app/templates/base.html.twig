@@ -98,9 +98,12 @@
                 </div>
                 <div class="nav__user-data">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <div class="level-progress"><span class="level-progress__meter"></span><span
-                                    class="level-progress__current-experience">{{ app.user.experience }}</span>/<span
-                                    class="level-progress__required-experience">{{ (app.user.level) ** 2 * 50 }}</span>
+                        <div class="level-progress"><div class="level-progress__meter"></div>
+                            <div class="level-progress__experience">
+                                <span class="level-progress__current-experience">{{ app.user.experience }}</span>/<span
+                                        class="level-progress__required-experience">{{ (app.user.level) ** 2 * 50 }}</span>
+
+                            </div>
                         </div>
                         <div class="level-circle level-circle--small">
                             <span class="level-circle--username">{{ app.user.level }}</span>

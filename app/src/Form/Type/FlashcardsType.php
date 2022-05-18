@@ -4,6 +4,7 @@ namespace App\Form\Type;
 
 use App\Entity\Canon;
 use App\Entity\User;
+use PhpParser\Node\Stmt\Return_;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\ChoiceList;
@@ -31,6 +32,16 @@ class FlashcardsType extends AbstractType
                     'class' => Canon::class,
                     'choice_label' => function ($canon): string {
                         return $canon->getName();
+                    },
+                    'preferred_choices' => function($canon) {
+                        $userFriends = $canon->getAuthor()->getFriends();
+                        $user = $this->security->getUser();
+
+                        if ($this->security->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+                            return ($userFriends->contains($user)) || ($canon->getAuthor() === $user);
+                        }
+                        return true;
+
                     },
 //                    'choice_filter' => ChoiceList::filter(
 //                        $this,

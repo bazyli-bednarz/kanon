@@ -5,12 +5,35 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 
     .level-progress {
-      padding: 0.3rem 2rem;
       background-color: #fff;
       border-radius: 100vh;
       color: $color-dark;
+      position: relative;
+      overflow: hidden;
+      height: 2.3rem;
+      width: 7rem;
+      &__meter {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 2.3rem;
+        width: 7rem;
+        border-radius: 100vh;
+        opacity: 0.9;
+        background: $main-gradient;
+        background-size: 200% 200%;
+        animation: animateGlow 10s linear infinite;
+      }
+      &__experience {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
     }
 
     .level-circle {

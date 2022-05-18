@@ -1,0 +1,158 @@
+@mixin mainColorBorder($border, $border-radius) {
+  background:
+          linear-gradient($color-white, $color-white) padding-box,
+          linear-gradient(to right, $color-main, $color-main-2) border-box;
+  border: $border solid transparent;
+  border-radius: $border-radius;
+}
+
+@mixin responsive_padding($paddingTop, $paddingRight, $paddingBottom, $paddingLeft) {
+  padding: $paddingTop $paddingRight $paddingBottom $paddingLeft;
+
+  @media (max-width: 1920px) {
+    padding: $paddingTop * 0.95 $paddingRight * 0.95 $paddingBottom * 0.95 $paddingLeft * 0.95;
+  }
+
+  @media (max-width: 1600px) {
+    padding: $paddingTop * 0.9 $paddingRight * 0.9 $paddingBottom * 0.9 $paddingLeft * 0.9;
+  }
+
+  @media (max-width: 1360px) {
+    padding: $paddingTop * 0.8 $paddingRight * 0.8 $paddingBottom * 0.8 $paddingLeft * 0.8;
+  }
+
+  @media (max-width: 1200px) {
+    padding: $paddingTop * 0.75 $paddingRight * 0.75 $paddingBottom * 0.75 $paddingLeft * 0.75;
+  }
+
+  @media (max-width: 1080px) {
+    padding: $paddingTop * 0.7 $paddingRight * 0.7 $paddingBottom * 0.7 $paddingLeft * 0.7;
+  }
+
+  @media (max-width: 992px) {
+    padding: $paddingTop * 0.65 $paddingRight * 0.65 $paddingBottom * 0.65 $paddingLeft * 0.65;
+  }
+
+  @media (max-width: 768px) {
+    padding: $paddingTop * 0.6 $paddingRight * 0.6 $paddingBottom * 0.6 $paddingLeft * 0.6;
+  }
+
+  @media (max-width: 450px) {
+    padding: $paddingTop * 0.5 $paddingRight * 0.5 $paddingBottom * 0.5 $paddingLeft * 0.5;
+  }
+}
+
+@mixin responsive_margin($marginTop, $marginRight, $marginBottom, $marginLeft) {
+  margin: $marginTop $marginRight $marginBottom $marginLeft;
+
+  @media (max-width: 1920px) {
+    margin: $marginTop * 0.95 $marginRight * 0.95 $marginBottom * 0.95 $marginLeft * 0.95;
+  }
+
+  @media (max-width: 1600px) {
+    margin: $marginTop * 0.9 $marginRight * 0.9 $marginBottom * 0.9 $marginLeft * 0.9;
+  }
+
+  @media (max-width: 1360px) {
+    margin: $marginTop * 0.8 $marginRight * 0.8 $marginBottom * 0.8 $marginLeft * 0.8;
+  }
+
+  @media (max-width: 1200px) {
+    margin: $marginTop * 0.75 $marginRight * 0.75 $marginBottom * 0.75 $marginLeft * 0.75;
+  }
+
+  @media (max-width: 1080px) {
+    margin: $marginTop * 0.7 $marginRight * 0.7 $marginBottom * 0.7 $marginLeft * 0.7;
+  }
+
+  @media (max-width: 992px) {
+    margin: $marginTop * 0.65 $marginRight * 0.65 $marginBottom * 0.65 $marginLeft * 0.65;
+  }
+
+  @media (max-width: 768px) {
+    margin: $marginTop * 0.6 $marginRight * 0.6 $marginBottom * 0.6 $marginLeft * 0.6;
+  }
+
+  @media (max-width: 450px) {
+    margin: $marginTop * 0.5 $marginRight * 0.5 $marginBottom * 0.5 $marginLeft * 0.5;
+  }
+}
+
+@mixin responsive_height($height) {
+  height: $height;
+
+  @media (max-width: 1920px) {
+    height: $height * 0.95;
+  }
+
+  @media (max-width: 1600px) {
+    height: $height * 0.9;
+  }
+
+  @media (max-width: 1360px) {
+    height: $height * 0.8;
+  }
+
+  @media (max-width: 1200px) {
+    height: $height * 0.75;
+  }
+
+  @media (max-width: 1080px) {
+    height: $height * 0.7;
+  }
+
+  @media (max-width: 992px) {
+    height: $height * 0.65;
+  }
+
+  @media (max-width: 768px) {
+    height: $height * 0.6;
+  }
+
+  @media (max-width: 450px) {
+    height: $height * 0.5;
+  }
+}
+
+@mixin responsive_font($responsive-font-size) {
+  font-size: $responsive-font-size;
+
+  @media (max-width: 1920px) {
+    font-size: $responsive-font-size * 0.95;
+  }
+
+  @media (max-width: 1600px) {
+    font-size: $responsive-font-size * 0.9;
+  }
+
+  @media (max-width: 1360px) {
+    font-size: $responsive-font-size * 0.85;
+  }
+
+  @media (max-width: 1200px) {
+    font-size: $responsive-font-size * 0.8;
+  }
+
+  @media (max-width: 1080px) {
+    font-size: $responsive-font-size * 0.75;
+  }
+
+  @media (max-width: 992px) {
+    font-size: $responsive-font-size * 0.7;
+  }
+
+  @media (max-width: 768px) {
+    font-size: $responsive-font-size * 0.65;
+  }
+
+  @media (max-width: 450px) {
+    font-size: $responsive-font-size * 0.6;
+  }
+}
+
+@mixin flexbox($flex-direction, $justify-content, $align-items) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}

@@ -24,3 +24,13 @@
     transform: translate(-10%, -20%) rotate(0deg);
   }
 }
+
+@keyframes animateGlow {
+  0% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+
+}

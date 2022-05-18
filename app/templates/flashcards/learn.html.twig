@@ -10,7 +10,50 @@
     {% if canon is defined %}
         {{ canon.name }}
         {% if piece is defined and piece is not null %}
-            {{ piece.name }}
+            <div class="flashcards-container">
+                <iframe id="ytplayer" type="text/html"
+                        src="https://www.youtube.com/embed/{{ piece.link }}"
+                        frameborder="0" allowfullscreen>
+                </iframe>
+
+                <div class="flashcards-container__flashcards">
+                    <div class="flashcards-container__flashcard flashcards-container__flashcards--first">
+                        <div class="flashcard flashcard--front"><i class="fa-solid fa-circle-question"></i></div>
+                        <div class="flashcard flashcard--back">
+                            {{ piece.name }} {% if piece.year is not null %}({{ piece.year }}){% endif %}
+                            <br>
+                            {{ piece.scale.name|trans }}
+                            <br>
+                            {{ piece.composer.period.name|trans }}
+                        </div>
+                    </div>
+                    <div class="flashcards-container__flashcard flashcards-container__flashcards--second">
+                        <div class="flashcard flashcard--front"><i class="fa-solid fa-circle-question"></i></div>
+                        <div class="flashcard flashcard--back">
+                            {{ piece.composer.name }}{% if piece.composer.lastName is not null %} {{ piece.composer.lastName }}{% endif %}
+                        </div>
+                    </div>
+                    <div class="flashcards-container__flashcard flashcards-container__flashcards--third">
+                        <div class="flashcard flashcard--front"><i class="fa-solid fa-circle-question"></i></div>
+                        <div class="flashcard flashcard--back">
+                            {% if piece.description is not null %}{{ piece.description }}{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% if form is defined %}
+
+                {{ form_start(form) }}
+                {% if false == form.vars.valid %}
+                    {% include 'default/_single_alert_message.html.twig' with {
+                        type: 'danger',
+                        message: 'message.form_error'|trans,
+                    } %}
+                {% endif %}
+                {{ form_end(form) }}
+
+            {% endif %}
         {% else %}
             <p>
                 {{ 'message.canon_is_empty'|trans }}
@@ -26,5 +69,11 @@
             {{ 'action.back_to_list'|trans }}
         </a>
     </p>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/rotateFlashcards.js') }}"></script>
 
 {% endblock %}
