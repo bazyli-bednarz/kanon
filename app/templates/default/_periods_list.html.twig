@@ -25,7 +25,7 @@ parameters:
                 <td>{{ period.name|trans }}</td>
                 <td>{{ period.startYear }}</td>
                 <td>{{ period.endYear }}</td>
-                <td>{{ period.description }}</td>
+                <td>{{ period.description|trans }}</td>
 
                 <td>
                     <a href="{{ url('period_show', {slug: period.slug}) }}" title="{{ 'action.view'|trans }}">

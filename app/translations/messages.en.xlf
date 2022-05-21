@@ -96,6 +96,11 @@
                 <target>View</target>
             </trans-unit>
 
+            <trans-unit id="info.about-project">
+                <source>info.about-project</source>
+                <target>This web application was designed and created by Bazyli Bednarz. This service is an integral part of a bachelor's thesis (major: Electronic Information Processing), prepared under the direction of prof. dr hab. Jerzy Konior at the Faculty Of Management and Social Communication, Jagiellonian University.</target>
+            </trans-unit>
+
             <trans-unit id="label.actions">
                 <source>label.actions</source>
                 <target>Actions</target>
@@ -476,6 +481,87 @@
                 <target>Verify your email first.</target>
             </trans-unit>
 
+            <trans-unit id="period.ancient">
+                <source>period.ancient</source>
+                <target>Ancient</target>
+            </trans-unit>
+            <trans-unit id="period.ancient_description">
+                <source>period.ancient_description</source>
+                <target>Music of ancient times was characterized by use of monophony, frequent improvisation and dominance of oral means.</target>
+            </trans-unit>
+            <trans-unit id="period.medieval">
+                <source>period.medieval</source>
+                <target>Medieval</target>
+            </trans-unit>
+            <trans-unit id="period.medieval_description">
+                <source>period.medieval_description</source>
+                <target>Medieval music was centered around the institution of the Church. Gregorian chants, music masses and choral music are its domain.</target>
+            </trans-unit>
+            <trans-unit id="period.renaissance">
+                <source>period.renaissance</source>
+                <target>Renaissance</target>
+            </trans-unit>
+            <trans-unit id="period.renaissance_description">
+                <source>period.renaissance_description</source>
+                <target>Music of renaissance was freed from strict medieval constraints of church music. Counterpoint and polyphony were very common.</target>
+            </trans-unit>
+            <trans-unit id="period.baroque">
+                <source>period.baroque</source>
+                <target>Baroque</target>
+            </trans-unit>
+            <trans-unit id="period.baroque_description">
+                <source>period.baroque_description</source>
+                <target>Music of baroque gave birth to the common-practice tonality. Basso continuo technique was used very often.</target>
+            </trans-unit>
+            <trans-unit id="period.classical">
+                <source>period.classical</source>
+                <target>Classical</target>
+            </trans-unit>
+            <trans-unit id="period.classical_description">
+                <source>period.classical_description</source>
+                <target>Classical period music had light and clear texture. Classic sonata and symphony forms were born.</target>
+            </trans-unit>
+            <trans-unit id="period.early_romantic">
+                <source>period.early_romantic</source>
+                <target>Early romantic</target>
+            </trans-unit>
+            <trans-unit id="period.early_romantic_description">
+                <source>period.early_romantic_description</source>
+                <target>Early romantic period was a bridge between Classical and Romantic eras, built by Ludvig van Beethoven.</target>
+            </trans-unit>
+            <trans-unit id="period.romantic">
+                <source>period.romantic</source>
+                <target>Romantic</target>
+            </trans-unit>
+            <trans-unit id="period.romantic_description">
+                <source>period.romantic_description</source>
+                <target>Romantic music was full of emotion and vigor. Musical pieces were often programmatic - they developed additional narrative by the means of music.</target>
+            </trans-unit>
+            <trans-unit id="period.contemporary">
+                <source>period.contemporary</source>
+                <target>Contemporary</target>
+            </trans-unit>
+            <trans-unit id="period.contemporary_description">
+                <source>period.contemporary_description</source>
+                <target>Music of 20th century to present. Dissonance, neoclassicism, serialism and spectralism are only a few terms related to this abundant era.</target>
+            </trans-unit>
+            <trans-unit id="period.unknown">
+                <source>period.unknown</source>
+                <target>Unknown</target>
+            </trans-unit>
+            <trans-unit id="period.unknown_description">
+                <source>period.unknown_description</source>
+                <target>-</target>
+            </trans-unit>
+            <trans-unit id="period.other">
+                <source>period.other</source>
+                <target>Other</target>
+            </trans-unit>
+            <trans-unit id="period.other_description">
+                <source>period.other_description</source>
+                <target>-</target>
+            </trans-unit>
+
             <trans-unit id="role.admin">
                 <source>role.admin</source>
                 <target>Admin</target>
@@ -483,6 +569,179 @@
             <trans-unit id="role.user">
                 <source>role.user</source>
                 <target>User</target>
+            </trans-unit>
+
+            <trans-unit id="scale.c_major">
+                <source>scale.c_major</source>
+                <target>C major</target>
+            </trans-unit>
+            <trans-unit id="scale.c_minor">
+                <source>scale.c_minor</source>
+                <target>C minor</target>
+            </trans-unit>
+            <trans-unit id="scale.g_major">
+                <source>scale.g_major</source>
+                <target>G major</target>
+            </trans-unit>
+            <trans-unit id="scale.g_minor">
+                <source>scale.g_minor</source>
+                <target>G minor</target>
+            </trans-unit>
+            <trans-unit id="scale.d_major">
+                <source>scale.d_major</source>
+                <target>D major</target>
+            </trans-unit>
+            <trans-unit id="scale.d_minor">
+                <source>scale.d_minor</source>
+                <target>D minor</target>
+            </trans-unit>
+            <trans-unit id="scale.a_major">
+                <source>scale.a_major</source>
+                <target>A major</target>
+            </trans-unit>
+            <trans-unit id="scale.a_minor">
+                <source>scale.a_minor</source>
+                <target>A minor</target>
+            </trans-unit>
+            <trans-unit id="scale.e_major">
+                <source>scale.e_major</source>
+                <target>E major</target>
+            </trans-unit>
+            <trans-unit id="scale.e_minor">
+                <source>scale.e_minor</source>
+                <target>E minor</target>
+            </trans-unit>
+            <trans-unit id="scale.b_major">
+                <source>scale.b_major</source>
+                <target>B major</target>
+            </trans-unit>
+            <trans-unit id="scale.b_minor">
+                <source>scale.b_minor</source>
+                <target>B minor</target>
+            </trans-unit>
+            <trans-unit id="scale.f_sharp_major">
+                <source>scale.f_sharp_major</source>
+                <target>F-sharp major</target>
+            </trans-unit>
+            <trans-unit id="scale.f_sharp_minor">
+                <source>scale.f_sharp_minor</source>
+                <target>F♯ minor</target>
+            </trans-unit>
+            <trans-unit id="scale.c_sharp_major">
+                <source>scale.c_sharp_major</source>
+                <target>C♯ major</target>
+            </trans-unit>
+            <trans-unit id="scale.c_sharp_minor">
+                <source>scale.c_sharp_minor</source>
+                <target>C♯ minor</target>
+            </trans-unit>
+            <trans-unit id="scale.f_major">
+                <source>scale.f_major</source>
+                <target>F major</target>
+            </trans-unit>
+            <trans-unit id="scale.f_minor">
+                <source>scale.f_minor</source>
+                <target>F minor</target>
+            </trans-unit>
+            <trans-unit id="scale.b_flat_major">
+                <source>scale.b_flat_major</source>
+                <target>B♭ major</target>
+            </trans-unit>
+            <trans-unit id="scale.b_flat_minor">
+                <source>scale.b_flat_minor</source>
+                <target>B♭ minor</target>
+            </trans-unit>
+            <trans-unit id="scale.e_flat_major">
+                <source>scale.e_flat_major</source>
+                <target>E♭ major</target>
+            </trans-unit>
+            <trans-unit id="scale.e_flat_minor">
+                <source>scale.e_flat_minor</source>
+                <target>E♭ minor</target>
+            </trans-unit>
+            <trans-unit id="scale.a_flat_major">
+                <source>scale.a_flat_major</source>
+                <target>A♭ major</target>
+            </trans-unit>
+            <trans-unit id="scale.a_flat_minor">
+                <source>scale.a_flat_minor</source>
+                <target>A♭ minor</target>
+            </trans-unit>
+            <trans-unit id="scale.d_flat_major">
+                <source>scale.d_flat_major</source>
+                <target>D♭ major</target>
+            </trans-unit>
+            <trans-unit id="scale.d_flat_minor">
+                <source>scale.d_flat_minor</source>
+                <target>D♭ minor</target>
+            </trans-unit>
+            <trans-unit id="scale.g_flat_major">
+                <source>scale.g_flat_major</source>
+                <target>G♭ major</target>
+            </trans-unit>
+            <trans-unit id="scale.g_flat_minor">
+                <source>scale.g_flat_minor</source>
+                <target>G♭ minor</target>
+            </trans-unit>
+            <trans-unit id="scale.chromatic">
+                <source>scale.chromatic</source>
+                <target>chromatic</target>
+            </trans-unit>
+            <trans-unit id="scale.pentatonic">
+                <source>scale.pentatonic</source>
+                <target>pentatonic</target>
+            </trans-unit>
+            <trans-unit id="scale.whole_tone_scale">
+                <source>scale.whole_tone_scale</source>
+                <target>whole-tone</target>
+            </trans-unit>
+            <trans-unit id="scale.acoustic">
+                <source>scale.acoustic</source>
+                <target>acoustic</target>
+            </trans-unit>
+            <trans-unit id="scale.ionian">
+                <source>scale.ionian</source>
+                <target>ionian</target>
+            </trans-unit>
+            <trans-unit id="scale.dorian">
+                <source>scale.dorian</source>
+                <target>dorian</target>
+            </trans-unit>
+            <trans-unit id="scale.phrygian">
+                <source>scale.phrygian</source>
+                <target>phrygian</target>
+            </trans-unit>
+            <trans-unit id="scale.lydian">
+                <source>scale.lydian</source>
+                <target>lydian</target>
+            </trans-unit>
+            <trans-unit id="scale.mixolydian">
+                <source>scale.mixolydian</source>
+                <target>mixolydian</target>
+            </trans-unit>
+            <trans-unit id="scale.aeolian">
+                <source>scale.aeolian</source>
+                <target>aeolian</target>
+            </trans-unit>
+            <trans-unit id="scale.locrian">
+                <source>scale.locrian</source>
+                <target>locrian</target>
+            </trans-unit>
+            <trans-unit id="scale.blues">
+                <source>scale.blues</source>
+                <target>blues</target>
+            </trans-unit>
+            <trans-unit id="scale.atonal">
+                <source>scale.atonal</source>
+                <target>atonal</target>
+            </trans-unit>
+            <trans-unit id="scale.unknown">
+                <source>scale.unknown</source>
+                <target>unknown</target>
+            </trans-unit>
+            <trans-unit id="scale.other">
+                <source>scale.other</source>
+                <target>other</target>
             </trans-unit>
 
             <trans-unit id="title.canon_create">
@@ -539,7 +798,7 @@
             </trans-unit>
             <trans-unit id="title.period_list">
                 <source>title.period_list</source>
-                <target>List of period</target>
+                <target>List of periods</target>
             </trans-unit>
             <trans-unit id="title.period_details">
                 <source>title.period_details</source>

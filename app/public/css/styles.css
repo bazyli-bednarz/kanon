@@ -76,7 +76,7 @@ table tbody tr {
   transition: 0.3s;
 }
 table tbody tr:hover {
-  background-color: #c6f4ff;
+  background-color: #e3e3e3;
 }
 
 nav {

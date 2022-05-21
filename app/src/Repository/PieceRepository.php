@@ -40,7 +40,7 @@ class PieceRepository extends ServiceEntityRepository
      *
      * @constant int
      */
-    public const PAGINATOR_ITEMS_PER_PAGE_COMPOSER = 2;
+    public const PAGINATOR_ITEMS_PER_PAGE_COMPOSER = 10;
 
     /**
      * Items per page on User subpage.
@@ -54,14 +54,14 @@ class PieceRepository extends ServiceEntityRepository
      *
      * @constant int
      */
-    public const PAGINATOR_ITEMS_PER_PAGE_SCALE = 2;
+    public const PAGINATOR_ITEMS_PER_PAGE_SCALE = 10;
 
     /**
      * Items per page on Canon subpage.
      *
      * @constant int
      */
-    public const PAGINATOR_ITEMS_PER_PAGE_CANON = 2;
+    public const PAGINATOR_ITEMS_PER_PAGE_CANON = 10;
 
     public function __construct(ManagerRegistry $registry)
     {
@@ -186,6 +186,18 @@ class PieceRepository extends ServiceEntityRepository
 
     /**
      * @throws NonUniqueResultException
+     */
+    public function getRandomPiece(): ?Piece
+    {
+        return $this->queryAll()
+            ->orderBy('RAND()')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    /**
+     * @throws NonUniqueResultException
      * @throws NoResultException
      */
     public function countByCanon(Canon $canon): int
@@ -211,10 +223,6 @@ class PieceRepository extends ServiceEntityRepository
         return $queryBuilder ?? $this->createQueryBuilder('piece');
     }
 
-    /**
-     * @throws ORMException
-     * @throws OptimisticLockException
-     */
     public function add(Piece $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
@@ -223,10 +231,7 @@ class PieceRepository extends ServiceEntityRepository
         }
     }
 
-    /**
-     * @throws ORMException
-     * @throws OptimisticLockException
-     */
+
     public function remove(Piece $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);

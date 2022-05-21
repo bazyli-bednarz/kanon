@@ -7,6 +7,7 @@
 
 namespace App\Controller;
 
+use App\Service\PieceServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,6 +20,13 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class IndexController extends AbstractController
 {
+    private PieceServiceInterface $pieceService;
+
+    public function __construct(PieceServiceInterface $pieceService)
+    {
+        $this->pieceService = $pieceService;
+    }
+
     /**
      * Index action.
      *
@@ -34,6 +42,7 @@ class IndexController extends AbstractController
     {
         return $this->render(
             'index.html.twig',
+            ['piece' => $this->pieceService->getRandomPiece()]
         );
     }
 }

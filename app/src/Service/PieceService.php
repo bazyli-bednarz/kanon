@@ -8,7 +8,6 @@ namespace App\Service;
 use App\Entity\Piece;
 use App\Repository\PieceRepository;
 use Doctrine\ORM\NonUniqueResultException;
-use Doctrine\ORM\NoResultException;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -76,6 +75,17 @@ class PieceService implements PieceServiceInterface
         );
     }
 
+    /**
+     * Get a random piece from the database.
+     *
+     * @return Piece
+     * @throws NonUniqueResultException
+     */
+    public function getRandomPiece(): Piece
+    {
+        return $this->pieceRepository->getRandomPiece();
+    }
+
     public function save(Piece $piece): void
     {
         $this->pieceRepository->save($piece);
@@ -88,10 +98,6 @@ class PieceService implements PieceServiceInterface
 
     public function canBeDeleted(Piece $piece): bool
     {
-        try {
             return !count($piece->getCanons());
-        } catch (NoResultException|NonUniqueResultException $exception) {
-            return false;
-        }
     }
 }

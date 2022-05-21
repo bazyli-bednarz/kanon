@@ -78,12 +78,9 @@ class ScaleFixtures extends AbstractBaseFixtures
             'scale.aeolian',
             'scale.locrian',
             'scale.blues',
-            'scale.pentatonic',
             'scale.atonal',
             'scale.unknown',
             'scale.other',
-
-
         ];
 
         $this->createMany(count($scales), 'scales', function (int $i) use ($scales) {

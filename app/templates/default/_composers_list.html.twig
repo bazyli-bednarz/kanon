@@ -27,7 +27,7 @@ parameters:
              <tr>
                  <td>{{ composer.name }}</td>
                  <td>{{ composer.lastName }}</td>
-                 <td><a href="{{ url('period_show', {slug: composer.period.slug}) }}">{{ composer.period.name }}</a></td>
+                 <td><a href="{{ url('period_show', {slug: composer.period.slug}) }}">{{ composer.period.name|trans }}</a></td>
                  <td>{{ composer.birthYear }}</td>
                  <td>{{ composer.deathYear }}</td>
                  <td>{{ composer.description }}</td>

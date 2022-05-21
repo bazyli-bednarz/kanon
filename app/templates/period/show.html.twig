@@ -1,36 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.period_details'|trans({'%id%': period.id|default('')}) }}
+    {{ 'title.period_details'|trans({'%name%': period.name|trans|default('')}) }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.period_details'|trans({'%id%': period.id|default('')}) }}</h1>
+    <h1>{{ 'title.period_details'|trans({'%name%': period.name|trans|default('')}) }}</h1>
     {% if period is defined and period|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>
             <dd>#{{ period.id }}</dd>
             <dt>{{ 'label.period_name'|trans }}</dt>
-            <dd>{{ period.name }}</dd>
+            <dd>{{ period.name|trans }}</dd>
             <dt>{{ 'label.period_start_year'|trans }}</dt>
             <dd>{{ period.startYear }}</dd>
             <dt>{{ 'label.period_end_year'|trans }}</dt>
             <dd>{{ period.endYear }}</dd>
             <dt>{{ 'label.period_description'|trans }}</dt>
-            <dd>{{ period.description }}</dd>
+            <dd>{{ period.description|trans }}</dd>
             <dt>{{ 'label.created_at'|trans }}</dt>
             <dd>{{ period.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
             <dt>{{ 'label.updated_at'|trans }}</dt>
             <dd>{{ period.updatedAt|format_datetime('short', 'short', locale=app.request.locale) }}</dd>
             <dt>{{ 'label.actions'|trans }}</dt>
-            <dd>
-{#                <a href="{{ url('period_edit', {slug: period.slug}) }}" title="{{ 'action.edit'|trans }}">#}
-{#                    {{ 'action.edit'|trans }}#}
-{#                </a>#}
-{#                <a href="{{ url('period_delete', {slug: period.slug}) }}" title="{{ 'action.delete'|trans }}">#}
-{#                    {{ 'action.delete'|trans }}#}
-{#                </a>#}
-            </dd>
         </dl>
 
         {% include 'default/_composers_list.html.twig' with {

@@ -23,6 +23,13 @@ interface PieceServiceInterface
     public function getPaginatedList(int $page, array $filters): PaginationInterface;
 
     /**
+     * Get a random piece from the database.
+     *
+     * @return Piece
+     */
+    public function getRandomPiece(): Piece;
+
+    /**
      * Save entity.
      *
      * @param Piece $piece Piece entity

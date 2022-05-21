@@ -35,9 +35,9 @@ parameters:
                     <a href="{{ url('composer_show', {slug: piece.composer.slug}) }}">{{ piece.composer.name }} {{ piece.composer.lastName }}</a>
                 </td>
                 <td>
-                    <a href="{{ url('period_show', {slug: piece.composer.period.slug}) }}">{{ piece.composer.period.name }}</a>
+                    <a href="{{ url('period_show', {slug: piece.composer.period.slug}) }}">{{ piece.composer.period.name|trans }}</a>
                 </td>
-                <td><a href="{{ url('scale_show', {slug: piece.scale.slug}) }}">{{ piece.scale.name }}</a></td>
+                <td><a href="{{ url('scale_show', {slug: piece.scale.slug}) }}">{{ piece.scale.name|trans }}</a></td>
                 <td>
                     {% if piece.tags is defined and piece.tags|length %}
                         {% for tag in piece.tags %}

@@ -5,17 +5,13 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.composer_details'|trans({'%name%': composer.name|default('')}) }}</h1>
+    <h1>{{ 'title.composer_details'|trans({'%name%': composer.name|default('') ~ ' ' ~ composer.lastName|default('')}) }}</h1>
     {% if composer is defined and composer|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>
             <dd>#{{ composer.id }}</dd>
-            <dt>{{ 'label.composer_name'|trans }}</dt>
-            <dd>{{ composer.name }}</dd>
-            <dt>{{ 'label.composer_last_name'|trans }}</dt>
-            <dd>{{ composer.lastName }}</dd>
             <dt>{{ 'label.composer_period'|trans }}</dt>
-            <dd><a href="{{ url('period_show', {slug: composer.period.slug}) }}">{{ composer.period.name }}</a></dd>
+            <dd><a href="{{ url('period_show', {slug: composer.period.slug}) }}">{{ composer.period.name|trans }}</a></dd>
             <dt>{{ 'label.composer_birth_year'|trans }}</dt>
             <dd>{{ composer.birthYear }}</dd>
             <dt>{{ 'label.composer_death_year'|trans }}</dt>
