@@ -4,9 +4,45 @@
         <body>
             <trans-unit id="app_name">
                 <source>app_name</source>
-                <target>Music history canon</target>
+                <target>Music History Canon</target>
             </trans-unit>
 
+            <trans-unit id="action.add_canon">
+                <source>action.add_canon</source>
+                <target>Add canon</target>
+            </trans-unit>
+            <trans-unit id="action.add_composer">
+                <source>action.add_composer</source>
+                <target>Add composer</target>
+            </trans-unit>
+            <trans-unit id="action.add_piece">
+                <source>action.add_piece</source>
+                <target>Add piece</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_list">
+                <source>action.back_to_list</source>
+                <target>Back to the list</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_profile">
+                <source>action.back_to_profile</source>
+                <target>Back to the profile</target>
+            </trans-unit>
+            <trans-unit id="action.change_image">
+                <source>action.change_image</source>
+                <target>Change profile image</target>
+            </trans-unit>
+            <trans-unit id="action.delete">
+                <source>action.delete</source>
+                <target>Delete</target>
+            </trans-unit>
+            <trans-unit id="action.edit">
+                <source>action.edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="action.edit_user_data">
+                <source>action.edit_user_data</source>
+                <target>Edit your profile</target>
+            </trans-unit>
             <trans-unit id="action.login">
                 <source>action.login</source>
                 <target>Login</target>
@@ -19,6 +55,46 @@
                 <source>action.register</source>
                 <target>Register</target>
             </trans-unit>
+            <trans-unit id="action.reset_password">
+                <source>action.reset_password</source>
+                <target>Reset password</target>
+            </trans-unit>
+            <trans-unit id="action.save">
+                <source>action.save</source>
+                <target>Save</target>
+            </trans-unit>
+            <trans-unit id="action.send">
+                <source>action.send</source>
+                <target>Send</target>
+            </trans-unit>
+            <trans-unit id="action.sign_in">
+                <source>action.sign_in</source>
+                <target>Sign in</target>
+            </trans-unit>
+            <trans-unit id="action.sign_up">
+                <source>action.sign_up</source>
+                <target>Sign up</target>
+            </trans-unit>
+            <trans-unit id="action.start">
+                <source>action.start</source>
+                <target>Start learning</target>
+            </trans-unit>
+            <trans-unit id="action.user_canons">
+                <source>action.user_canons</source>
+                <target>User canons</target>
+            </trans-unit>
+            <trans-unit id="action.user_composers">
+                <source>action.user_composers</source>
+                <target>User composers</target>
+            </trans-unit>
+            <trans-unit id="action.user_pieces">
+                <source>action.user_pieces</source>
+                <target>User pieces</target>
+            </trans-unit>
+            <trans-unit id="action.view">
+                <source>action.view</source>
+                <target>View</target>
+            </trans-unit>
 
             <trans-unit id="label.actions">
                 <source>label.actions</source>
@@ -28,17 +104,242 @@
                 <source>label.id</source>
                 <target>Id</target>
             </trans-unit>
+            <trans-unit id="label.friends">
+                <source>label.friends</source>
+                <target>My friends</target>
+            </trans-unit>
+            <trans-unit id="label.friends_with_me">
+                <source>label.friends_with_me</source>
+                <target>Friends with me</target>
+            </trans-unit>
             <trans-unit id="label.title">
                 <source>label.title</source>
                 <target>Title</target>
+            </trans-unit>
+            <trans-unit id="label.canon_author">
+                <source>label.canon_author</source>
+                <target>Canon author</target>
+            </trans-unit>
+            <trans-unit id="label.canon_name">
+                <source>label.canon_name</source>
+                <target>Canon name</target>
+            </trans-unit>
+            <trans-unit id="label.canon_description">
+                <source>label.canon_description</source>
+                <target>Canon description</target>
+            </trans-unit>
+            <trans-unit id="label.composer">
+                <source>label.composer</source>
+                <target>Composer</target>
+            </trans-unit>
+            <trans-unit id="label.composer_author">
+                <source>label.composer_author</source>
+                <target>Added by</target>
+            </trans-unit>
+            <trans-unit id="label.composer_birth_year">
+                <source>label.composer_birth_year</source>
+                <target>Composer's birth year</target>
+            </trans-unit>
+            <trans-unit id="label.composer_death_year">
+                <source>label.composer_death_year</source>
+                <target>Composer's death year</target>
+            </trans-unit>
+            <trans-unit id="label.composer_description">
+                <source>label.composer_description</source>
+                <target>Composer description</target>
+            </trans-unit>
+            <trans-unit id="label.composer_edited_by">
+                <source>label.composer_edited_by</source>
+                <target>Edited by</target>
+            </trans-unit>
+            <trans-unit id="label.composer_last_name">
+                <source>label.composer_last_name</source>
+                <target>Composer's last name</target>
+            </trans-unit>
+            <trans-unit id="label.composer_name">
+                <source>label.composer_name</source>
+                <target>Composer's name</target>
+            </trans-unit>
+            <trans-unit id="label.composer_period">
+                <source>label.composer_period</source>
+                <target>Composer's creative period</target>
+            </trans-unit>
+            <trans-unit id="label.composer_period_name">
+                <source>label.composer_period_name</source>
+                <target>Composer's creative period</target>
             </trans-unit>
             <trans-unit id="label.content">
                 <source>label.content</source>
                 <target>Content</target>
             </trans-unit>
+            <trans-unit id="label.created_at">
+                <source>label.created_at</source>
+                <target>Created at</target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="label.password">
+                <source>label.password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="label.period">
+                <source>label.period</source>
+                <target>Period</target>
+            </trans-unit>
+            <trans-unit id="label.period_author">
+                <source>label.period_author</source>
+                <target>Added by</target>
+            </trans-unit>
+            <trans-unit id="label.period_start_year">
+                <source>label.period_start_year</source>
+                <target>Beginning year</target>
+            </trans-unit>
+            <trans-unit id="label.period_end_year">
+                <source>label.period_end_year</source>
+                <target>Ending year</target>
+            </trans-unit>
+            <trans-unit id="label.period_description">
+                <source>label.period_description</source>
+                <target>Period description</target>
+            </trans-unit>
+            <trans-unit id="label.period_edited_by">
+                <source>label.period_edited_by</source>
+                <target>Edited by</target>
+            </trans-unit>
+            <trans-unit id="label.period_name">
+                <source>label.period_name</source>
+                <target>Period's name</target>
+            </trans-unit>
+            <trans-unit id="label.piece_author">
+                <source>label.piece_author</source>
+                <target>Added by</target>
+            </trans-unit>
+            <trans-unit id="label.piece_canons">
+                <source>label.piece_canons</source>
+                <target>Canons</target>
+            </trans-unit>
+            <trans-unit id="label.piece_composer">
+                <source>label.piece_composer</source>
+                <target>Piece composer</target>
+            </trans-unit>
+            <trans-unit id="label.piece_description">
+                <source>label.piece_description</source>
+                <target>Piece description</target>
+            </trans-unit>
+            <trans-unit id="label.piece_edited_by">
+                <source>label.piece_edited_by</source>
+                <target>Edited by</target>
+            </trans-unit>
+            <trans-unit id="label.piece_link">
+                <source>label.piece_link</source>
+                <target>YouTube link (with optional timestamp)</target>
+            </trans-unit>
+            <trans-unit id="label.piece_name">
+                <source>label.piece_name</source>
+                <target>Piece name</target>
+            </trans-unit>
+            <trans-unit id="label.piece_tags">
+                <source>label.piece_tags</source>
+                <target>Tags</target>
+            </trans-unit>
+            <trans-unit id="label.piece_year">
+                <source>label.piece_year</source>
+                <target>Year of creation</target>
+            </trans-unit>
+            <trans-unit id="label.registered_at">
+                <source>label.registered_at</source>
+                <target>Registered at</target>
+            </trans-unit>
+            <trans-unit id="label.scale">
+                <source>label.scale</source>
+                <target>Scale</target>
+            </trans-unit>
+            <trans-unit id="label.scale_name">
+                <source>label.scale_name</source>
+                <target>Scale name</target>
+            </trans-unit>
             <trans-unit id="label.tags">
                 <source>label.tags</source>
                 <target>Tags</target>
+            </trans-unit>
+            <trans-unit id="label.updated_at">
+                <source>label.updated_at</source>
+                <target>Updated at</target>
+            </trans-unit>
+            <trans-unit id="label.user_canons">
+                <source>label.user_canons</source>
+                <target>User canons</target>
+            </trans-unit>
+            <trans-unit id="label.user_composers">
+                <source>label.user_composers</source>
+                <target>User composers</target>
+            </trans-unit>
+            <trans-unit id="label.user_experience">
+                <source>label.user_experience</source>
+                <target>Experience</target>
+            </trans-unit>
+            <trans-unit id="label.user_image">
+                <source>label.user_image</source>
+                <target>User profile image</target>
+            </trans-unit>
+            <trans-unit id="label.user_level">
+                <source>label.user_level</source>
+                <target>Level</target>
+            </trans-unit>
+            <trans-unit id="label.user_name">
+                <source>label.user_name</source>
+                <target>User name</target>
+            </trans-unit>
+            <trans-unit id="label.user_pieces">
+                <source>label.user_pieces</source>
+                <target>User pieces</target>
+            </trans-unit>
+            <trans-unit id="label.user_place">
+                <source>label.user_place</source>
+                <target>Place</target>
+            </trans-unit>
+            <trans-unit id="label.user_roles">
+                <source>label.user_roles</source>
+                <target>Role</target>
+            </trans-unit>
+
+            <trans-unit id="mail.confirm">
+                <source>mail.confirm</source>
+                <target>Confirm mail</target>
+            </trans-unit>
+            <trans-unit id="mail.confirm_mail_please">
+                <source>mail.confirm_mail_please</source>
+                <target>To be able to use Music History Canon without any restrictions, please confirm your email by clicking the link below:</target>
+            </trans-unit>
+            <trans-unit id="mail.end_message">
+                <source>mail.end_message</source>
+                <target>See you soon on Music History Canon!</target>
+            </trans-unit>
+            <trans-unit id="mail.hello">
+                <source>mail.hello</source>
+                <target>Welcome to Music History Canon!</target>
+            </trans-unit>
+            <trans-unit id="mail.reset_mail">
+                <source>mail.reset_mail</source>
+                <target>A request to reset your password at Music History Canon was sent. If you want to reset the password, please click the link below.</target>
+            </trans-unit>
+            <trans-unit id="mail.reset_password">
+                <source>mail.reset_password</source>
+                <target>Reset your password</target>
+            </trans-unit>
+            <trans-unit id="mail.subject">
+                <source>mail.subject</source>
+                <target>welcome!</target>
+            </trans-unit>
+            <trans-unit id="mail.subject_password_reset">
+                <source>mail.subject_password_reset</source>
+                <target>Reset your password - Music History Canon!</target>
+            </trans-unit>
+            <trans-unit id="mail.mail_will_expire_in">
+                <source>mail.mail_will_expire_in</source>
+                <target>Link in this mail will expire in </target>
             </trans-unit>
 
             <trans-unit id="menu.home">
@@ -74,17 +375,259 @@
                 <target>Flashcards</target>
             </trans-unit>
 
+            <trans-unit id="message.added_to_friends">
+                <source>message.added_to_friends</source>
+                <target>Added to friends</target>
+            </trans-unit>
+            <trans-unit id="message.already_have_account">
+                <source>message.already_have_account</source>
+                <target>You already have an account?</target>
+            </trans-unit>
+            <trans-unit id="message.created_successfully">
+                <source>message.created_successfully</source>
+                <target>Created successfully!</target>
+            </trans-unit>
+            <trans-unit id="message.canon_has_pieces">
+                <source>message.canon_has_pieces</source>
+                <target>This canon contains pieces and can't be deleted!</target>
+            </trans-unit>
+            <trans-unit id="message.canon_is_empty">
+                <source>message.canon_is_empty</source>
+                <target>This canon is empty.</target>
+            </trans-unit>
+            <trans-unit id="message.choose_canon">
+                <source>message.choose_canon</source>
+                <target>Choose a canon!</target>
+            </trans-unit>
+            <trans-unit id="message.composer_has_pieces">
+                <source>message.composer_has_pieces</source>
+                <target>This composer has pieces and can't be deleted!</target>
+            </trans-unit>
+            <trans-unit id="message.deleted_successfully">
+                <source>message.deleted_successfully</source>
+                <target>Deleted successfully!</target>
+            </trans-unit>
+            <trans-unit id="message.edited_invalid_old_password">
+                <source>message.edited_invalid_old_password</source>
+                <target>Invalid old password</target>
+            </trans-unit>
+            <trans-unit id="message.edited_successfully">
+                <source>message.edited_successfully</source>
+                <target>Edited successfully!</target>
+            </trans-unit>
+            <trans-unit id="message.email_verified">
+                <source>message.email_verified</source>
+                <target>Email verified successfully!</target>
+            </trans-unit>
             <trans-unit id="message.empty_list">
                 <source>message.empty_list</source>
                 <target>List is empty.</target>
+            </trans-unit>
+            <trans-unit id="message.enter_your_email">
+                <source>message.enter_your_email</source>
+                <target>Please enter your email</target>
+            </trans-unit>
+            <trans-unit id="message.forgot_password">
+                <source>message.forgot_password</source>
+                <target>Forgot password?</target>
+            </trans-unit>
+            <trans-unit id="message.form_error">
+                <source>message.form_error</source>
+                <target>Invalid data!</target>
+            </trans-unit>
+            <trans-unit id="message.item_not_found">
+                <source>message.item_not_found</source>
+                <target>Item not found</target>
+            </trans-unit>
+            <trans-unit id="message.logged_in_as">
+                <source>message.logged_in_as</source>
+                <target>You are logged in as</target>
+            </trans-unit>
+            <trans-unit id="message.logged_in_description">
+                <source>message.logged_in_description</source>
+                <target>Do you want to login to another account?</target>
+            </trans-unit>
+            <trans-unit id="message.password_changed">
+                <source>message.password_changed</source>
+                <target>Password has been changed successfully</target>
+            </trans-unit>
+            <trans-unit id="message.period_has_pieces">
+                <source>message.period_has_pieces</source>
+                <target>This period has pieces and can't be deleted!</target>
+            </trans-unit>
+            <trans-unit id="message.piece_in_canons">
+                <source>message.piece_in_canons</source>
+                <target>This piece is used in some canons and can't be deleted!</target>
             </trans-unit>
             <trans-unit id="message.record_not_found">
                 <source>message.record_not_found</source>
                 <target>Record not found.</target>
             </trans-unit>
+            <trans-unit id="message.registered_successfully">
+                <source>message.registered_successfully</source>
+                <target>Registered successfully</target>
+            </trans-unit>
+            <trans-unit id="message.removed_from_friends">
+                <source>message.removed_from_friends</source>
+                <target>Removed from friends</target>
+            </trans-unit>
+            <trans-unit id="message.verify_email_first">
+                <source>message.verify_email_first</source>
+                <target>Verify your email first.</target>
+            </trans-unit>
+
+            <trans-unit id="role.admin">
+                <source>role.admin</source>
+                <target>Admin</target>
+            </trans-unit>
+            <trans-unit id="role.user">
+                <source>role.user</source>
+                <target>User</target>
+            </trans-unit>
+
+            <trans-unit id="title.canon_create">
+                <source>title.canon_create</source>
+                <target>Create new canon</target>
+            </trans-unit>
+            <trans-unit id="title.canon_delete">
+                <source>title.canon_delete</source>
+                <target>Delete canon %name%?</target>
+            </trans-unit>
+            <trans-unit id="title.canon_details">
+                <source>title.canon_details</source>
+                <target>%name% - details</target>
+            </trans-unit>
+            <trans-unit id="title.canon_edit">
+                <source>title.canon_edit</source>
+                <target>Edit canon %name%</target>
+            </trans-unit>
+            <trans-unit id="title.canon_list">
+                <source>title.canon_list</source>
+                <target>List of canons</target>
+            </trans-unit>
+            <trans-unit id="title.composer_create">
+                <source>title.composer_create</source>
+                <target>Create new composer</target>
+            </trans-unit>
+            <trans-unit id="title.composer_delete">
+                <source>title.composer_delete</source>
+                <target>Delete composer %name%?</target>
+            </trans-unit>
+            <trans-unit id="title.composer_details">
+                <source>title.composer_details</source>
+                <target>%name% - details</target>
+            </trans-unit>
+            <trans-unit id="title.composer_edit">
+                <source>title.composer_edit</source>
+                <target>Edit composer %name%</target>
+            </trans-unit>
+            <trans-unit id="title.composer_list">
+                <source>title.composer_list</source>
+                <target>List of composers</target>
+            </trans-unit>
             <trans-unit id="title.index">
                 <source>title.index</source>
                 <target>Home page</target>
+            </trans-unit>
+            <trans-unit id="title.flashcards">
+                <source>title.flashcards</source>
+                <target>Flashcards</target>
+            </trans-unit>
+            <trans-unit id="title.flashcards_learn">
+                <source>title.flashcards_learn</source>
+                <target>Flashcards - %name%</target>
+            </trans-unit>
+            <trans-unit id="title.period_list">
+                <source>title.period_list</source>
+                <target>List of period</target>
+            </trans-unit>
+            <trans-unit id="title.period_details">
+                <source>title.period_details</source>
+                <target>%name% - details</target>
+            </trans-unit>
+            <trans-unit id="title.piece_canons">
+                <source>title.piece_canons</source>
+                <target>Piece canons</target>
+            </trans-unit>
+            <trans-unit id="title.piece_composer">
+                <source>title.piece_composer</source>
+                <target>Piece composer</target>
+            </trans-unit>
+            <trans-unit id="title.piece_create">
+                <source>title.piece_create</source>
+                <target>Create new piece</target>
+            </trans-unit>
+            <trans-unit id="title.piece_delete">
+                <source>title.piece_delete</source>
+                <target>Delete piece %name%?</target>
+            </trans-unit>
+            <trans-unit id="title.piece_details">
+                <source>title.piece_details</source>
+                <target>%name% - details</target>
+            </trans-unit>
+            <trans-unit id="title.piece_edit">
+                <source>title.piece_edit</source>
+                <target>Edit piece %name%</target>
+            </trans-unit>
+            <trans-unit id="title.piece_list">
+                <source>title.piece_list</source>
+                <target>List of pieces</target>
+            </trans-unit>
+            <trans-unit id="title.piece_tags">
+                <source>title.piece_tags</source>
+                <target>Piece tags</target>
+            </trans-unit>
+            <trans-unit id="title.reset_password">
+                <source>title.reset_password</source>
+                <target>Reset your password</target>
+            </trans-unit>
+            <trans-unit id="title.reset_password_email_sent">
+                <source>title.reset_password_email_sent</source>
+                <target>Reset password email was sent</target>
+            </trans-unit>
+            <trans-unit id="title.register">
+                <source>title.register</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="title.scale_details">
+                <source>title.scale_details</source>
+                <target>%name% - details</target>
+            </trans-unit>
+            <trans-unit id="title.scale_list">
+                <source>title.scale_list</source>
+                <target>List of scales</target>
+            </trans-unit>
+            <trans-unit id="title.sign_in">
+                <source>title.sign_in</source>
+                <target>Sign in</target>
+            </trans-unit>
+            <trans-unit id="title.user_canons">
+                <source>title.user_canons</source>
+                <target>Canons of user %name%</target>
+            </trans-unit>
+            <trans-unit id="title.user_composers">
+                <source>title.user_composers</source>
+                <target>Composers added by %name%</target>
+            </trans-unit>
+            <trans-unit id="title.user_details">
+                <source>title.user_details</source>
+                <target>%name% - details</target>
+            </trans-unit>
+            <trans-unit id="title.user_edit">
+                <source>title.user_edit</source>
+                <target>%name% - edit data</target>
+            </trans-unit>
+            <trans-unit id="title.user_list">
+                <source>title.user_list</source>
+                <target>Leaderboard</target>
+            </trans-unit>
+            <trans-unit id="title.user_pieces">
+                <source>title.user_pieces</source>
+                <target>Pieces added by %name%</target>
+            </trans-unit>
+            <trans-unit id="title.user_profile_image">
+                <source>title.user_profile_image</source>
+                <target>Change profile image</target>
             </trans-unit>
         </body>
     </file>

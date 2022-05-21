@@ -11,10 +11,10 @@
     {% if app.user %}
         <div class="mb-3">
             <h1>
-                {{ 'message_logged_in_as'|trans }} {{ app.user.name }}
+                {{ 'message.logged_in_as'|trans }} {{ app.user.name }}
             </h1>
-            <p>{{ 'message_logged_in_description'|trans }}</p>
-            <a href="{{ path('app_logout') }}">{{ 'action_logout'|trans }}</a>
+            <p>{{ 'message.logged_in_description'|trans }}</p>
+            <a href="{{ path('app_logout') }}">{{ 'action.logout'|trans }}</a>
         </div>
     {% else %}
 
