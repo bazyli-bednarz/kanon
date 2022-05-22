@@ -48,14 +48,8 @@ parameters:
 
                 <td>
                     <a href="{{ url('user_show', {slug: user.slug}) }}" title="{{ 'action.view'|trans }}">
-                        {{ 'action.view'|trans }}
+                        <i class="fa-solid fa-eye"></i>
                     </a>
-                    {#                        <a href="{{ url('user_edit', {slug: user.slug}) }}" title="{{ 'action.edit'|trans }}">#}
-                    {#                            {{ 'action.edit'|trans }}#}
-                    {#                        </a>#}
-                    {#                        <a href="{{ url('user_delete', {slug: user.slug}) }}" title="{{ 'action.delete'|trans }}">#}
-                    {#                            {{ 'action.delete'|trans }}#}
-                    {#                        </a>#}
                 </td>
             </tr>
         {% endfor %}

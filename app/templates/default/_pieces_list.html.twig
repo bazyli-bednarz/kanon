@@ -51,16 +51,16 @@ parameters:
 
                 <td>
                     <a href="{{ url('piece_show', {slug: piece.slug}) }}" title="{{ 'action.view'|trans }}">
-                        {{ 'action.view'|trans }}
+                        <i class="fa-solid fa-eye"></i>
                     </a>
                     {% if is_granted('EDIT', piece) %}
                         <a href="{{ url('piece_edit', {slug: piece.slug}) }}" title="{{ 'action.edit'|trans }}">
-                            {{ 'action.edit'|trans }}
+                            <i class="fa-solid fa-pen-to-square"></i>
                         </a>
                     {% endif %}
                     {% if is_granted('EDIT', piece) %}
                         <a href="{{ url('piece_delete', {slug: piece.slug}) }}" title="{{ 'action.delete'|trans }}">
-                            {{ 'action.delete'|trans }}
+                            <i class="fa-solid fa-trash-can"></i>
                         </a>
                     {% endif %}
                 </td>

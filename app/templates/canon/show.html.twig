@@ -24,12 +24,12 @@
             <dd>
                 {% if is_granted('EDIT', canon) %}
                     <a href="{{ url('canon_edit', {slug: canon.slug}) }}" title="{{ 'action.edit'|trans }}">
-                        {{ 'action.edit'|trans }}
+                        <i class="fa-solid fa-pen-to-square"></i>
                     </a>
                 {% endif %}
                 {% if is_granted('DELETE', canon) %}
                     <a href="{{ url('canon_delete', {slug: canon.slug}) }}" title="{{ 'action.delete'|trans }}">
-                        {{ 'action.delete'|trans }}
+                        <i class="fa-solid fa-trash-can"></i>
                     </a>
                 {% endif %}
             </dd>

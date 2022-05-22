@@ -5,13 +5,101 @@
 }
 
 .wrapper {
+  min-height: 100vh;
   max-width: 1920px;
   margin: auto;
+  overflow: hidden;
 }
 
 .container-fluid {
   padding: 0;
   margin: 0;
+}
+
+.btn-primary {
+  background: $main-gradient-blue-45deg;
+}
+
+table {
+  display: block;
+
+  @media all and (max-width: 900px) {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+
+  thead {
+    background: $main-gradient-blue-180deg;
+
+    th {
+      color: $color-white;
+      vertical-align: middle;
+
+      a {
+        color: $color-white;
+        display: inline-block;
+        text-decoration: none;
+        transition: 0.3s;
+        position: relative;
+        &:before {
+          position: absolute;
+          content: '';
+          display: block;
+          bottom: -0.2rem;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: $color-white;
+          opacity: 0;
+          transition: opacity 0.3s;
+          border-radius: 100vh;
+        }
+        &:hover {
+          color: $color-white;
+          &:before {
+            opacity: 1;
+          }
+        }
+
+        &:after {
+          display: inline-block;
+          content: '\00a0\f338';
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          font-family: "Font Awesome 5 Free";
+          vertical-align: middle;
+          line-height: initial;
+          font-weight: 900;
+
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td:last-of-type {
+        white-space: nowrap;
+        a {
+          text-decoration: none;
+        }
+
+        i {
+          &.fa-eye {
+            color: $color-main;
+          }
+          &.fa-pen-to-square {
+            color: $color-edit;
+          }
+          &.fa-trash-can {
+            color: $color-delete;
+          }
+        }
+      }
+    }
+  }
 }
 
 // Selectize UI fix
@@ -23,9 +111,11 @@
 .selectize-control.multi {
   border: none;
 }
+
 .selectize-control.single {
   .selectize-input {
     border: none;
+
     &:after {
       content: url('../images/arrow.svg');
       border: none;
