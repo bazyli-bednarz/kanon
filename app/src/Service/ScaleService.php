@@ -86,6 +86,11 @@ class ScaleService implements ScaleServiceInterface
         $this->scaleRepository->delete($scale);
     }
 
+    public function findOneBySlug(string $slug): ?Scale
+    {
+        return $this->scaleRepository->findOneBySlug($slug);
+    }
+
     public function canBeDeleted(Scale $scale): bool
     {
         try {

@@ -86,6 +86,11 @@ class PeriodService implements PeriodServiceInterface
         $this->periodRepository->delete($period);
     }
 
+    public function findOneBySlug(string $slug): ?Period
+    {
+        return $this->periodRepository->findOneBySlug($slug);
+    }
+
     public function canBeDeleted(Period $period): bool
     {
         try {

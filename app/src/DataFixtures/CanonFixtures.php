@@ -15,11 +15,17 @@ class CanonFixtures extends AbstractBaseFixtures implements DependentFixtureInte
         if (null === $this->manager || null === $this->faker) {
             return;
         }
+        $sampleCanons = [
+            ['Twórczość Fryderyka Chopina', 'Materiały do przygotowania na konkurs wiedzy o Fryderyku Chopinie.'],
+            ['Utwory XX wieku', ''],
+            ['Klasycyzm klasa V', 'Lista utworów z kanonu historii muzyki dla uczniów klasy V'],
+            ['Kanon końcowy', 'Kanon z utworami wymaganymi na egzamin dyplomowy z historii muzyki'],
+        ];
 
-        $this->createMany(10, 'canons', function (int $i) {
+        $this->createMany(count($sampleCanons), 'canons', function (int $i) use ($sampleCanons) {
             $canon = new Canon();
-            $canon->setName($this->faker->word() . ' ' . $this->faker->emoji());
-            $canon->setDescription($this->faker->realText());
+            $canon->setName($sampleCanons[$i][0]);
+            $canon->setDescription($sampleCanons[$i][1]);
             $canon->setCreatedAt(
                 DateTimeImmutable::createFromMutable(
                     $this->faker->dateTimeBetween('-100 days', '-1 days')

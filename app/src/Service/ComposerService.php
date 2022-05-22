@@ -86,6 +86,11 @@ class ComposerService implements ComposerServiceInterface
         $this->composerRepository->delete($composer);
     }
 
+    public function findOneBySlug(string $slug): ?Composer
+    {
+        return $this->composerRepository->findOneBySlug($slug);
+    }
+
     public function canBeDeleted(Composer $composer): bool
     {
         try {

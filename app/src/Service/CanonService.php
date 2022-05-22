@@ -97,6 +97,11 @@ class CanonService implements CanonServiceInterface
         $this->canonRepository->delete($canon);
     }
 
+    public function findOneBySlug(string $slug): ?Canon
+    {
+        return $this->canonRepository->findOneBySlug($slug);
+    }
+
     public function canBeDeleted(Canon $canon): bool
     {
         try {

@@ -6,6 +6,8 @@
 namespace App\DataFixtures;
 
 use App\Entity\Composer;
+use App\Repository\PeriodRepository;
+use App\Service\PeriodService;
 use DateTimeImmutable;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
@@ -16,6 +18,13 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
  */
 class ComposerFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
+    private PeriodService $periodService;
+
+    public function __construct(PeriodService $periodService)
+    {
+        $this->periodService = $periodService;
+    }
+
     /**
      * Load data.
      *
@@ -24,14 +33,26 @@ class ComposerFixtures extends AbstractBaseFixtures implements DependentFixtureI
      */
     public function loadData(): void
     {
-        $this->createMany(20, 'composers', function (int $i) {
+        $sampleComposer = [
+            ['Fryderyk', 'Chopin', 1810, 1849, 'Jeden z najwybitniejszych kompozytorów epoki romantyzmu i najważniejszy kompozytor w historii Polski. Wybitny pianista i kompozytor.', 'period-romantic'],
+            ['Ludwig', 'van Beethoven', 1770, 1827, 'Jest uznawany na jednego z najwybitniejszych twórców wszechczasów. Tworzył muzykę nawet mimo postępującej głuchoty. Rozwinął formę sonatową i poszerzył obsadę orkiestry symfonicznej.', 'period-early-romantic'],
+            ['Wolfgang Amadeus', 'Mozart', 1756, 1791, 'Austriacki kompozytor i wirtuoz. Był najwybitniejszym przedstawicielem epoki klasycyzmu.', 'period-classical'],
+            ['Darius', 'Milhaud', 1892, 1974, 'Francuski kompozytor. Skomponował ponad 400 utworów, w tym opery, symfonie, balety i pieśni.', 'period-contemporary'],
+            ['Gérard', 'Grisey', 1892, 1974, 'Francuski kompozytor i najwybitniejszy przedstawiciel techniki spektralizmu.', 'period-contemporary'],
+            ['Igor', 'Stravinsky', 1892, 1974, 'Rosyjski kompozytor, pianista i dyrygent. Dał podwaliny dla modernizmu i współczesnej muzyki klasycznej.', 'period-contemporary'],
+            ['Johann Sebastian', 'Bach', 1685, 1750, 'Niemiecki kompozytor i organista, twórca najsłynniejszych fug, mszy, oratoriów i kantat. Jedna z najważniejszych postaci w historii muzyki.', 'period-baroque'],
+            ['Joseph', 'Haydn', 1685, 1750, 'Austriacki kompozytor, był jedną z osób, które zdefiniowały główne formy klasycyzmu: sonatę i symfonię.', 'period-classical'],
+            ['Olivier', 'Messiaen', 1908, 1992, 'Francuski kompozytor i organista. Stworzył 7 własnych skali harmonicznych, które nazwał modi.', 'period-contemporary'],
+        ];
+
+
+        $this->createMany(count($sampleComposer), 'composers', function (int $i) use ($sampleComposer) {
             $composer = new Composer();
-            $composer->setName($this->faker->firstName());
-            $composer->setLastName($this->faker->lastName());
-            $composer->setDescription($this->faker->realText());
-            $year = intval($this->faker->year('-100 years'));
-            $composer->setBirthYear($year);
-            $composer->setDeathYear($year + $this->faker->numberBetween(20,100));
+            $composer->setName($sampleComposer[$i][0]);
+            $composer->setLastName($sampleComposer[$i][1]);
+            $composer->setBirthYear($sampleComposer[$i][2]);
+            $composer->setDeathYear($sampleComposer[$i][3]);
+            $composer->setDescription($sampleComposer[$i][4]);
 
             $composer->setCreatedAt(
                 DateTimeImmutable::createFromMutable(
@@ -44,8 +65,7 @@ class ComposerFixtures extends AbstractBaseFixtures implements DependentFixtureI
                 )
             );
 
-            $period = $this->getRandomReference('periods');
-            $composer->setPeriod($period);
+            $composer->setPeriod($this->periodService->findOneBySlug($sampleComposer[$i][5]));
 
             $author = $this->getRandomReference('users');
             $composer->setAuthor($author);

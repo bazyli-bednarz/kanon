@@ -6,11 +6,32 @@ use App\Entity\Composer;
 use App\Entity\Piece;
 use App\Entity\Scale;
 use App\Entity\User;
+use App\Repository\ComposerRepository;
+use App\Service\CanonServiceInterface;
+use App\Service\ComposerServiceInterface;
+use App\Service\ScaleServiceInterface;
+use App\Service\TagServiceInterface;
 use DateTimeImmutable;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 class PieceFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
+
+    private ComposerServiceInterface $composerService;
+
+    private ScaleServiceInterface $scaleService;
+
+    private TagServiceInterface $tagService;
+
+    private CanonServiceInterface $canonService;
+
+    public function __construct(ComposerServiceInterface $composerService, ScaleServiceInterface $scaleService, TagServiceInterface $tagService, CanonServiceInterface $canonService)
+    {
+        $this->composerService = $composerService;
+        $this->scaleService = $scaleService;
+        $this->tagService = $tagService;
+        $this->canonService = $canonService;
+    }
 
     public function loadData(): void
     {
@@ -18,13 +39,39 @@ class PieceFixtures extends AbstractBaseFixtures implements DependentFixtureInte
             return;
         }
 
-        $this->createMany(100, 'pieces', function (int $i) {
+
+        $samplePieces = [
+            ['Preludium Deszczowe', 'Jedno z najpiękniejszych preludiów Chopina.', 1839, 'bJmO1g1jlKQ?t=1', 'fryderyk-chopin', 'scale-d-flat-major', ['preludium', 'fortepian'], ['twórczosc-fryderyka-chopina', 'kanon-koncowy']],
+            ['Koncert fortepianowy f-moll', 'Jest to jeden z dwóch koncertów Chopina. Wbrew numeracji opusowej to właśnie II Koncert fortepianowy f-moll op. 21 napisany został jako pierwszy.', 1829, 'rawF-OsPE70?t=240', 'fryderyk-chopin', 'scale-f-minor', ['koncert', 'fortepian'], ['twórczosc-fryderyka-chopina', 'kanon-koncowy']],
+            ['Etiuda Rewolucyjna', 'Dzieło powstało, kiedy kompozytor dowiedział się o upadku powstania listopadowego.', 1831, 'X0UJEx9S1bU?t=3', 'fryderyk-chopin', 'scale-c-minor', ['etiuda', 'fortepian'], ['twórczosc-fryderyka-chopina', 'kanon-koncowy']],
+            ['Nokturn op. 9 no. 2', 'Najbardziej znany nokturn Chopina, jest w metrum 12/8.', 1830, '9E6b3swbnWg?t=1', 'fryderyk-chopin', 'scale-e-flat-major', ['nokturn', 'fortepian'], ['twórczosc-fryderyka-chopina', 'kanon-koncowy']],
+
+            ['Wariacje golbergowskie', 'Utwór napisany dla hrabiego Hermana Karla von Keyserlinga i wykonywany przez Johanna Gottlieba Goldberga, hrabiego i ucznia Bacha, od którego wariacje wzięły swoją nazwę.', 1741, '15ezpwCHtJs?t=0', 'johann-sebastian-bach', 'scale-other', ['klawesyn', 'wariacje', 'fuga', 'fortepian'], ['kanon-koncowy']],
+            ['Toccata i fuga d-moll', 'Najbardziej znany utwór organowy Bacha.', 1704, 'SGKfqSJbeAg?t=20', 'johann-sebastian-bach', 'scale-d-minor', ['organy', 'toccata', 'fuga'], ['kanon-koncowy']],
+
+            ['Symfonia no. 45 Pożegnalna', 'Napisana jako aluzja do patrona Haydna, księcia Nicholasa Esterhazego, który zwlekał z zapłatą dla orkiestry. W ostatniej części utworu muzycy opuszczają po kolei scenę, aż w końcu muzyka ucicha i na scenie nie zostaje nikt.', 1772, 'KXctarOxRz8?t=1', 'joseph-haydn', 'scale-f-sharp-minor', ['symfonia'], ['klasycyzm-klasa-v', 'kanon-koncowy']],
+            ['Sonata D-dur', 'Utwór świetnie ukazuje formę sonatową.', 1780, '0FqCqwaoXVg?t=1', 'joseph-haydn', 'scale-d-major', ['sonata', 'fortepian'], ['klasycyzm-klasa-v', 'kanon-koncowy']],
+            ['Uwertura koncertowa “Coriolan” op. 62', 'Muzyczna ilustracja dramatu austriackiego poety Heinricha von Collina.', 1807, 'D1PKSoi9lNk?t=7', 'ludwig-van-beethoven', 'scale-c-minor', ['uwertura'], ['klasycyzm-klasa-v', 'kanon-koncowy']],
+            ['Sonata fortepianowa C-dur op. 53 “Waldsteinowska”', 'Należy do kluczowych dzieł środkowego, "heroicznego" okresu twórczości kompozytora.', 1804, 'TDagcm5Nl4s?t=15', 'ludwig-van-beethoven', 'scale-c-major', ['sonata', 'fortepian'], ['klasycyzm-klasa-v', 'kanon-koncowy']],
+            ['Sonata Ksieżycowa, cz. 3', 'Jedna z najsłynniejszych sonat w historii muzyki, była zadedykowana ukochanej kompozytora, hrabinie Giuletcie Guicciardi. Została stworzona, kiedy kompozytor zaczął już tracić słuch.', 1801, 'BV7RkEL6oRc?t=4', 'ludwig-van-beethoven', 'scale-c-sharp-minor', ['sonata', 'fortepian'], ['klasycyzm-klasa-v', 'kanon-koncowy']],
+            ['Requiem d-moll KV 626', 'Jest jednym z największych utworów sakralnych Mozarta, a zarazem jego ostatnią, niedokończoną kompozycją.', 1791, 'O20HzXEX_xU?t=35', 'wolfgang-amadeus-mozart', 'scale-d-minor', ['requiem'], ['klasycyzm-klasa-v', 'kanon-koncowy']],
+            ['Symfonia Wielka no. 40, KV 550', 'Jedna z dwóch symfonii molowych Mozarta. Jej główny motyw pojawia się w XXI koncercie fortepianowym C-dur.', 1788, 'JTc1mDieQI8?t=5', 'wolfgang-amadeus-mozart', 'scale-g-minor', ['symfonia'], ['klasycyzm-klasa-v', 'kanon-koncowy']],
+            ['Symfonia Praska no. 38', 'Jedna z trzech wielkich symfonii Mozarta. Kompozytor napisał ją po pobycie w stolicy Czech.', 1787, 'ot3g41rHFqU?t=1', 'wolfgang-amadeus-mozart', 'scale-d-major', ['symfonia'], ['klasycyzm-klasa-v', 'kanon-koncowy']],
+
+            ['Balet “Byk na dachu“', 'Balet zainspirowany muzyką Brazylii. Utwór przechodzi przez wszystkie 12 tonacji.', 1920, 'VZLfIKYg0Pg?t=1', 'darius-milhaud', 'scale-other', ['balet'], ['utwory-xx-wieku', 'kanon-koncowy']],
+            ['Partiels', 'Utwór wykorzystujący technikę spektralizmu - grania przez muzyków szeregu alikwotów dźwięku granego w basie.', 1975, '1v7onrjN6RE', 'gerard-grisey', 'scale-other', ['spektralizm'], ['utwory-xx-wieku', 'kanon-koncowy']],
+            ['Święto Wiosny', 'Dzieło to jest wywarło ogromny wpływ na muzykę XX wieku. Tematem przewodnim tego baletu jest pogańskie święto, podczas którego pogrążeni w transie kultyści składają ofiarę z człowieka. Utwór podczas premiery spowodował ogromny skandal.', 1913, 'rP42C-4zL3w?t=2', 'igor-stravinsky', 'scale-other', ['balet', 'modernizm', 'witalizm'], ['utwory-xx-wieku', 'kanon-koncowy']],
+            ['Pietruszka', 'Nowatorski balet, opowiadający historię marionetki o imieniu Pietruszka.', 1911, 'jeSC0vtdn3g?t=1', 'igor-stravinsky', 'scale-other', ['balet', 'pietruszka'], ['utwory-xx-wieku', 'kanon-koncowy']],
+            ['Quatuor pour la fin du temps', 'Jego przetłumaczona nazwa oznacza Kwartet dla Końca Świata. Jest napisany na klarnet, skrzypce, wiolonczelę i fortepian.', 1941, 'jXxmvsllhCg?t=61', 'olivier-messiaen', 'scale-other', ['kwartet-smyczkowy'], ['utwory-xx-wieku', 'kanon-koncowy']],
+            ['Turangalîla-Symphonie', 'Inspiracją dla tej symfonii był mit o Tristanie i Izoldzie. W utworze występuje partia grana na falach Martenota.', 1949, '9r4eeMZBInY?t=39', 'olivier-messiaen', 'scale-other', ['symfonia'], ['utwory-xx-wieku', 'kanon-koncowy']],
+        ];
+
+        $this->createMany(count($samplePieces), 'pieces', function (int $i) use ($samplePieces) {
             $piece = new Piece();
-            $piece->setName($this->faker->sentence());
-            $piece->setDescription($this->faker->realText());
-            $piece->setYear(intval($this->faker->year('-100 years')));
-            $link = substr($this->faker->youtubeShortUri(),17).'?start='.$this->faker->randomNumber(3);
-            $piece->setLink($link);
+            $piece->setName($samplePieces[$i][0]);
+            $piece->setDescription($samplePieces[$i][1]);
+            $piece->setYear($samplePieces[$i][2]);
+            $piece->setLink($samplePieces[$i][3]);
             $piece->setCreatedAt(
                 DateTimeImmutable::createFromMutable(
                     $this->faker->dateTimeBetween('-100 days', '-1 days')
@@ -35,34 +82,30 @@ class PieceFixtures extends AbstractBaseFixtures implements DependentFixtureInte
                     $this->faker->dateTimeBetween('-100 days', '-1 days')
                 )
             );
-            /** @var Composer $composer */
-            $composer = $this->getRandomReference('composers');
-            $piece->setComposer($composer);
+            $piece->setComposer($this->composerService->findOneBySlug($samplePieces[$i][4]));
 
-            /** @var Scale $scale */
-            $scale = $this->getRandomReference('scales');
-            $piece->setScale($scale);
+            $piece->setScale($this->scaleService->findOneBySlug($samplePieces[$i][5]));
 
-            $tags = $this->getRandomReferences('tags', $this->faker->numberBetween(0,3));
-            $tagsCount = count($tags);
-            if ($tagsCount) {
-                for ($i = 1; $i <= $tagsCount; $i++) {
-                    $piece->addTag($tags[$i-1]);
-                }
-            }
-
-            $canons = $this->getRandomReferences('canons', $this->faker->numberBetween(0,3));
-            $canonsCount = count($canons);
-            if ($canonsCount) {
-                for ($i = 1; $i <= $canonsCount; $i++) {
-                    $piece->addCanon($canons[$i-1]);
-                }
-            }
             /** @var User $author */
             $author = $this->getRandomReference('users');
             $piece->setAuthor($author);
             $piece->setEditedBy($author);
 
+            $tagsCount = count($samplePieces[$i][6]);
+            if ($tagsCount) {
+                for ($j = 1; $j <= $tagsCount; $j++) {
+                    $tag = $this->tagService->findOneBySlug($samplePieces[$i][6][$j - 1]);
+                    $piece->addTag($tag);
+                }
+            }
+
+            $canonsCount = count($samplePieces[$i][7]);
+            if ($canonsCount) {
+                for ($j = 1; $j <= $canonsCount; $j++) {
+                    $canon = $this->canonService->findOneBySlug($samplePieces[$i][7][$j - 1]);
+                    $piece->addCanon($canon);
+                }
+            }
             return $piece;
         });
 
@@ -82,78 +125,5 @@ class PieceFixtures extends AbstractBaseFixtures implements DependentFixtureInte
         return [ComposerFixtures::class, ScaleFixtures::class, TagFixtures::class, CanonFixtures::class, UserFixtures::class];
     }
 
-//        $piece = new Piece();
-//        $piece->setName('Preludium Deszczowe');
-//        $piece->setDescription('Jedno z najpiękniejszych preludiów Chopina.');
-//        $piece->setYear(1839);
-//        $piece->setLink('https://youtu.be/bJmO1g1jlKQ?t=1');
-//        $piece->setCreatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//        $piece->setUpdatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//
-//        $this->manager->persist($piece);
-//
-//
-//        $piece2 = new Piece();
-//        $piece2->setName('Etiuda Rewolucyjna');
-//        $piece2->setDescription('Dzieło powstało, kiedy kompozytor dowiedział się o upadku powstania listopadowego.');
-//        $piece2->setYear(1831);
-//        $piece2->setLink('https://youtu.be/X0UJEx9S1bU?t=3');
-//        $piece2->setCreatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//        $piece2->setUpdatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//
-//        $this->manager->persist($piece2);
-//
-//        $piece3 = new Piece();
-//        $piece3->setName('Koncert fortepianowy');
-//        $piece3->setDescription('Jest to jeden z dwóch koncertów Chopina. Wbrew numeracji opusowej to właśnie II Koncert fortepianowy f-moll op. 21 napisany został jako pierwszy.');
-//        $piece3->setYear(1829);
-//        $piece3->setLink('https://youtu.be/rawF-OsPE70?t=240');
-//        $piece3->setCreatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//        $piece3->setUpdatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//
-//        $this->manager->persist($piece3);
-//
-//        $piece4 = new Piece();
-//        $piece4->setName('Nokturn op. 9 no. 2');
-//        $piece4->setDescription('Najbardziej znany nokturn Chopina, jest w metrum 12/8.');
-//        $piece4->setYear(1830);
-//        $piece4->setLink('https://youtu.be/9E6b3swbnWg?t=1');
-//        $piece4->setCreatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//        $piece4->setUpdatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//
-//        $this->manager->persist($piece4);
-//
-//        $piece5 = new Piece();
-//        $piece5->setName('Uwertura koncertowa “Coriolan” op. 62');
-//        $piece5->setDescription('Muzyczna ilustracja dramatu austriackiego poety Heinricha von Collina.');
-//        $piece5->setYear(1807);
-//        $piece5->setLink('https://youtu.be/D1PKSoi9lNk?t=7');
-//        $piece5->setCreatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//        $piece5->setUpdatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//
-//        $this->manager->persist($piece5);
-//
-//
-//        $piece6 = new Piece();
-//        $piece6->setName('Sonata fortepianowa C-dur op. 53 “Waldsteinowska”');
-//        $piece6->setDescription('Należy do kluczowych dzieł środkowego, "heroicznego" okresu twórczości kompozytora.');
-//        $piece6->setYear(1804);
-//        $piece6->setLink('https://youtu.be/TDagcm5Nl4s?t=15');
-//        $piece6->setCreatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//        $piece6->setUpdatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//
-//        $this->manager->persist($piece6);
-//
-//        $piece7 = new Piece();
-//        $piece7->setName('Requiem d-moll KV 626');
-//        $piece7->setDescription('Jest jednym z największych utworów sakralnych Mozarta, a zarazem jego ostatnią, niedokończoną kompozycją.');
-//        $piece7->setYear(1791);
-//        $piece7->setLink('https://youtu.be/O20HzXEX_xU?t=35');
-//        $piece7->setCreatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//        $piece7->setUpdatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeBetween('-100 days', '-1 days')));
-//
-//        $this->manager->persist($piece7);
-//
-//        $this->manager->flush();
 
 }

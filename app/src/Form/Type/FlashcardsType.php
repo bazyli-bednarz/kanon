@@ -41,7 +41,6 @@ class FlashcardsType extends AbstractType
                             return ($userFriends->contains($user)) || ($canon->getAuthor() === $user);
                         }
                         return true;
-
                     },
 //                    'choice_filter' => ChoiceList::filter(
 //                        $this,

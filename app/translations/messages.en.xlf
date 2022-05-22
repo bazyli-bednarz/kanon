@@ -133,6 +133,10 @@
                 <source>label.canon_description</source>
                 <target>Canon description</target>
             </trans-unit>
+            <trans-unit id="label.canon_piece">
+                <source>label.canon_piece</source>
+                <target>Pieces</target>
+            </trans-unit>
             <trans-unit id="label.composer">
                 <source>label.composer</source>
                 <target>Composer</target>
@@ -181,9 +185,17 @@
                 <source>label.created_at</source>
                 <target>Created at</target>
             </trans-unit>
+            <trans-unit id="label.draw">
+                <source>label.draw</source>
+                <target>Draw another!</target>
+            </trans-unit>
             <trans-unit id="label.email">
                 <source>label.email</source>
                 <target>Email</target>
+            </trans-unit>
+            <trans-unit id="label.none">
+                <source>label.none</source>
+                <target>none</target>
             </trans-unit>
             <trans-unit id="label.password">
                 <source>label.password</source>
@@ -221,6 +233,10 @@
                 <source>label.piece_author</source>
                 <target>Added by</target>
             </trans-unit>
+            <trans-unit id="label.piece_canon">
+                <source>label.piece_canon</source>
+                <target>Canons</target>
+            </trans-unit>
             <trans-unit id="label.piece_canons">
                 <source>label.piece_canons</source>
                 <target>Canons</target>
@@ -252,6 +268,10 @@
             <trans-unit id="label.piece_year">
                 <source>label.piece_year</source>
                 <target>Year of creation</target>
+            </trans-unit>
+            <trans-unit id="label.piece_scale">
+                <source>label.piece_scale</source>
+                <target>Scale</target>
             </trans-unit>
             <trans-unit id="label.registered_at">
                 <source>label.registered_at</source>
@@ -691,8 +711,8 @@
                 <source>scale.pentatonic</source>
                 <target>pentatonic</target>
             </trans-unit>
-            <trans-unit id="scale.whole_tone_scale">
-                <source>scale.whole_tone_scale</source>
+            <trans-unit id="scale.whole_tone">
+                <source>scale.whole_tone</source>
                 <target>whole-tone</target>
             </trans-unit>
             <trans-unit id="scale.acoustic">

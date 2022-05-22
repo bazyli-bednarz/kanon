@@ -39,6 +39,21 @@ class TagFixtures extends AbstractBaseFixtures
             'fortepian preparowany',
             'altówka',
             'kontrabas',
+            'organy',
+            'pietruszka',
+            'koncert',
+            'klawesyn',
+            'wariacje',
+            'toccata',
+            'uwertura',
+            'requiem',
+            'balet',
+            'modernizm',
+            'kwartet smyczkowy',
+            'etiuda',
+            'nokturn',
+            'preludium',
+            'spektralizm',
         ];
 
         $this->createMany(count($tags), 'tags', function (int $i) use ($tags) {
