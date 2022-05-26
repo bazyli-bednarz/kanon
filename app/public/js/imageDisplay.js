@@ -5,29 +5,6 @@ for (i; i < imageInputs.length; i++) {
     imageInputs[i].innerHTML = `<img class="user-image user-image--medium" src="/images/avatars/${i+1}.jpg" alt="">`;
 }
 
-//        switch ($level) {
-//             case 1:
-//                 return $choices;
-//             case 2:
-//                 return array_merge($choices, [6,7,8]);
-//             case 3:
-//                 return array_merge($choices, [6,7,8,9,10]);
-//             case 4:
-//                 return array_merge($choices, [6,7,8,9,10,11,12]);
-//             case 5:
-//                 return array_merge($choices, [6,7,8,9,10,11,12,13,14]);
-//             case 6:
-//                 return array_merge($choices, [6,7,8,9,10,11,12,13,14,15,16]);
-//             case 7:
-//                 return array_merge($choices, [6,7,8,9,10,11,12,13,14,15,16,17]);
-//             case 8:
-//                 return array_merge($choices, [6,7,8,9,10,11,12,13,14,15,16,17,18]);
-//             case 9:
-//                 return array_merge($choices, [6,7,8,9,10,11,12,13,14,15,16,17,18,19]);
-//             default:
-//                 return array_merge($choices, [6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]);
-//         }
-
 for (i; i < 20; i++) {
     const div = document.createElement('div');
     div.setAttribute('class', 'form-check form-check--locked');

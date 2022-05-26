@@ -59,6 +59,10 @@
                 <source>action.reset_password</source>
                 <target>Reset password</target>
             </trans-unit>
+            <trans-unit id="action.return_home">
+                <source>action.return_home</source>
+                <target>Return to the homepage</target>
+            </trans-unit>
             <trans-unit id="action.save">
                 <source>action.save</source>
                 <target>Save</target>
@@ -94,6 +98,19 @@
             <trans-unit id="action.view">
                 <source>action.view</source>
                 <target>View</target>
+            </trans-unit>
+
+            <trans-unit id="image.403">
+                <source>image.403</source>
+                <target>Person standing and a big mobile phone with X icon on it.</target>
+            </trans-unit>
+            <trans-unit id="image.404">
+                <source>image.404</source>
+                <target>Number 404 and drawing of the mountains.</target>
+            </trans-unit>
+            <trans-unit id="image.error">
+                <source>image.error</source>
+                <target>A small one-eyed creature breaking a connection cable between a server and a computer.</target>
             </trans-unit>
 
             <trans-unit id="info.about-project">
@@ -400,6 +417,10 @@
                 <target>Flashcards</target>
             </trans-unit>
 
+            <trans-unit id="message.access_denied">
+                <source>message.access_denied</source>
+                <target>You don't have permissions to view this page.</target>
+            </trans-unit>
             <trans-unit id="message.added_to_friends">
                 <source>message.added_to_friends</source>
                 <target>Added to friends</target>
@@ -452,6 +473,10 @@
                 <source>message.enter_your_email</source>
                 <target>Please enter your email</target>
             </trans-unit>
+            <trans-unit id="message.error">
+                <source>message.error</source>
+                <target>Sorry, something went wrong.</target>
+            </trans-unit>
             <trans-unit id="message.forgot_password">
                 <source>message.forgot_password</source>
                 <target>Forgot password?</target>
@@ -471,6 +496,10 @@
             <trans-unit id="message.logged_in_description">
                 <source>message.logged_in_description</source>
                 <target>Do you want to login to another account?</target>
+            </trans-unit>
+            <trans-unit id="message.page_not_found">
+                <source>message.page_not_found</source>
+                <target>The page you were looking for was not found. Look for spelling mistakes and try again.</target>
             </trans-unit>
             <trans-unit id="message.password_changed">
                 <source>message.password_changed</source>
@@ -764,6 +793,10 @@
                 <target>other</target>
             </trans-unit>
 
+            <trans-unit id="title.access_denied">
+                <source>title.access_denied</source>
+                <target>403 - Access denied!</target>
+            </trans-unit>
             <trans-unit id="title.canon_create">
                 <source>title.canon_create</source>
                 <target>Create new canon</target>
@@ -804,6 +837,10 @@
                 <source>title.composer_list</source>
                 <target>List of composers</target>
             </trans-unit>
+            <trans-unit id="title.error">
+                <source>title.error</source>
+                <target>Error occurred!</target>
+            </trans-unit>
             <trans-unit id="title.index">
                 <source>title.index</source>
                 <target>Home page</target>
@@ -815,6 +852,10 @@
             <trans-unit id="title.flashcards_learn">
                 <source>title.flashcards_learn</source>
                 <target>Flashcards - %name%</target>
+            </trans-unit>
+            <trans-unit id="title.page_not_found">
+                <source>title.page_not_found</source>
+                <target>404 - Page was not found!</target>
             </trans-unit>
             <trans-unit id="title.period_list">
                 <source>title.period_list</source>

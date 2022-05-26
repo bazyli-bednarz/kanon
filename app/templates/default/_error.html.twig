@@ -1,0 +1,35 @@
+{#
+Default template for errors.
+
+parameters:
+- page_title: page title
+- page_title_param: additional parameters for page title generation, e.g. record ID
+- error_description: description of error
+- error_image - url for image depicting error
+- error_image_alt - alt text for error image
+
+#}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if page_title_param is defined %}{{ page_title|trans(page_title_param) }}{% else %}{{ page_title|trans }}{% endif %}
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="error__header">
+        {% if page_title_param is defined %}{{ page_title|trans(page_title_param) }}{% else %}{{ page_title|trans }}{% endif %}
+    </h1>
+    <p>
+        {% if error_description is defined %}{{ error_description|trans }}{% endif %}
+        <a href="{{ url('index') }}">{{ 'action.return_home'|trans }}</a>.
+    </p>
+
+    <div class="error__image-wrapper">
+        {% if error_image is defined %}
+            <img class="error__image" src="{{ asset(error_image) }}" alt="{{ error_image_alt|trans }}">
+        {% else %}
+            <img class="error__image" src="{{ asset('images/undraw_bug_fixing.svg') }}" alt="{{ 'image.error' }}">
+        {% endif %}
+    </div>
+{% endblock %}
