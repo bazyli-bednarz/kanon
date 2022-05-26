@@ -6,54 +6,68 @@
 
 {% block body %}
     <h1>{{ 'title.index'|trans }}</h1>
-    {% if piece is defined and piece|length %}
-    <div class="random-piece">
-        <div class="random-piece__player">
-            <a href="https://youtu.be/{{ piece.link }}" target="_blank">https://youtu.be/{{ piece.link }}</a>
-            <br>
-            <iframe id="ytplayer" type="text/html"
-                    src="https://www.youtube.com/embed/{{ piece.link }}"
-                    frameborder="0" allowfullscreen>
-            </iframe>
-        </div>
-        <div class="random-piece__text">
-            <h2>{{ piece.name }} {% if piece.year is defined and piece.year != '' %}({{ piece.year }}){% endif %}</h2>
-            {% if piece.year is defined and piece.year != '' %}
-            <p class="random-piece__scale">
-                {{ 'label.scale'|trans }}: {{ piece.scale.name|trans }}
-            </p>
-                <p class="random-piece__period">
-                    {{ 'label.period'|trans }}: {{ piece.composer.period.name|trans }}
-                </p>
-            {% endif %}
-            <p class="random-piece__composer">
-                {{ 'label.composer'|trans }}:
-                <a href="{{ url('composer_show', {slug: piece.composer.slug}) }}"
-                   title="{{ 'action.view'|trans }}: {{ piece.composer.name }} {{ piece.composer.lastName }}">
-                    {{ piece.composer.name }} {{ piece.composer.lastName }}
-                </a>
-            </p>
-            {% if piece.description is defined and piece.description != '' %}
-            <p class="random-piece__description">
-                {{ piece.description}}
-            </p>
-            {% endif %}
 
-            <p class="random-piece__tags">
-                {{ 'label.tags'|trans }}:
-                {% if piece.tags|length > 0 %}
-                    {% for tag in piece.tags %}
-                        <a href="{{ url('piece_index', {'filters_tag_slug': tag.slug}) }}">{{ tag.name }}</a>
-                        {% if not loop.last %}, {% endif %}
-                    {% endfor %}
-                {% else %}
-                    -
-                {% endif %}
-            </p>
-
-            <p>{{ 'label.piece_author'|trans }}: <a href="{{ url('user_show', {slug: piece.author.slug }) }}">{{ piece.author.name }}</a></p>
+    <div class="image-wrapper">
+        <div class="image-wrapper__content">
+            <img src="{{ asset('images/undraw_happy_music.svg') }}" alt="{{ 'image.happy_music'|trans }}"
+                 class="image--medium">
+            <p>{{ 'info.application'|trans }}</p>
         </div>
     </div>
+
+    {% if piece is defined and piece|length %}
+        <div class="random-piece">
+            <div class="random-piece__player">
+                <a href="https://youtu.be/{{ piece.link }}" target="_blank">https://youtu.be/{{ piece.link }}</a>
+                <br>
+                <iframe id="ytplayer" type="text/html"
+                        src="https://www.youtube.com/embed/{{ piece.link }}"
+                        frameborder="0" allowfullscreen>
+                </iframe>
+            </div>
+            <div class="random-piece__text">
+                <div class="random-piece__header">
+                    <h2>{{ piece.name }} {% if piece.year is defined and piece.year != '' %}({{ piece.year }}){% endif %}</h2>
+                </div>
+                {% if piece.year is defined and piece.year != '' %}
+                    <p class="random-piece__scale">
+                        {{ 'label.scale'|trans }}: {{ piece.scale.name|trans }}
+                    </p>
+                    <p class="random-piece__period">
+                        {{ 'label.period'|trans }}: {{ piece.composer.period.name|trans }}
+                    </p>
+                {% endif %}
+                <p class="random-piece__composer">
+                    {{ 'label.composer'|trans }}:
+                    <a href="{{ url('composer_show', {slug: piece.composer.slug}) }}"
+                       title="{{ 'action.view'|trans }}: {{ piece.composer.name }} {{ piece.composer.lastName }}">
+                        {{ piece.composer.name }} {{ piece.composer.lastName }}
+                    </a>
+                </p>
+                {% if piece.description is defined and piece.description != '' %}
+                    <p class="random-piece__description">
+                        {{ piece.description }}
+                    </p>
+                {% endif %}
+
+                <p class="random-piece__tags">
+                    {{ 'label.tags'|trans }}:
+                    {% if piece.tags|length > 0 %}
+                        {% for tag in piece.tags %}
+                            <a href="{{ url('piece_index', {'filters_tag_slug': tag.slug}) }}">{{ tag.name }}</a>
+                            {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        -
+                    {% endif %}
+                </p>
+
+                <p>{{ 'label.piece_author'|trans }}: <a
+                            href="{{ url('user_show', {slug: piece.author.slug }) }}">{{ piece.author.name }}</a></p>
+            </div>
+        </div>
+
+
 
         <div class="about-project">
             <p>{{ 'info.about-project'|trans }}</p>

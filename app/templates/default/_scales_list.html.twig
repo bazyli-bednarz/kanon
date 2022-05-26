@@ -23,8 +23,8 @@ parameters:
                 <td>{{ scale.id }}</td>
                 <td>{{ scale.name|trans }}</td>
                 <td>
-                    <a href="{{ url('scale_show', {slug: scale.slug}) }}" title="{{ 'action.view'|trans }}">
-                        <i class="fa-solid fa-eye"></i>
+                    <a href="{{ url('scale_show', {slug: scale.slug}) }}" title="{{ 'action.view'|trans }} {{ scale.name|trans }}">
+                        <i class="fa-solid fa-eye" aria-label="{{ 'action.view'|trans }} {{ scale.name|trans }}"></i>
                     </a>
                 </td>
             </tr>

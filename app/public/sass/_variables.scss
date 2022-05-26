@@ -1,38 +1,38 @@
 $table-hover-color: #e3e3e3;
-$table-hover-color-odd: #6161f3;
-$table-background-color: #4d4dee;
+$color-main: #6161f3;
+$color-main-2: #4d4dee;
 $nav-text-color: rgba(255,255,255,.55);
 $nav-text-color-hover: rgba(255,255,255,.75);
 $color-dark: #111010;
 $color-gold: #e3c102;
 $color-white: #fff;
-$color-main: #9311b6;
-$color-main-2: #ff5771;
+$level-main: #9311b6;
+$level-main-2: #ff5771;
 $color-edit: #3a933b;
 $color-delete: #cd1919;
 $main-gradient: linear-gradient(
                 to right,
-                $color-main-2,
-                $color-main,
-                $color-main-2
+                $level-main-2,
+                $level-main,
+                $level-main-2
 );
 
 $main-gradient-blue: linear-gradient(
                 to right,
-                $table-hover-color-odd,
-                $table-background-color,
-                $table-hover-color-odd
+                $color-main,
+                $color-main-2,
+                $color-main
 );
 
 $main-gradient-blue-45deg: linear-gradient(
                 -45deg,
-                $table-hover-color-odd,
-                $table-background-color,
-                $table-hover-color-odd
+                $color-main,
+                $color-main-2,
+                $color-main
 );
 
 $main-gradient-blue-180deg: linear-gradient(
                 -180deg,
-                $table-background-color,
-                $table-hover-color-odd
+                $color-main-2,
+                $color-main
 );

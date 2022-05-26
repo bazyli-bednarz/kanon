@@ -28,8 +28,8 @@ parameters:
                 <td>{{ period.description|trans }}</td>
 
                 <td>
-                    <a href="{{ url('period_show', {slug: period.slug}) }}" title="{{ 'action.view'|trans }}">
-                        <i class="fa-solid fa-eye"></i>
+                    <a href="{{ url('period_show', {slug: period.slug}) }}" title="{{ 'action.view'|trans }}: {{ period.name|trans }}">
+                        <i class="fa-solid fa-eye" aria-label="{{ 'action.view'|trans }}: {{ period.name|trans }}"></i>
                     </a>
                 </td>
             </tr>

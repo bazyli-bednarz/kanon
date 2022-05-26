@@ -1,0 +1,83 @@
+.random-piece {
+  @include mainColorBorder(7px, 3rem);
+  @include responsive_padding(2rem, 2rem, 2rem, 2rem);
+  width: 90%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  @include shadow();
+  @media all and (min-width: 990px){
+    @include flexbox(row, flex-start, center);
+    width: 70%;
+  }
+  &__text {
+    @include responsive_margin(0, 2rem, 2rem, 2rem);
+  }
+  &__player {
+    width: 100%;
+    @media all and (min-width: 990px){
+      flex-grow: 3;
+    }
+    a {
+      display: block;
+      text-align: center;
+    }
+    #ytplayer {
+      width: 90%;
+      aspect-ratio: 16/9;
+      @include responsive_margin(0, 2rem, 2rem, 2rem);
+      margin-left: auto;
+      margin-right: auto;
+      @include mainColorBorder(7px, 3rem);
+      overflow: hidden;
+    }
+  }
+
+
+  &__header {
+    position: relative;
+    overflow-x: hidden;
+    &:after {
+      content: '';
+      background-color: $color-main;
+      width: 100%;
+      position: absolute;
+      height: 3px;
+      border-radius: 100vh 0 100vh 0;
+      bottom: 0;
+      left: 0;
+      animation: slideInUnderline 1s 0.8s ease both;
+    }
+  }
+}
+
+.image-wrapper {
+
+  &__content {
+    width: 70%;
+    @include flexbox(column, center, center);
+    margin: auto;
+
+    @media all and (min-width: 990px){
+      @include flexbox(row, center, center);
+      width: 50%;
+      @include responsive_padding(3rem, 7rem, 3rem, 7rem);
+    }
+
+    .image--medium {
+      display: block;
+      width: 100%;
+      flex: 1;
+    }
+    p {
+      flex: 1;
+      text-align: center;
+      @include responsive_padding(2rem, 2rem, 2rem, 2rem);
+      font-size: 1.3rem;
+    }
+  }
+
+}
+
+.about-project {
+  @include responsive_padding(3rem, 10rem, 3rem, 10rem);
+}

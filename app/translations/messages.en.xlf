@@ -112,10 +112,18 @@
                 <source>image.error</source>
                 <target>A small one-eyed creature breaking a connection cable between a server and a computer.</target>
             </trans-unit>
+            <trans-unit id="image.happy_music">
+                <source>image.happy_music</source>
+                <target>A small bird with headphones on listening to music.</target>
+            </trans-unit>
 
             <trans-unit id="info.about-project">
                 <source>info.about-project</source>
                 <target>This web application was designed and created by Bazyli Bednarz. This service is an integral part of a bachelor's thesis (major: Electronic Information Processing), prepared under the direction of prof. dr hab. Jerzy Konior at the Faculty Of Management and Social Communication, Jagiellonian University.</target>
+            </trans-unit>
+            <trans-unit id="info.application">
+                <source>info.application</source>
+                <target>Welcome to Music History Canon! This application is for music students and enjoyers, who want to discover greatest music pieces in history!</target>
             </trans-unit>
 
             <trans-unit id="label.actions">
@@ -289,6 +297,10 @@
             <trans-unit id="label.piece_scale">
                 <source>label.piece_scale</source>
                 <target>Scale</target>
+            </trans-unit>
+            <trans-unit id="label.profile_image">
+                <source>label.profile_image</source>
+                <target>Profile image</target>
             </trans-unit>
             <trans-unit id="label.registered_at">
                 <source>label.registered_at</source>

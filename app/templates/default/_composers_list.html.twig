@@ -34,16 +34,16 @@ parameters:
 
                  <td>
                      <a href="{{ url('composer_show', {slug: composer.slug}) }}" title="{{ 'action.view'|trans }}: {{ composer.name }} {{ composer.lastName }}">
-                         <i class="fa-solid fa-eye"></i>
+                         <i class="fa-solid fa-eye" aria-label="{{ 'action.view'|trans }}: {{ composer.name }} {{ composer.lastName }}"></i>
                      </a>
                      {% if is_granted('EDIT', composer) %}
                      <a href="{{ url('composer_edit', {slug: composer.slug}) }}" title="{{ 'action.edit'|trans }}: {{ composer.name }} {{ composer.lastName }}">
-                         <i class="fa-solid fa-pen-to-square"></i>
+                         <i class="fa-solid fa-pen-to-square" aria-label="{{ 'action.edit'|trans }}: {{ composer.name }} {{ composer.lastName }}"></i>
                      </a>
                      {% endif %}
                      {% if is_granted('DELETE', composer) %}
                      <a href="{{ url('composer_delete', {slug: composer.slug}) }}" title="{{ 'action.delete'|trans }}: {{ composer.name }} {{ composer.lastName }}">
-                         <i class="fa-solid fa-trash-can"></i>
+                         <i class="fa-solid fa-trash-can" aria-label="{{ 'action.delete'|trans }}: {{ composer.name }} {{ composer.lastName }}"></i>
                      </a>
                      {% endif %}
                  </td>

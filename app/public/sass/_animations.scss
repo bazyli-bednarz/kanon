@@ -32,5 +32,24 @@
   100% {
     background-position: 0 50%;
   }
+}
 
+@keyframes slideInUnderline {
+  0% {
+    opacity: 0;
+    left: -100%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

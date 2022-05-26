@@ -50,17 +50,17 @@ parameters:
                 </td>
 
                 <td>
-                    <a href="{{ url('piece_show', {slug: piece.slug}) }}" title="{{ 'action.view'|trans }}">
-                        <i class="fa-solid fa-eye"></i>
+                    <a href="{{ url('piece_show', {slug: piece.slug}) }}" title="{{ 'action.view'|trans }}: {{ piece.name|trans }}">
+                        <i class="fa-solid fa-eye" aria-label="{{ 'action.view'|trans }}: {{ piece.name|trans }}"></i>
                     </a>
                     {% if is_granted('EDIT', piece) %}
-                        <a href="{{ url('piece_edit', {slug: piece.slug}) }}" title="{{ 'action.edit'|trans }}">
-                            <i class="fa-solid fa-pen-to-square"></i>
+                        <a href="{{ url('piece_edit', {slug: piece.slug}) }}" title="{{ 'action.edit'|trans }}: {{ piece.name|trans }}">
+                            <i class="fa-solid fa-pen-to-square" aria-label="{{ 'action.edit'|trans }}: {{ piece.name|trans }}"></i>
                         </a>
                     {% endif %}
                     {% if is_granted('EDIT', piece) %}
-                        <a href="{{ url('piece_delete', {slug: piece.slug}) }}" title="{{ 'action.delete'|trans }}">
-                            <i class="fa-solid fa-trash-can"></i>
+                        <a href="{{ url('piece_delete', {slug: piece.slug}) }}" title="{{ 'action.delete'|trans }}: {{ piece.name|trans }}">
+                            <i class="fa-solid fa-trash-can" aria-label="{{ 'action.delete'|trans }}: {{ piece.name|trans }}"></i>
                         </a>
                     {% endif %}
                 </td>

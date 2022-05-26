@@ -47,8 +47,8 @@ parameters:
                 <td>{{ user.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
 
                 <td>
-                    <a href="{{ url('user_show', {slug: user.slug}) }}" title="{{ 'action.view'|trans }}">
-                        <i class="fa-solid fa-eye"></i>
+                    <a href="{{ url('user_show', {slug: user.slug}) }}" title="{{ 'action.view'|trans }}: {{ user.name }}">
+                        <i class="fa-solid fa-eye" aria-label="{{ 'action.view'|trans }}: {{ user.name }}"></i>
                     </a>
                 </td>
             </tr>

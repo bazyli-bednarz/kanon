@@ -1,11 +1,22 @@
 nav {
   color: $nav-text-color;
 
+  .navbar-brand {
+    font-family: 'Comfortaa', cursive;
+    margin-right: 0;
+    i {
+      color: $color-main;
+    }
+    @include responsive_padding(0, 1rem, 0, 1rem);
+  }
+
   .nav__user-data {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-left: auto;
+    margin-right: 0.5rem;
 
     .level-progress {
       background-color: #fff;
@@ -86,6 +97,29 @@ nav {
         }
       }
     }
+    .nav-button {
+      @include flexbox(row, center, center);
+      flex-wrap: nowrap;
+      a {
+        display: inline-block;
+        text-decoration: none;
+        color: $color-white;
+        transition: filter 0.3s;
+        &:hover {
+          filter: brightness(0.9);
+        }
+      }
+      &__login {
+        @include responsive_padding(0.5rem,0.8rem,0.5rem,0.8rem);
+      }
+      &__register {
+        background: $main-gradient-blue-45deg;
+        margin-right: 0.5rem;
+        @include responsive_padding(0.5rem,0.8rem,0.5rem,0.8rem);
+        border-radius: 2rem;
+      }
+    }
+
   }
 
 
