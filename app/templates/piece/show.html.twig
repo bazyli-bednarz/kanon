@@ -5,22 +5,19 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.piece_details'|trans({'%name%': piece.name|default('')}) }}</h1>
+    <h1 class="underline-header">{{ 'title.piece_details'|trans({'%name%': piece.name|default('')}) }}</h1>
     {% if piece is defined and piece|length %}
         <dl class="dl-horizontal">
-            <dt>{{ 'label.id'|trans }}</dt>
-            <dd>#{{ piece.id }}</dd>
-            <dt>{{ 'label.piece_name'|trans }}</dt>
-            <dd>{{ piece.name }}</dd>
+
             <dt>{{ 'label.piece_year'|trans }}</dt>
             <dd>{{ piece.year }}</dd>
             <dt>{{ 'label.piece_description'|trans }}</dt>
             <dd>{{ piece.description }}</dd>
-            <dt>{{ 'label.piece_link'|trans }}</dt>
+            <dt><i class="fa-brands fa-youtube"></i> {{ 'label.piece_link'|trans }}</dt>
             <dd>
                 <a href="https://youtu.be/{{ piece.link }}" target="_blank">https://youtu.be/{{ piece.link }}</a>
                 <br>
-                <iframe id="ytplayer" type="text/html"
+                <iframe id="ytplayer" class="ytplayer--show" type="text/html"
                         src="https://www.youtube.com/embed/{{ piece.link }}"
                         frameborder="0" allowfullscreen>
                 </iframe>
@@ -35,11 +32,11 @@
                 </a>
             </dd>
             <dt>{{ 'label.piece_tags'|trans }}</dt>
-            <dd>
-
-                {% if piece.tags|length > 0 %}
+            <dd class="dd__tags">
+                {% if piece.tags is defined and piece.tags|length %}
                     {% for tag in piece.tags %}
-                        {{ tag.name }}{% if not loop.last %}, {% endif %}
+                        <a href="{{ url('piece_index', {'filters_tag_slug': tag.slug}) }}">
+                            {{ tag.name }}</a>
                     {% endfor %}
                 {% else %}
                     -
@@ -83,7 +80,7 @@
             <dt>{{ 'label.piece_author'|trans }}</dt>
             <dd><a href="{{ url('user_show', {slug: piece.author.slug }) }}">{{ piece.author.name }}</a></dd>
             <dt>{{ 'label.piece_edited_by'|trans }}</dt>
-            <dd>{{ piece.editedBy.name }}</dd>
+            <dd><a href="{{ url('user_show', {slug: piece.editedBy.slug }) }}">{{ piece.editedBy.name }}</a></dd>
         </dl>
         <p>
             <a href="{{ url('piece_index') }}" title="{{ 'action.back_to_list'|trans }}">

@@ -9,7 +9,7 @@ parameters:
         {{ knp_pagination_render(pagination) }}
     </div>
 
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered table--pieces">
         <thead>
         <tr>
             <th>{{ knp_pagination_sortable(pagination, 'label.piece_name'|trans, 'piece.name') }}</th>
@@ -26,23 +26,24 @@ parameters:
         <tbody>
         {% for piece in pagination.items %}
             <tr>
-                <td>{{ piece.name }}</td>
+                <td><i class="fa-solid fa-record-vinyl"></i> {{ piece.name }}</td>
                 <td>{{ piece.year }}</td>
                 <td>{{ piece.description }}</td>
-                <td><a href="https://youtu.be/{{ piece.link }}" target="_blank">https://youtu.be/{{ piece.link }}</a>
+                <td><i class="fa-brands fa-youtube"></i> <a href="https://youtu.be/{{ piece.link }}" target="_blank">https://youtu.be/{{ piece.link }}</a>
                 </td>
                 <td>
-                    <a href="{{ url('composer_show', {slug: piece.composer.slug}) }}">{{ piece.composer.name }} {{ piece.composer.lastName }}</a>
+                    <i class="fa-solid fa-person"></i> <a href="{{ url('composer_show', {slug: piece.composer.slug}) }}">{{ piece.composer.name }} {{ piece.composer.lastName }}</a>
                 </td>
                 <td>
                     <a href="{{ url('period_show', {slug: piece.composer.period.slug}) }}">{{ piece.composer.period.name|trans }}</a>
                 </td>
-                <td><a href="{{ url('scale_show', {slug: piece.scale.slug}) }}">{{ piece.scale.name|trans }}</a></td>
-                <td>
+                <td class="td__scales"><a href="{{ url('scale_show', {slug: piece.scale.slug}) }}">{{ piece.scale.name|trans }}</a></td>
+                <td class="td__tags">
                     {% if piece.tags is defined and piece.tags|length %}
                         {% for tag in piece.tags %}
                         <a href="{{ url('piece_index', {'filters_tag_slug': tag.slug}) }}">
-                            {{ tag.name }}</a>{% if not loop.last %}, {% endif %}
+                            {{ tag.name }}</a>
+{#                            {% if not loop.last %}, {% endif %}#}
                         {% endfor %}
                     {% else %}
                         -
@@ -50,16 +51,16 @@ parameters:
                 </td>
 
                 <td>
-                    <a href="{{ url('piece_show', {slug: piece.slug}) }}" title="{{ 'action.view'|trans }}: {{ piece.name|trans }}">
+                    <a href="{{ url('piece_show', {slug: piece.slug}) }}" title="{{ 'action.view'|trans }}: {{ piece.name }}">
                         <i class="fa-solid fa-eye" aria-label="{{ 'action.view'|trans }}: {{ piece.name|trans }}"></i>
                     </a>
                     {% if is_granted('EDIT', piece) %}
-                        <a href="{{ url('piece_edit', {slug: piece.slug}) }}" title="{{ 'action.edit'|trans }}: {{ piece.name|trans }}">
+                        <a href="{{ url('piece_edit', {slug: piece.slug}) }}" title="{{ 'action.edit'|trans }}: {{ piece.name }}">
                             <i class="fa-solid fa-pen-to-square" aria-label="{{ 'action.edit'|trans }}: {{ piece.name|trans }}"></i>
                         </a>
                     {% endif %}
                     {% if is_granted('EDIT', piece) %}
-                        <a href="{{ url('piece_delete', {slug: piece.slug}) }}" title="{{ 'action.delete'|trans }}: {{ piece.name|trans }}">
+                        <a href="{{ url('piece_delete', {slug: piece.slug}) }}" title="{{ 'action.delete'|trans }}: {{ piece.name }}">
                             <i class="fa-solid fa-trash-can" aria-label="{{ 'action.delete'|trans }}: {{ piece.name|trans }}"></i>
                         </a>
                     {% endif %}

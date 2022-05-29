@@ -45,28 +45,37 @@
       border-radius: 100vh 0 100vh 0;
       bottom: 0;
       left: 0;
-      animation: slideInUnderline 1s 0.8s ease both;
+      animation: slideInUnderline 1.5s 1.2s ease both;
     }
   }
 }
 
 .image-wrapper {
+  transition: 0.5s ease-in;
+  max-height: 600px;
+  overflow: hidden;
+  &.hidden {
+    opacity: 0;
+    max-height: 0;
+    transition: 0.5s ease-out;
+  }
 
   &__content {
     width: 70%;
     @include flexbox(column, center, center);
     margin: auto;
 
-    @media all and (min-width: 990px){
+    @media all and (min-width: 950px){
       @include flexbox(row, center, center);
       width: 50%;
-      @include responsive_padding(3rem, 7rem, 3rem, 7rem);
+      @include responsive_padding(3rem, 5rem, 3rem, 5rem);
     }
 
     .image--medium {
       display: block;
       width: 100%;
       flex: 1;
+      max-width: 400px;
     }
     p {
       flex: 1;
@@ -74,6 +83,17 @@
       @include responsive_padding(2rem, 2rem, 2rem, 2rem);
       font-size: 1.3rem;
     }
+  }
+  &--pieces {
+
+      p {
+        font-size: 1rem;
+      }
+
+      @media all and (min-width: 750px){
+        @include responsive_padding(3rem, 4rem, 3rem, 4rem);
+      }
+
   }
 
 }

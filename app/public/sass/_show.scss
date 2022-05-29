@@ -1,0 +1,57 @@
+.ytplayer--show {
+  @include responsive_margin(1rem, 0, 0, 0);
+  @include mainColorBorder(3px, 2rem);
+  width: 100%;
+  aspect-ratio: 16/9;
+  @media all and (min-width: 900px){
+    width: 50%;
+  }
+  @media all and (min-width: 1200px){
+    width: 30%;
+  }
+}
+
+.dd {
+  &__tags {
+    white-space: nowrap;
+    @include responsive_margin(0.5rem, 0.5rem, 0.5rem, 0.5rem);
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+      width: min-content;
+      background-color: $color-main;
+      border-radius: 100vh;
+      transition: 0.3s;
+      @include responsive_padding(0.5rem, 0.5rem, 0.5rem, 0.5rem);
+      @include shadow();
+      &:hover {
+        background-color: $color-main-dark;
+      }
+    }
+  }
+}
+
+
+.td {
+  &__scales {
+    white-space: nowrap;
+  }
+  &__tags {
+    white-space: nowrap;
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+      width: min-content;
+      background-color: $color-main;
+      border-radius: 100vh;
+      transition: 0.3s;
+      @include responsive_padding(0.5rem, 0.5rem, 0.5rem, 0.5rem);
+      @include shadow();
+      &:hover {
+        background-color: $color-main-dark;
+      }
+    }
+  }
+}

@@ -9,13 +9,11 @@ parameters:
         {{ knp_pagination_render(pagination) }}
     </div>
 
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered table--users">
         <thead>
         <tr>
-            <th>{{ 'label.user_place'|trans }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.user_name'|trans, 'user.name') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.user_level'|trans, 'user.level') }}</th>
-            <th>{{ knp_pagination_sortable(pagination, 'label.user_roles'|trans, 'user.roles') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.registered_at'|trans, 'user.createdAt') }}</th>
             <th>{{ 'label.actions'|trans }}</th>
         </tr>
@@ -23,27 +21,13 @@ parameters:
         <tbody>
         {% for user in pagination.items %}
             <tr>
-                <td>{{ loop.index }}</td>
                 <td>
                     <img class="user-image user-image--small"
                          src="{{ asset('images/avatars/' ~ user.image) ~ '.jpg' }}"
                          alt="{{ 'label.user_image'|trans({'%name%': user.name|default('')}) }}">
-                    {{ user.name }}
+                    <span>{{ user.name }}</span>
                 </td>
                 <td>{{ user.level }}</td>
-                <td>
-                    {% if 'ROLE_ADMIN' in user.roles %}
-                        <span class="role role--admin">
-                                {{ 'role.admin'|trans }}
-                            </span>
-                    {% else %}
-                        <span class="role role--user">
-                                {{ 'role.user'|trans }}
-                            </span>
-                    {% endif %}
-                </td>
-
-
                 <td>{{ user.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
 
                 <td>

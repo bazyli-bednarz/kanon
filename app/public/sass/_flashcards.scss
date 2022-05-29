@@ -12,16 +12,21 @@
   flex-direction: column;
 
   &__flashcards {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flexbox(column, center, center);
     perspective: 100rem;
+
+    @media all and (min-width: 600px){
+      @include flexbox(row, center, center);
+      flex-wrap: wrap;
+    }
   }
 
   &__flashcard {
+    @include responsive_margin(1rem, 1rem, 1rem, 1rem);
     width: 80vmin;
+    max-width: 400px;
     height: 80vmin;
+    max-height: 400px;
     border-radius: 3rem;
     position: relative;
     transform-style: preserve-3d;
@@ -35,6 +40,8 @@
     }
 
     .flashcard {
+      display: block;
+      border: none;
       @include responsive_padding(2rem, 2rem, 2rem, 2rem);
       @include flexbox(row, center, center);
       position: absolute;

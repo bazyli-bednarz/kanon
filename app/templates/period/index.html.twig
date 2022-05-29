@@ -5,7 +5,14 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.period_list'|trans }}</h1>
+    <h1>{{ 'title.period_list'|trans }} <button class="btn-learn-more" id="info-show-hide" title="{{ 'action.learn_more'|trans }}" aria-label="{{ 'action.learn_more'|trans }}"><i class="fa-solid fa-circle-question"></i></button></h1>
+    <div class="image-wrapper hidden" id="info-box-hideable">
+        <div class="image-wrapper__content image-wrapper--periods">
+            <img src="{{ asset('images/undraw_quick_chat.svg') }}" alt="{{ 'image.quick_chat'|trans }}"
+                 class="image--medium">
+            <p>{{ 'info.periods'|trans }}</p>
+        </div>
+    </div>
     {% include 'default/_periods_list.html.twig' with {
         pagination: pagination,
     } %}

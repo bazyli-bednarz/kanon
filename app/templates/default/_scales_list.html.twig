@@ -9,10 +9,9 @@ parameters:
         {{ knp_pagination_render(pagination) }}
     </div>
 
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered table--scales">
         <thead>
         <tr>
-            <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'scale.id') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.scale_name'|trans, 'scale.name') }}</th>
             <th>{{ 'label.actions'|trans }}</th>
         </tr>
@@ -20,7 +19,6 @@ parameters:
         <tbody>
         {% for scale in pagination.items %}
             <tr>
-                <td>{{ scale.id }}</td>
                 <td>{{ scale.name|trans }}</td>
                 <td>
                     <a href="{{ url('scale_show', {slug: scale.slug}) }}" title="{{ 'action.view'|trans }} {{ scale.name|trans }}">

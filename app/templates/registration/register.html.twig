@@ -22,7 +22,7 @@
         {{ form_row(registrationForm.password) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button class="btn btn-lg btn-primary" type="submit">
+        <button class="btn w-100 btn-primary" type="submit">
             {{ 'action.sign_up'|trans }}
         </button>
         {{ form_end(registrationForm) }}
@@ -32,4 +32,11 @@
             <a href="{{ url('app_login') }}"> {{ 'action.login'|trans }}</a>
         </p>
     {% endif %}
+    <div class="image-wrapper">
+        <div class="image-wrapper__content">
+            <img src="{{ asset('images/undraw_playful_cat.svg') }}" alt="{{ 'image.playful_cat'|trans }}"
+                 class="image--medium">
+            <p>{{ 'info.register'|trans }}</p>
+        </div>
+    </div>
 {% endblock %}

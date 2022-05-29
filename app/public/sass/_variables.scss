@@ -1,6 +1,9 @@
 $table-hover-color: #e3e3e3;
 $color-main: #6161f3;
 $color-main-2: #4d4dee;
+$color-main-dark: #3b3bc6;
+$color-main-2-dark: #2323bd;
+$color-main-light: #8585f1;
 $nav-text-color: rgba(255,255,255,.55);
 $nav-text-color-hover: rgba(255,255,255,.75);
 $color-dark: #111010;
@@ -22,6 +25,13 @@ $main-gradient-blue: linear-gradient(
                 $color-main,
                 $color-main-2,
                 $color-main
+);
+
+$main-gradient-dark-blue-45deg: linear-gradient(
+                -45deg,
+                $color-main-dark,
+                $color-main-2-dark,
+                $color-main-dark
 );
 
 $main-gradient-blue-45deg: linear-gradient(

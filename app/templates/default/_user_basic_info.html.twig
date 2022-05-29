@@ -9,15 +9,23 @@ parameters:
     <dl class="dl-horizontal">
         <dt>{{ 'label.actions'|trans }}</dt>
         <dd>
-            <a href="{{ url('user_canons', {slug: user.slug}) }}" title="{{ 'action.user_canons'|trans }}">
-                {{ 'action.user_canons'|trans }}
-            </a>
-            <a href="{{ url('user_pieces', {slug: user.slug}) }}" title="{{ 'action.user_pieces'|trans }}">
-                {{ 'action.user_pieces'|trans }}
-            </a>
-            <a href="{{ url('user_composers', {slug: user.slug}) }}" title="{{ 'action.user_composers'|trans }}">
-                {{ 'action.user_composers'|trans }}
-            </a>
+            <ul>
+                <li>
+                    <a href="{{ url('user_canons', {slug: user.slug}) }}" title="{{ 'action.user_canons'|trans }}">
+                        {{ 'action.user_canons'|trans }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('user_pieces', {slug: user.slug}) }}" title="{{ 'action.user_pieces'|trans }}">
+                        {{ 'action.user_pieces'|trans }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('user_composers', {slug: user.slug}) }}" title="{{ 'action.user_composers'|trans }}">
+                        {{ 'action.user_composers'|trans }}
+                    </a>
+                </li>
+            </ul>
         </dd>
     </dl>
 {% endif %}

@@ -1,6 +1,12 @@
 main {
   > *:not(.table-striped) {
     @include responsive_margin(1rem, 2rem, 1rem, 2rem);
+    @media all and (min-width: 950px){
+      @include responsive_margin(1rem, 6rem, 1rem, 6rem);
+    }
+    @media all and (min-width: 1200px){
+      @include responsive_margin(1rem, 15rem, 1rem, 15rem);
+    }
   }
 
   > h1 {

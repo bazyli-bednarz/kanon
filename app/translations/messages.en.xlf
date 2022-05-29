@@ -15,6 +15,10 @@
                 <source>action.add_composer</source>
                 <target>Add composer</target>
             </trans-unit>
+            <trans-unit id="action.add_friend">
+                <source>action.add_friend</source>
+                <target>Add to friends</target>
+            </trans-unit>
             <trans-unit id="action.add_piece">
                 <source>action.add_piece</source>
                 <target>Add piece</target>
@@ -43,6 +47,10 @@
                 <source>action.edit_user_data</source>
                 <target>Edit your profile</target>
             </trans-unit>
+            <trans-unit id="action.learn_more">
+                <source>action.learn_more</source>
+                <target>Learn more</target>
+            </trans-unit>
             <trans-unit id="action.login">
                 <source>action.login</source>
                 <target>Login</target>
@@ -54,6 +62,10 @@
             <trans-unit id="action.register">
                 <source>action.register</source>
                 <target>Register</target>
+            </trans-unit>
+            <trans-unit id="action.remove_friend">
+                <source>action.remove_friend</source>
+                <target>Remove from friends</target>
             </trans-unit>
             <trans-unit id="action.reset_password">
                 <source>action.reset_password</source>
@@ -116,6 +128,18 @@
                 <source>image.happy_music</source>
                 <target>A small bird with headphones on listening to music.</target>
             </trans-unit>
+            <trans-unit id="image.playful_cat">
+                <source>image.playful_cat</source>
+                <target>A smiling cat drawing.</target>
+            </trans-unit>
+            <trans-unit id="image.quick_chat">
+                <source>image.quick_chat</source>
+                <target>A creature drinking juice.</target>
+            </trans-unit>
+            <trans-unit id="image.refreshing_beverage">
+                <source>image.refreshing_beverage</source>
+                <target>A smiling cat drawing.</target>
+            </trans-unit>
 
             <trans-unit id="info.about-project">
                 <source>info.about-project</source>
@@ -125,10 +149,50 @@
                 <source>info.application</source>
                 <target>Welcome to Music History Canon! This application is for music students and enjoyers, who want to discover greatest music pieces in history!</target>
             </trans-unit>
+            <trans-unit id="info.canons">
+                <source>info.canons</source>
+                <target>Here you can create and edit canon lists. Later you can listen to them and learn in the Flashcards tab.</target>
+            </trans-unit>
+            <trans-unit id="info.composers">
+                <source>info.composers</source>
+                <target>Here you can add new composers to the database. Remember that you can't delete composers that already have some pieces.</target>
+            </trans-unit>
+            <trans-unit id="info.flashcards">
+                <source>info.flashcards</source>
+                <target>Listen to your or your friends' canons. This feature allows you to get ready for any music history listening exam in no time!</target>
+            </trans-unit>
+            <trans-unit id="info.login">
+                <source>info.login</source>
+                <target>Welcome back to Music History Canon!</target>
+            </trans-unit>
+            <trans-unit id="info.pieces">
+                <source>info.pieces</source>
+                <target>Here you can add new pieces to the database. Remember that you can't delete pieces if somebody added them to their canons. After you enter the link to the YouTube recording of a piece, you can validate its correctness by looking if the live preview is displaying your video! That's so cool!</target>
+            </trans-unit>
+            <trans-unit id="info.periods">
+                <source>info.periods</source>
+                <target>Here you can browse musical periods. When you add a new composer, you can choose the period of his or her artistic creativity!</target>
+            </trans-unit>
+            <trans-unit id="info.register">
+                <source>info.register</source>
+                <target>Welcome to Music History Canon!</target>
+            </trans-unit>
+            <trans-unit id="info.scales">
+                <source>info.scales</source>
+                <target>Here you can browse musical scales or keys. When you add a new piece, you can choose its scale.</target>
+            </trans-unit>
+            <trans-unit id="info.users">
+                <source>info.users</source>
+                <target>Here you can check who is the best contributor and student. Gain experience and levels by adding data to our app or by learning canons!</target>
+            </trans-unit>
 
             <trans-unit id="label.actions">
                 <source>label.actions</source>
                 <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="label.agree_terms">
+                <source>label.agree_terms</source>
+                <target>I agree to terms</target>
             </trans-unit>
             <trans-unit id="label.id">
                 <source>label.id</source>
@@ -218,6 +282,10 @@
                 <source>label.email</source>
                 <target>Email</target>
             </trans-unit>
+            <trans-unit id="label.new_password">
+                <source>label.new_password</source>
+                <target>New password</target>
+            </trans-unit>
             <trans-unit id="label.none">
                 <source>label.none</source>
                 <target>none</target>
@@ -225,6 +293,10 @@
             <trans-unit id="label.password">
                 <source>label.password</source>
                 <target>Password</target>
+            </trans-unit>
+            <trans-unit id="label.password_repeat">
+                <source>label.password_repeat</source>
+                <target>Repeat password</target>
             </trans-unit>
             <trans-unit id="label.period">
                 <source>label.period</source>
@@ -306,6 +378,10 @@
                 <source>label.registered_at</source>
                 <target>Registered at</target>
             </trans-unit>
+            <trans-unit id="label.remember_me">
+                <source>label.remember_me</source>
+                <target>Remember me</target>
+            </trans-unit>
             <trans-unit id="label.scale">
                 <source>label.scale</source>
                 <target>Scale</target>
@@ -330,13 +406,17 @@
                 <source>label.user_composers</source>
                 <target>User composers</target>
             </trans-unit>
+            <trans-unit id="label.user_email">
+                <source>label.user_email</source>
+                <target>Your email</target>
+            </trans-unit>
             <trans-unit id="label.user_experience">
                 <source>label.user_experience</source>
                 <target>Experience</target>
             </trans-unit>
             <trans-unit id="label.user_image">
                 <source>label.user_image</source>
-                <target>User profile image</target>
+                <target>%name% profile image</target>
             </trans-unit>
             <trans-unit id="label.user_level">
                 <source>label.user_level</source>
@@ -345,6 +425,14 @@
             <trans-unit id="label.user_name">
                 <source>label.user_name</source>
                 <target>User name</target>
+            </trans-unit>
+            <trans-unit id="label.user_old_password">
+                <source>label.user_old_password</source>
+                <target>Your old password</target>
+            </trans-unit>
+            <trans-unit id="label.user_password">
+                <source>label.user_password</source>
+                <target>Your password</target>
             </trans-unit>
             <trans-unit id="label.user_pieces">
                 <source>label.user_pieces</source>

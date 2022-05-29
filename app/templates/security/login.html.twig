@@ -31,15 +31,22 @@
         >
         <div class="checkbox mb-3">
             <label>
-                <input type="checkbox" name="_remember_me">{{ 'label.remember_me' }}
+                <input type="checkbox" name="_remember_me">{{ 'label.remember_me'|trans }}
             </label>
         </div>
 
 
-        <button class="btn btn-lg btn-primary" type="submit">
+        <button class="btn w-100 btn-primary" type="submit">
             {{ 'action.sign_in'|trans }}
         </button>
         </form>
         <p><a href="{{ url('app_forgot_password_request') }}">{{ 'message.forgot_password'|trans }}</a></p>
     {% endif %}
+    <div class="image-wrapper">
+        <div class="image-wrapper__content">
+            <img src="{{ asset('images/undraw_refreshing_beverage.svg') }}" alt="{{ 'image.refreshing_beverage'|trans }}"
+                 class="image--medium">
+            <p>{{ 'info.login'|trans }}</p>
+        </div>
+    </div>
 {% endblock %}

@@ -5,10 +5,16 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.flashcards_learn'|trans({'%name%': canon.name|default('')}) }}</h1>
+    <h1 class="underline-header">{{ 'title.flashcards_learn'|trans({'%name%': canon.name|default('')}) }} <button class="btn-learn-more" id="info-show-hide" title="{{ 'action.learn_more'|trans }}" aria-label="{{ 'action.learn_more'|trans }}"><i class="fa-solid fa-circle-question"></i></button></h1>
+    <div class="image-wrapper hidden" id="info-box-hideable">
+        <div class="image-wrapper__content image-wrapper--flashcards">
+            <img src="{{ asset('images/undraw_quick_chat.svg') }}" alt="{{ 'image.quick_chat'|trans }}"
+                 class="image--medium">
+            <p>{{ 'info.flashcards'|trans }}</p>
+        </div>
+    </div>
 
     {% if canon is defined %}
-        {{ canon.name }}
         {% if piece is defined and piece is not null %}
             <div class="flashcards-container">
                 <iframe id="ytplayer" type="text/html"
@@ -18,26 +24,26 @@
 
                 <div class="flashcards-container__flashcards">
                     <div class="flashcards-container__flashcard flashcards-container__flashcards--first">
-                        <div class="flashcard flashcard--front"><i class="fa-solid fa-circle-question"></i></div>
-                        <div class="flashcard flashcard--back">
+                        <button class="flashcard flashcard--front"><i class="fa-solid fa-circle-question"></i></button>
+                        <button class="flashcard flashcard--back">
                             {{ piece.name }} {% if piece.year is not null %}({{ piece.year }}){% endif %}
                             <br>
                             {{ piece.scale.name|trans }}
                             <br>
                             {{ piece.composer.period.name|trans }}
-                        </div>
+                        </button>
                     </div>
                     <div class="flashcards-container__flashcard flashcards-container__flashcards--second">
-                        <div class="flashcard flashcard--front"><i class="fa-solid fa-circle-question"></i></div>
-                        <div class="flashcard flashcard--back">
+                        <button class="flashcard flashcard--front"><i class="fa-solid fa-circle-question"></i></button>
+                        <button class="flashcard flashcard--back">
                             {{ piece.composer.name }}{% if piece.composer.lastName is not null %} {{ piece.composer.lastName }}{% endif %}
-                        </div>
+                        </button>
                     </div>
                     <div class="flashcards-container__flashcard flashcards-container__flashcards--third">
-                        <div class="flashcard flashcard--front"><i class="fa-solid fa-circle-question"></i></div>
-                        <div class="flashcard flashcard--back">
+                        <button class="flashcard flashcard--front"><i class="fa-solid fa-circle-question"></i></button>
+                        <button class="flashcard flashcard--back">
                             {% if piece.description is not null %}{{ piece.description }}{% endif %}
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>

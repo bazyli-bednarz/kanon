@@ -28,6 +28,9 @@ class NextFlashcardType extends AbstractType
                 'draw', SubmitType::class,
                 [
                     'label' => 'label.draw',
+                    'attr' => [
+                        'class' => 'w-100 btn btn-primary',
+                    ],
                 ]
             );
     }

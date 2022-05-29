@@ -42,14 +42,6 @@ class FlashcardsType extends AbstractType
                         }
                         return true;
                     },
-//                    'choice_filter' => ChoiceList::filter(
-//                        $this,
-//                        function ($canon) {
-//                            $user = $this->security->getUser();
-//                            return ($canon->getVisibility()) || ($canon->getAuthor() === $user);
-//                        },
-//                        'canon'
-//                    ),
                     'attr' => [
                         'class' => 'selectize-multi',
                     ],

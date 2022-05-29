@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.user_details'|trans({'%name%': user.name|default('')}) }}</h1>
+    <h1 class="underline-header">{{ 'title.user_details'|trans({'%name%': user.name|default('')}) }}</h1>
     <div class="user-container">
 
         {% if user is defined and user|length %}
@@ -38,10 +38,6 @@
             {% endif %}
 
             <dl class="dl-horizontal">
-                <dt>{{ 'label.id'|trans }}</dt>
-                <dd>#{{ user.id }}</dd>
-                <dt>{{ 'label.user_name'|trans }}</dt>
-                <dd>{{ user.name }}</dd>
                 <dt>{{ 'label.user_level'|trans }}</dt>
                 <dd>{{ user.level }}</dd>
                 <dt>{{ 'label.user_experience'|trans }}</dt>
@@ -66,7 +62,8 @@
                      src="{{ asset('images/avatars/' ~ user.image) ~ '.jpg' }}"
                      alt="{{ 'label.user_image'|trans({'%name%': user.name|default('')}) }}">
                 {% if user is defined and user==app.user %}
-                <div class="user-image--editable"><p>{{ 'action.change_image'|trans }} <i class="fa-solid fa-brush"></i></p></div>
+                <div class="user-image--editable"><p>{{ 'action.change_image'|trans }} <i class="fa-solid fa-brush"></i>
+                    </p></div>
             </a>
             {% endif %}
         </div>
@@ -78,48 +75,47 @@
                 <h2>
                     {{ 'label.friends'|trans }}
                 </h2>
-                {% if user.friends is defined and user.friends|length %}
-                    <table class="table table-striped">
-                        <tbody>
+                <div class="friends">
+                    {% if user.friends is defined and user.friends|length %}
+
                         {% for friend in user.friends %}
-                            <tr>
-                                <td>
-                                    <a href="{{ url('user_show', {slug: friend.slug}) }}"
-                                       title="{{ 'action.view'|trans }}">
-                                        {{ friend.name }}
-                                    </a>
-                                </td>
-                            </tr>
+                            <div class="friend-container">
+                                <a href="{{ url('user_show', {slug: friend.slug}) }}"
+                                   title="{{ 'action.view'|trans }}">
+                                    <img class="user-image user-image--small"
+                                         src="{{ asset('images/avatars/' ~ friend.image) ~ '.jpg' }}"
+                                         alt="{{ 'label.user_image'|trans({'%name%': user.name|default('')}) }}">
+                                    {{ friend.name }}
+                                </a>
+                            </div>
                         {% endfor %}
-                        </tbody>
-                    </table>
-                {% else %}
-                    <p>-</p>
-                {% endif %}
+                    {% else %}
+                        <p>-</p>
+                    {% endif %}
+                </div>
 
             </div>
             <div class="friends-container--element friends-container--element__friends-with-me">
                 <h2>
                     {{ 'label.friends_with_me'|trans }}
                 </h2>
-                {% if user.friendsWithMe is defined and user.friendsWithMe|length %}
-                    <table class="table table-striped">
-                        <tbody>
-                        {% for friend in user.friendsWithMe %}
-                            <tr>
-                                <td>
+                <div class="friends">
+                    {% if user.friendsWithMe is defined and user.friendsWithMe|length %}
+                            {% for friend in user.friendsWithMe %}
+                                <div class="friend-container">
                                     <a href="{{ url('user_show', {slug: friend.slug}) }}"
                                        title="{{ 'action.view'|trans }}">
+                                        <img class="user-image user-image--small"
+                                             src="{{ asset('images/avatars/' ~ friend.image) ~ '.jpg' }}"
+                                             alt="{{ 'label.user_image'|trans({'%name%': user.name|default('')}) }}">
                                         {{ friend.name }}
                                     </a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                {% else %}
-                    <p>-</p>
-                {% endif %}
+                                </div>
+                            {% endfor %}
+                    {% else %}
+                        <p>-</p>
+                    {% endif %}
+                </div>
             </div>
         </div>
     {% endif %}

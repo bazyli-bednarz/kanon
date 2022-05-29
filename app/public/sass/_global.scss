@@ -25,13 +25,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background: $main-gradient-blue-45deg;
-}
-
-table {
+  background: $color-main;
+  transition: background 0.3s;
   display: block;
 
-  @media all and (max-width: 900px) {
+  &:hover, &:focus {
+    background: $color-main-dark;
+  }
+}
+
+.table {
+  display: block;
+  margin: auto;
+  white-space: nowrap;
+
+  @media all and (max-width: 1540px) {
+    width: 100%;
     overflow-x: auto;
     white-space: nowrap;
   }
@@ -50,6 +59,7 @@ table {
         text-decoration: none;
         transition: 0.3s;
         position: relative;
+
         &:before {
           position: absolute;
           content: '';
@@ -63,8 +73,10 @@ table {
           transition: opacity 0.3s;
           border-radius: 100vh;
         }
+
         &:hover {
           color: $color-white;
+
           &:before {
             opacity: 1;
           }
@@ -86,27 +98,110 @@ table {
       }
     }
   }
+
   tbody {
     tr {
       td:last-of-type {
         white-space: nowrap;
+
         a {
           text-decoration: none;
         }
-
-        i {
-          &.fa-eye {
-            color: $color-main;
-          }
-          &.fa-pen-to-square {
-            color: $color-edit;
-          }
-          &.fa-trash-can {
-            color: $color-delete;
-          }
-        }
       }
     }
+  }
+
+  &--scales {
+    display: table;
+  }
+
+  &--canons {
+    @media all and (min-width: 950px) {
+      display: table;
+    }
+  }
+
+  &--periods {
+    @media all and (min-width: 1550px) {
+      display: table;
+    }
+  }
+
+  &--users {
+    @media all and (min-width: 855px) {
+      display: table;
+    }
+  }
+
+  &--pieces {
+    @media all and (min-width: 1540px) {
+      white-space: normal;
+    }
+  }
+
+  &--composers {
+    @media all and (min-width: 1540px) {
+      white-space: normal;
+    }
+  }
+}
+
+i {
+  &.fa-eye {
+    color: $color-main;
+  }
+
+  &.fa-pen-to-square {
+    color: $color-edit;
+  }
+
+  &.fa-trash-can {
+    color: $color-delete;
+  }
+
+  &.fa-youtube {
+    color: $color-delete;
+  }
+
+  &.fa-record-vinyl {
+    color: $color-main-2;
+  }
+}
+
+input[type="checkbox"] {
+  margin-right: 0.3rem
+}
+
+.btn-learn-more {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 50%;
+
+  i {
+    animation: shake 1s 0.5s both;
+    color: $color-main;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-main-dark;
+    }
+  }
+}
+
+.underline-header {
+  position: relative;
+  overflow-x: hidden;
+  &:after {
+    content: '';
+    background-color: $color-main;
+    width: 100%;
+    position: absolute;
+    height: 3px;
+    border-radius: 100vh 0 100vh 0;
+    bottom: 0;
+    left: 0;
+    animation: slideInUnderline 1.5s 1.2s ease both;
   }
 }
 

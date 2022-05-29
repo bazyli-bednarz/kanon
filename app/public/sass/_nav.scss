@@ -1,13 +1,41 @@
 nav {
   color: $nav-text-color;
 
+  .navbar-toggler {
+    border: none;
+  }
+
   .navbar-brand {
     font-family: 'Comfortaa', cursive;
     margin-right: 0;
+
+    &:hover {
+      i {
+        color: $color-main-dark;
+      }
+    }
+
     i {
       color: $color-main;
+      transition: color 0.3s;
     }
+
     @include responsive_padding(0, 1rem, 0, 1rem);
+  }
+
+  .nav-item {
+    &.active {
+      .nav-link {
+        color: $color-main-light;
+        transition: 0.3s;
+      }
+
+      &:hover {
+        .nav-link {
+          color: $color-main;
+        }
+      }
+    }
   }
 
   .nav__user-data {
@@ -26,6 +54,7 @@ nav {
       overflow: hidden;
       height: 2.3rem;
       width: 7rem;
+
       &__meter {
         position: absolute;
         top: 0;
@@ -38,6 +67,7 @@ nav {
         background-size: 200% 200%;
         animation: animateGlow 10s linear infinite;
       }
+
       &__experience {
         position: absolute;
         top: 50%;
@@ -87,6 +117,7 @@ nav {
         align-items: center;
         text-decoration: none;
       }
+
       .user-image {
         &--small {
           width: 2.3rem;
@@ -97,25 +128,30 @@ nav {
         }
       }
     }
+
     .nav-button {
       @include flexbox(row, center, center);
       flex-wrap: nowrap;
+
       a {
         display: inline-block;
         text-decoration: none;
         color: $color-white;
         transition: filter 0.3s;
+
         &:hover {
           filter: brightness(0.9);
         }
       }
+
       &__login {
-        @include responsive_padding(0.5rem,0.8rem,0.5rem,0.8rem);
+        @include responsive_padding(0.5rem, 0.8rem, 0.5rem, 0.8rem);
       }
+
       &__register {
         background: $main-gradient-blue-45deg;
         margin-right: 0.5rem;
-        @include responsive_padding(0.5rem,0.8rem,0.5rem,0.8rem);
+        @include responsive_padding(0.5rem, 0.8rem, 0.5rem, 0.8rem);
         border-radius: 2rem;
       }
     }

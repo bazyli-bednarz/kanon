@@ -9,7 +9,7 @@ parameters:
      <div class="navigation text-center">
          {{ knp_pagination_render(pagination) }}
      </div>
-     <table class="table table-striped">
+     <table class="table table-striped table-bordered table--composers">
          <thead>
          <tr>
              <th>{{ knp_pagination_sortable(pagination, 'label.composer_name'|trans, 'composer.name') }}</th>

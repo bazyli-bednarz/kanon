@@ -9,7 +9,7 @@ parameters:
         {{ knp_pagination_render(pagination) }}
     </div>
 
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered table--periods">
         <thead>
         <tr>
             <th>{{ knp_pagination_sortable(pagination, 'label.period_name'|trans, 'period.name') }}</th>

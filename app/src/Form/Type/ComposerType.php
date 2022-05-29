@@ -64,7 +64,7 @@ class ComposerType extends AbstractType
                 'deathYear',
                 NumberType::class,
                 [
-                    'label' => 'label.composer_birth_year',
+                    'label' => 'label.composer_death_year',
                     'required' => false,
                 ])
             ->add(

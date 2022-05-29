@@ -5,11 +5,9 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.canon_details'|trans({'%name%': canon.name|default('')}) }}</h1>
+    <h1 class="underline-header">{{ 'title.canon_details'|trans({'%name%': canon.name|default('')}) }}</h1>
     {% if canon is defined and canon|length %}
         <dl class="dl-horizontal">
-            <dt>{{ 'label.id'|trans }}</dt>
-            <dd>#{{ canon.id }}</dd>
             <dt>{{ 'label.canon_name'|trans }}</dt>
             <dd>{{ canon.name }}</dd>
             <dt>{{ 'label.canon_description'|trans }}</dt>

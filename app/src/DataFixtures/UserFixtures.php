@@ -67,7 +67,7 @@ class UserFixtures extends AbstractBaseFixtures
                     $this->faker->dateTimeBetween('-100 days', '-1 days')
                 )
             );
-            $user->setRoles([User::ROLE_USER, User::ROLE_ADMIN]);
+            $user->setRoles([User::ROLE_ADMIN, User::ROLE_USER]);
             $user->setIsVerified(true);
             $user->setImage($this->faker->numberBetween(11,20));
             $user->setPassword(

@@ -5,11 +5,9 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.scale_details'|trans({'%name%': scale.name|trans|default('')}) }}</h1>
+    <h1 class="underline-header">{{ 'title.scale_details'|trans({'%name%': scale.name|trans|default('')}) }}</h1>
     {% if scale is defined and scale|length %}
         <dl class="dl-horizontal">
-            <dt>{{ 'label.id'|trans }}</dt>
-            <dd>#{{ scale.id }}</dd>
             <dt>{{ 'label.scale_name'|trans }}</dt>
             <dd>{{ scale.name|trans }}</dd>
         </dl>

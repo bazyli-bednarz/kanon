@@ -29,8 +29,7 @@
 .form__profile-image {
 
   #profile_image_image {
-    display: flex;
-    flex-direction: row;
+    @include flexbox(row, center, center);
     flex-wrap: wrap;
 
     label {
@@ -107,6 +106,21 @@
       }
 
 
+    }
+  }
+}
+
+.ytplayer {
+  &--form {
+    @include responsive_margin(1rem, 0, 0, 0);
+    @include mainColorBorder(3px, 2rem);
+    width: 100%;
+    aspect-ratio: 16/9;
+    @media all and (min-width: 900px){
+      width: 50%;
+    }
+    @media all and (min-width: 1200px){
+      width: 30%;
     }
   }
 }

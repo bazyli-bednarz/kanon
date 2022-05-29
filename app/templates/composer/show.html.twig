@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.composer_details'|trans({'%name%': composer.name|default('') ~ ' ' ~ composer.lastName|default('')}) }}</h1>
+    <h1 class="underline-header">{{ 'title.composer_details'|trans({'%name%': composer.name|default('') ~ ' ' ~ composer.lastName|default('')}) }}</h1>
     {% if composer is defined and composer|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>

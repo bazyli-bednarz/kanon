@@ -4,6 +4,7 @@
           linear-gradient(to right, $color-main, $color-main-2) border-box;
   border: $border solid transparent;
   border-radius: $border-radius;
+  @include shadow();
 }
 
 @mixin shadow() {

@@ -1,17 +1,31 @@
 .user-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  @include flexbox(column, center, center);
+  @media all and (min-width: 900px){
+    @include flexbox(row, center, center);
+  }
   &__image {
+    width: 90vw;
+    height: 90vw;
+    max-width: 400px;
+    max-height: 400px;
     overflow: hidden;
     border-radius: 50%;
+    @include mainColorBorder(5px, 50%);
     .user-image {
       transition: 0.7s ease;
-      border-radius: 50%;
+      width: 90vw;
+      height: 90vw;
+      max-width: 400px;
+      max-height: 400px;
 
       &:hover {
         transform: scale(1.1);
       }
+      @media all and (min-width: 900px){
+        width: 50vw;
+        max-width: 400px;
+      }
+
     }
 
     a {
@@ -53,6 +67,60 @@
 
 
         }
+      }
+    }
+  }
+}
+
+.friends {
+  @include flexbox(row, flex-start, center);
+  flex-wrap: wrap;
+}
+
+.friend-container {
+  width: min-content;
+  background-color: $color-main;
+  border-radius: 100vh;
+  transition: 0.3s;
+  @include responsive_margin(0.5rem, 0.5rem, 0.5rem, 0.5rem);
+  @include shadow();
+  &:hover {
+    background-color: $color-main-dark;
+  }
+  a {
+    color: $color-white;
+    text-decoration: none;
+    @include flexbox(row, center, center);
+    @include responsive_padding(0.5rem, 1rem, 0.5rem, 1rem);
+  }
+  .user-image {
+    &--small {
+      min-width: 50px;
+      overflow: hidden;
+      width: 40%;
+      @include mainColorBorder(3px, 50%);
+      @media all and (min-width: 800px ){
+        width: 20%;
+      }
+      @media all and (min-width: 1250px ){
+        width: 10%;
+      }
+    }
+  }
+}
+
+.table--users {
+  .user-image {
+    &--small {
+      overflow: hidden;
+
+      width: 40%;
+      @include mainColorBorder(3px, 50%);
+      @media all and (min-width: 800px ){
+        width: 20%;
+      }
+      @media all and (min-width: 1250px ){
+        width: 10%;
       }
     }
   }
