@@ -1,3 +1,6 @@
+/**
+ * Toggles info.
+ */
 const infoBox = document.querySelector('#info-box-hideable');
 const showHideButton = document.querySelector('#info-show-hide');
 

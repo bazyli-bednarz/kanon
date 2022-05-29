@@ -5,8 +5,6 @@
 
 namespace App\Controller;
 
-
-
 use App\Entity\Canon;
 
 use App\Form\Type\CanonType;

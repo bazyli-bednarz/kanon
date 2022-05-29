@@ -9,17 +9,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 
 /**
- * Scale type.
+ * Flashcards type.
  */
 class NextFlashcardType extends AbstractType
 {
-    private TranslatorInterface $translator;
-
-
-    public function __construct(TranslatorInterface $translator)
-    {
-        $this->translator = $translator;
-    }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

@@ -28,15 +28,12 @@ class ScaleController extends AbstractController
 {
     private ScaleServiceInterface $scaleService;
 
-    private TranslatorInterface $translator;
-
     /**
      * ScaleController constructor.
      */
-    public function __construct(ScaleServiceInterface $scaleService, TranslatorInterface $translator)
+    public function __construct(ScaleServiceInterface $scaleService)
     {
         $this->scaleService = $scaleService;
-        $this->translator = $translator;
     }
 
 

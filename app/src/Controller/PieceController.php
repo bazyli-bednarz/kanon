@@ -5,8 +5,6 @@
 
 namespace App\Controller;
 
-
-
 use App\Entity\Piece;
 use App\Form\Type\PieceType;
 use App\Service\PieceServiceInterface;

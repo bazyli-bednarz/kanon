@@ -1,3 +1,6 @@
+/**
+ * Displays live video preview on piece form.
+ */
 const pieceLinkDiv = document.querySelector('#piece_link').parentElement;
 let pieceLinkInput = document.querySelector('#piece_link');
 

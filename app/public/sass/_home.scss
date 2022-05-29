@@ -14,7 +14,6 @@
   }
   &__tags {
     white-space: nowrap;
-    @include responsive_margin(0.5rem, 0.5rem, 0.5rem, 0.5rem);
 
     a {
       color: $color-white;

@@ -1,3 +1,6 @@
+/**
+ * Animates rotating flashcards.
+ */
 const card1 = document.querySelector('.flashcards-container__flashcards--first');
 const card2 = document.querySelector('.flashcards-container__flashcards--second');
 const card3 = document.querySelector('.flashcards-container__flashcards--third');

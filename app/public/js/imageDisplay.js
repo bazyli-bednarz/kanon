@@ -1,3 +1,6 @@
+/**
+ * Modifies user profile picture form, so it displays images properly and also adds images that are yet to be unlocked.
+ */
 const imageInputs = document.querySelectorAll('.form-check label');
 const imagesWrapper = document.querySelector('#profile_image_image');
 let i=0;

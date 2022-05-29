@@ -2,7 +2,7 @@
 
 <p>
     {{ 'mail.confirm_mail_please'|trans }} <br><br>
-    <a href="{{ signedUrl }}">{{ 'mail.confirm'|trans }}</a>.
+    <a href="{{ signedUrl }}">{{ 'mail.confirm'|trans }}</a>.<br>
     {{ 'mail.mail_will_expire_in'|trans }} {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
 </p>
 

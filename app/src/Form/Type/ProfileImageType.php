@@ -11,6 +11,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Security;
 
+/**
+ * Class ProfileImageType
+ */
 class ProfileImageType extends AbstractType
 {
     private Security $security;
@@ -35,6 +38,11 @@ class ProfileImageType extends AbstractType
         ;
     }
 
+    /**
+     * Determines images available to user by level.
+     *
+     * @return int[]
+     */
     public function determineChoices(): array {
         $level = $this->security->getUser()->getLevel();
         $choices = [1,2,3,4,5];

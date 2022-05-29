@@ -1,3 +1,6 @@
+/**
+ * Functionality for closing flash messages.
+ */
 const flashes = [...document.querySelectorAll('.alert')];
 flashes.forEach(flash => {
     flash.querySelector('.close-flash').addEventListener('click', function (e) {

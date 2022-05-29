@@ -10,6 +10,9 @@ use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+/**
+ * Class ComposerVoter
+ */
 class ComposerVoter extends Voter
 {
     public const EDIT = 'EDIT';

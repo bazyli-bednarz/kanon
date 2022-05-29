@@ -7,9 +7,15 @@ use App\Entity\User;
 use DateTimeImmutable;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
+/**
+ * Class CanonFixtures
+ */
 class CanonFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
 
+    /**
+     * Loads canon data.
+     */
     public function loadData(): void
     {
         if (null === $this->manager || null === $this->faker) {

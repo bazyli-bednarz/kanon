@@ -22,7 +22,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * Scale type.
  */
-
 class PieceType extends AbstractType
 {
     private TranslatorInterface $translator;

@@ -14,6 +14,9 @@ use App\Service\TagServiceInterface;
 use DateTimeImmutable;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
+/**
+ * Class PieceFixtures
+ */
 class PieceFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
 

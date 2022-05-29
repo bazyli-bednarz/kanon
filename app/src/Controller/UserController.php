@@ -5,8 +5,6 @@
 
 namespace App\Controller;
 
-
-
 use App\Entity\User;
 use App\Form\Type\FriendsType;
 use App\Form\Type\ProfileImageType;

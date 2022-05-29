@@ -99,6 +99,10 @@
                 <source>action.start</source>
                 <target>Start learning</target>
             </trans-unit>
+            <trans-unit id="action.try_again">
+                <source>action.try_again</source>
+                <target>try again.</target>
+            </trans-unit>
             <trans-unit id="action.user_canons">
                 <source>action.user_canons</source>
                 <target>User canons</target>
@@ -477,7 +481,7 @@
             </trans-unit>
             <trans-unit id="mail.subject">
                 <source>mail.subject</source>
-                <target>Welcome!</target>
+                <target>Welcome to Music History Canon!</target>
             </trans-unit>
             <trans-unit id="mail.subject_password_reset">
                 <source>mail.subject_password_reset</source>
@@ -541,6 +545,10 @@
                 <source>message.canon_has_pieces</source>
                 <target>This canon contains pieces and can't be deleted!</target>
             </trans-unit>
+            <trans-unit id="message.check_spam_or">
+                <source>message.check_spam_or</source>
+                <target>Check your spam folder or </target>
+            </trans-unit>
             <trans-unit id="message.canon_is_empty">
                 <source>message.canon_is_empty</source>
                 <target>This canon is empty.</target>
@@ -600,6 +608,10 @@
             <trans-unit id="message.logged_in_description">
                 <source>message.logged_in_description</source>
                 <target>Do you want to login to another account?</target>
+            </trans-unit>
+            <trans-unit id="message.mail_expires_in">
+                <source>message.mail_expires_in</source>
+                <target>Mail will expire in</target>
             </trans-unit>
             <trans-unit id="message.page_not_found">
                 <source>message.page_not_found</source>
@@ -1007,7 +1019,7 @@
             </trans-unit>
             <trans-unit id="title.reset_password_email_sent">
                 <source>title.reset_password_email_sent</source>
-                <target>Reset password email was sent</target>
+                <target>Reset password email was sent.</target>
             </trans-unit>
             <trans-unit id="title.register">
                 <source>title.register</source>

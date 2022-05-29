@@ -1,3 +1,6 @@
+/**
+ * Displays user level progress.
+ */
 const levelProgressBox = document.querySelector('.level-progress');
 const levelProgressBar = document.querySelector('.level-progress__meter');
 const currentExp = document.querySelector('.level-progress__current-experience');

@@ -81,7 +81,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
                 'partial user.{id, name, createdAt, slug, password, email, experience, image, level}'
             )
             ->add('orderBy', 'user.level DESC, user.experience DESC');
-//            ->orderBy('user.level DESC, user.experience DESC');
     }
 
     /**

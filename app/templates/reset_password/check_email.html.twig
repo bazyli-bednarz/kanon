@@ -4,8 +4,8 @@
 
 {% block body %}
     <p>
-        {{ 'message.email_sent' }}
-        {{ 'message.mail_expires_in'}} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+        {{ 'title.reset_password_email_sent'|trans }}
+        {{ 'message.mail_expires_in'|trans }} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
     </p>
-    <p>{{ 'message.check_spam_or'}} <a href="{{ path('app_forgot_password_request') }}">{{ 'action.try_again' }}</a>.</p>
+    <p>{{ 'message.check_spam_or'|trans }} <a href="{{ path('app_forgot_password_request') }}">{{ 'action.try_again'|trans }}</a>.</p>
 {% endblock %}

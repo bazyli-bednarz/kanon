@@ -12,6 +12,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Security;
 
+/**
+ * Class FlashcardsType
+ */
 class FlashcardsType extends AbstractType
 {
     private Security $security;

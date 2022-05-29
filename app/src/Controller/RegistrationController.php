@@ -30,6 +30,8 @@ class RegistrationController extends AbstractController
     }
 
     /**
+     * Register action.
+     *
      * @Route("/register", name="app_register")
      */
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, LoginFormAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
@@ -62,7 +64,7 @@ class RegistrationController extends AbstractController
                     ->subject($this->translator->trans('mail.subject'))
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
-            // do anything else you need here, like send an email
+            // send an email
             $this->addFlash('success', $this->translator->trans('message.registered_successfully'));
 
             return $userAuthenticator->authenticateUser(
@@ -78,6 +80,8 @@ class RegistrationController extends AbstractController
     }
 
     /**
+     * Verify email action.
+     *
      * @Route("/verify/email", name="app_verify_email")
      */
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
