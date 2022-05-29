@@ -786,19 +786,19 @@
             </trans-unit>
             <trans-unit id="scale.f_sharp_major">
                 <source>scale.f_sharp_major</source>
-                <target>F♯-dur</target>
+                <target>Fis-dur</target>
             </trans-unit>
             <trans-unit id="scale.f_sharp_minor">
                 <source>scale.f_sharp_minor</source>
-                <target>f♯-moll</target>
+                <target>fis-moll</target>
             </trans-unit>
             <trans-unit id="scale.c_sharp_major">
                 <source>scale.c_sharp_major</source>
-                <target>C♯-dur</target>
+                <target>Cis-dur</target>
             </trans-unit>
             <trans-unit id="scale.c_sharp_minor">
                 <source>scale.c_sharp_minor</source>
-                <target>c♯-moll</target>
+                <target>cis-moll</target>
             </trans-unit>
             <trans-unit id="scale.f_major">
                 <source>scale.f_major</source>
@@ -842,7 +842,7 @@
             </trans-unit>
             <trans-unit id="scale.g_flat_major">
                 <source>scale.g_flat_major</source>
-                <target>G♭-dur</target>
+                <target>Ges-dur</target>
             </trans-unit>
             <trans-unit id="scale.g_flat_minor">
                 <source>scale.g_flat_minor</source>
