@@ -52,10 +52,10 @@
 
                 <p class="random-piece__tags">
                     {{ 'label.tags'|trans }}:
-                    {% if piece.tags|length > 0 %}
+                    {% if piece.tags is defined and piece.tags|length %}
                         {% for tag in piece.tags %}
-                            <a href="{{ url('piece_index', {'filters_tag_slug': tag.slug}) }}">{{ tag.name }}</a>
-                            {% if not loop.last %}, {% endif %}
+                            <a href="{{ url('piece_index', {'filters_tag_slug': tag.slug}) }}">
+                                {{ tag.name }}</a>
                         {% endfor %}
                     {% else %}
                         -

@@ -1,144 +1,144 @@
 <?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" datatype="plaintext" original="file.ext">
+    <file source-language="pl" datatype="plaintext" original="file.ext">
         <body>
             <trans-unit id="app_name">
                 <source>app_name</source>
-                <target>Music History Canon</target>
+                <target>Kanon Historii Muzyki</target>
             </trans-unit>
 
             <trans-unit id="action.add_canon">
                 <source>action.add_canon</source>
-                <target>Add canon</target>
+                <target>Dodaj kanon</target>
             </trans-unit>
             <trans-unit id="action.add_composer">
                 <source>action.add_composer</source>
-                <target>Add composer</target>
+                <target>Dodaj kompozytora</target>
             </trans-unit>
             <trans-unit id="action.add_friend">
                 <source>action.add_friend</source>
-                <target>Add to friends</target>
+                <target>Dodaj do znajomych</target>
             </trans-unit>
             <trans-unit id="action.add_piece">
                 <source>action.add_piece</source>
-                <target>Add piece</target>
+                <target>Dodaj utwór</target>
             </trans-unit>
             <trans-unit id="action.back_to_list">
                 <source>action.back_to_list</source>
-                <target>Back to the list</target>
+                <target>Powrót do listy</target>
             </trans-unit>
             <trans-unit id="action.back_to_profile">
                 <source>action.back_to_profile</source>
-                <target>Back to the profile</target>
+                <target>Powrót do profilu</target>
             </trans-unit>
             <trans-unit id="action.change_image">
                 <source>action.change_image</source>
-                <target>Change profile image</target>
+                <target>Zmień zdjęcie profilowe</target>
             </trans-unit>
             <trans-unit id="action.close">
                 <source>action.close</source>
-                <target>Close</target>
+                <target>Zamknij</target>
             </trans-unit>
             <trans-unit id="action.delete">
                 <source>action.delete</source>
-                <target>Delete</target>
+                <target>Usuń</target>
             </trans-unit>
             <trans-unit id="action.edit">
                 <source>action.edit</source>
-                <target>Edit</target>
+                <target>Edytuj</target>
             </trans-unit>
             <trans-unit id="action.edit_user_data">
                 <source>action.edit_user_data</source>
-                <target>Edit your profile</target>
+                <target>Edytuj swój profil</target>
             </trans-unit>
             <trans-unit id="action.learn_more">
                 <source>action.learn_more</source>
-                <target>Learn more</target>
+                <target>Dowiedz się więcej</target>
             </trans-unit>
             <trans-unit id="action.login">
                 <source>action.login</source>
-                <target>Login</target>
+                <target>Logowanie</target>
             </trans-unit>
             <trans-unit id="action.logout">
                 <source>action.logout</source>
-                <target>Logout</target>
+                <target>Wyloguj się</target>
             </trans-unit>
             <trans-unit id="action.register">
                 <source>action.register</source>
-                <target>Register</target>
+                <target>Rejestracja</target>
             </trans-unit>
             <trans-unit id="action.remove_friend">
                 <source>action.remove_friend</source>
-                <target>Remove from friends</target>
+                <target>Usuń ze znajomych</target>
             </trans-unit>
             <trans-unit id="action.reset_password">
                 <source>action.reset_password</source>
-                <target>Reset password</target>
+                <target>Resetuj hasło</target>
             </trans-unit>
             <trans-unit id="action.return_home">
                 <source>action.return_home</source>
-                <target>Return to the homepage</target>
+                <target>Wróć do strony głównej</target>
             </trans-unit>
             <trans-unit id="action.save">
                 <source>action.save</source>
-                <target>Save</target>
+                <target>Zapisz</target>
             </trans-unit>
             <trans-unit id="action.send">
                 <source>action.send</source>
-                <target>Send</target>
+                <target>Wyślij</target>
             </trans-unit>
             <trans-unit id="action.sign_in">
                 <source>action.sign_in</source>
-                <target>Sign in</target>
+                <target>Zaloguj się</target>
             </trans-unit>
             <trans-unit id="action.sign_up">
                 <source>action.sign_up</source>
-                <target>Sign up</target>
+                <target>Zarejestruj się</target>
             </trans-unit>
             <trans-unit id="action.start">
                 <source>action.start</source>
-                <target>Start learning</target>
+                <target>Zacznij naukę</target>
             </trans-unit>
             <trans-unit id="action.user_canons">
                 <source>action.user_canons</source>
-                <target>User canons</target>
+                <target>Kanony dodane przez użytkownika</target>
             </trans-unit>
             <trans-unit id="action.user_composers">
                 <source>action.user_composers</source>
-                <target>User composers</target>
+                <target>Kompozytorzy dodane przez użytkownika</target>
             </trans-unit>
             <trans-unit id="action.user_pieces">
                 <source>action.user_pieces</source>
-                <target>User pieces</target>
+                <target>Utwory dodane przez użytkownika</target>
             </trans-unit>
             <trans-unit id="action.view">
                 <source>action.view</source>
-                <target>View</target>
+                <target>Zobacz</target>
             </trans-unit>
 
             <trans-unit id="image.403">
                 <source>image.403</source>
-                <target>Person standing and a big mobile phone with X icon on it.</target>
+                <target>Stojący człowiek i duży telefon z ikoną z symbolem X.</target>
             </trans-unit>
             <trans-unit id="image.404">
                 <source>image.404</source>
-                <target>Number 404 and drawing of the mountains.</target>
+                <target>Numer 404 i rysunek gór.</target>
             </trans-unit>
             <trans-unit id="image.error">
                 <source>image.error</source>
-                <target>A small one-eyed creature breaking a connection cable between a server and a computer.</target>
+                <target>Mały jednooki stwór przecinający kabel łączący serwer i komputer.</target>
             </trans-unit>
             <trans-unit id="image.happy_music">
                 <source>image.happy_music</source>
-                <target>A small bird with headphones on listening to music.</target>
+                <target>Mały ptak ze słuchawkami słuchający muzyki.</target>
             </trans-unit>
             <trans-unit id="image.playful_cat">
                 <source>image.playful_cat</source>
-                <target>A smiling cat drawing.</target>
+                <target>Rysunek uśmiechającego się kota.</target>
             </trans-unit>
             <trans-unit id="image.quick_chat">
                 <source>image.quick_chat</source>
-                <target>A birdie and message bubbles.</target>
+                <target>Ptaszek i dymki wiadomości.</target>
             </trans-unit>
             <trans-unit id="image.refreshing_beverage">
                 <source>image.refreshing_beverage</source>
@@ -147,56 +147,56 @@
 
             <trans-unit id="info.about-project">
                 <source>info.about-project</source>
-                <target>This web application was designed and created by Bazyli Bednarz. This service is an integral part of a bachelor's thesis (major: Electronic Information Processing), prepared under the direction of prof. dr hab. Jerzy Konior at the Faculty Of Management and Social Communication, Jagiellonian University.</target>
+                <target>Autorem niniejszego serwisu jest Bazyli Bednarz. Serwis ten stanowi integralną część pracy licencjackiej (kierunek: Elektroniczne Przetwarzanie Informacji), przygotowanej pod kierunkiem prof. Jerzego Koniora na Wydziale Zarządzania i Komunikacji Społecznej Uniwersytetu Jagiellońskiego.</target>
             </trans-unit>
             <trans-unit id="info.application">
                 <source>info.application</source>
-                <target>Welcome to Music History Canon! This application is for music students and enjoyers, who want to discover greatest music pieces in history!</target>
+                <target>Witaj w Kanonie Historii Muzyki! Ta aplikacja jest przeznaczona dla uczniów i studentów muzyki oraz wszystkich, którzy chcą odkrywać największe dzieła muzyczne w historii!</target>
             </trans-unit>
             <trans-unit id="info.canons">
                 <source>info.canons</source>
-                <target>Here you can create and edit canon lists. Later you can listen to them and learn in the Flashcards tab.</target>
+                <target>Tutaj możesz tworzyć, edytować swoje kanony i dodawać do nich utwory. Posłuchaj ich później w zakładce Fiszki.</target>
             </trans-unit>
             <trans-unit id="info.composers">
                 <source>info.composers</source>
-                <target>Here you can add new composers to the database. Remember that you can't delete composers that already have some pieces.</target>
+                <target>Tutaj możesz dodawać nowych kompozytorów do bazy. Pamiętaj, że nie możesz usunąć kompozytorów, którym ktoś już przypisał jakieś utwory.</target>
             </trans-unit>
             <trans-unit id="info.flashcards">
                 <source>info.flashcards</source>
-                <target>Listen to your or your friends' canons. This feature allows you to get ready for any music history listening exam in no time!</target>
+                <target>Słuchaj swoich kanonów! Dzięki fiszkom przygotujesz się do każdego egzaminu słuchowego z historii muzyki w kilka chwil!</target>
             </trans-unit>
             <trans-unit id="info.login">
                 <source>info.login</source>
-                <target>Welcome back to Music History Canon!</target>
+                <target>Witaj ponownie w Kanonie Historii Muzyki!</target>
             </trans-unit>
             <trans-unit id="info.pieces">
                 <source>info.pieces</source>
-                <target>Here you can add new pieces to the database. Remember that you can't delete pieces if somebody added them to their canons. After you enter the link to the YouTube recording of a piece, you can validate its correctness by looking if the live preview is displaying your video! That's so cool!</target>
+                <target>Tutaj możesz dodawać utwory do bazy. Pamiętaj, że nie możesz usuwać utworów, które ktoś dodał do swoich kanonów. Po wpisaniu linku do nagrania w serwisie YouTube, możesz sprawdzić jego poprawność, jeśli popatrzysz na podgląd na żywo! Jeśli coś jest nie tak, spróbuj użyć innego linku.</target>
             </trans-unit>
             <trans-unit id="info.periods">
                 <source>info.periods</source>
-                <target>Here you can browse musical periods. When you add a new composer, you can choose the period of his or her artistic creativity!</target>
+                <target>Tutaj możesz przeglądać ery muzyczne. Kiedy dodajesz nowego kompozytora, wybierz z tej listy okres jego twórczości!</target>
             </trans-unit>
             <trans-unit id="info.register">
                 <source>info.register</source>
-                <target>Welcome to Music History Canon!</target>
+                <target>Witaj w Kanonie Historii Muzyki!</target>
             </trans-unit>
             <trans-unit id="info.scales">
                 <source>info.scales</source>
-                <target>Here you can browse musical scales or keys. When you add a new piece, you can choose its scale.</target>
+                <target>Tutaj możesz przeglądać tonacje i skale muzyczne. Kiedy dodajesz nowy utwór, możesz wybrać jego skalę.</target>
             </trans-unit>
             <trans-unit id="info.users">
                 <source>info.users</source>
-                <target>Here you can check who is the best contributor and student. Gain experience and levels by adding data to our app or by learning canons!</target>
+                <target>Tutaj sprawdzisz, kto najbardziej przyczynia się do rozwoju tej aplikacji! Zdobywaj doświadczenie i poziomy, dodając nowe dane do bazy lub słuchając swoich kanonów!</target>
             </trans-unit>
 
             <trans-unit id="label.actions">
                 <source>label.actions</source>
-                <target>Actions</target>
+                <target>Działania</target>
             </trans-unit>
             <trans-unit id="label.agree_terms">
                 <source>label.agree_terms</source>
-                <target>I agree to terms</target>
+                <target>Zgadzam się z warunkami użytkowania</target>
             </trans-unit>
             <trans-unit id="label.id">
                 <source>label.id</source>
@@ -204,83 +204,83 @@
             </trans-unit>
             <trans-unit id="label.friends">
                 <source>label.friends</source>
-                <target>My friends</target>
+                <target>Moi najomi</target>
             </trans-unit>
             <trans-unit id="label.friends_with_me">
                 <source>label.friends_with_me</source>
-                <target>Friends with me</target>
+                <target>Jestem ich znajomym</target>
             </trans-unit>
             <trans-unit id="label.title">
                 <source>label.title</source>
-                <target>Title</target>
+                <target>Tytuł</target>
             </trans-unit>
             <trans-unit id="label.canon_author">
                 <source>label.canon_author</source>
-                <target>Canon author</target>
+                <target>Autor kanonu</target>
             </trans-unit>
             <trans-unit id="label.canon_name">
                 <source>label.canon_name</source>
-                <target>Canon name</target>
+                <target>Nazwa kanonu</target>
             </trans-unit>
             <trans-unit id="label.canon_description">
                 <source>label.canon_description</source>
-                <target>Canon description</target>
+                <target>Opis kanonu</target>
             </trans-unit>
             <trans-unit id="label.canon_piece">
                 <source>label.canon_piece</source>
-                <target>Pieces</target>
+                <target>Utwory</target>
             </trans-unit>
             <trans-unit id="label.composer">
                 <source>label.composer</source>
-                <target>Composer</target>
+                <target>Kompozytor</target>
             </trans-unit>
             <trans-unit id="label.composer_author">
                 <source>label.composer_author</source>
-                <target>Added by</target>
+                <target>Dodane przez</target>
             </trans-unit>
             <trans-unit id="label.composer_birth_year">
                 <source>label.composer_birth_year</source>
-                <target>Composer's birth year</target>
+                <target>Rok urodzin kompozytora</target>
             </trans-unit>
             <trans-unit id="label.composer_death_year">
                 <source>label.composer_death_year</source>
-                <target>Composer's death year</target>
+                <target>Rok śmierci kompozytora</target>
             </trans-unit>
             <trans-unit id="label.composer_description">
                 <source>label.composer_description</source>
-                <target>Composer description</target>
+                <target>Opis kompozytora</target>
             </trans-unit>
             <trans-unit id="label.composer_edited_by">
                 <source>label.composer_edited_by</source>
-                <target>Edited by</target>
+                <target>Edytowane przez</target>
             </trans-unit>
             <trans-unit id="label.composer_last_name">
                 <source>label.composer_last_name</source>
-                <target>Composer's last name</target>
+                <target>Nazwisko kompozytora</target>
             </trans-unit>
             <trans-unit id="label.composer_name">
                 <source>label.composer_name</source>
-                <target>Composer's name</target>
+                <target>Imię kompozytora</target>
             </trans-unit>
             <trans-unit id="label.composer_period">
                 <source>label.composer_period</source>
-                <target>Composer's creative period</target>
+                <target>Okres twórczości kompozytora</target>
             </trans-unit>
             <trans-unit id="label.composer_period_name">
                 <source>label.composer_period_name</source>
-                <target>Composer's creative period</target>
+                <target>Okres twórczości kompozytora</target>
             </trans-unit>
             <trans-unit id="label.content">
                 <source>label.content</source>
-                <target>Content</target>
+                <target>Zawartość</target>
             </trans-unit>
             <trans-unit id="label.created_at">
                 <source>label.created_at</source>
-                <target>Created at</target>
+                <target>Utworzono</target>
             </trans-unit>
             <trans-unit id="label.draw">
                 <source>label.draw</source>
-                <target>Draw another!</target>
+                <target>Losuj kolejny!</target>
             </trans-unit>
             <trans-unit id="label.email">
                 <source>label.email</source>
@@ -288,419 +288,419 @@
             </trans-unit>
             <trans-unit id="label.new_password">
                 <source>label.new_password</source>
-                <target>New password</target>
+                <target>Nowe hasło</target>
             </trans-unit>
             <trans-unit id="label.none">
                 <source>label.none</source>
-                <target>none</target>
+                <target>brak</target>
             </trans-unit>
             <trans-unit id="label.password">
                 <source>label.password</source>
-                <target>Password</target>
+                <target>Hasło</target>
             </trans-unit>
             <trans-unit id="label.password_repeat">
                 <source>label.password_repeat</source>
-                <target>Repeat password</target>
+                <target>Powtórz hasło</target>
             </trans-unit>
             <trans-unit id="label.period">
                 <source>label.period</source>
-                <target>Period</target>
+                <target>Era</target>
             </trans-unit>
             <trans-unit id="label.period_author">
                 <source>label.period_author</source>
-                <target>Added by</target>
+                <target>Dodano przez</target>
             </trans-unit>
             <trans-unit id="label.period_start_year">
                 <source>label.period_start_year</source>
-                <target>Beginning year</target>
+                <target>Początek ery</target>
             </trans-unit>
             <trans-unit id="label.period_end_year">
                 <source>label.period_end_year</source>
-                <target>Ending year</target>
+                <target>Koniec ery</target>
             </trans-unit>
             <trans-unit id="label.period_description">
                 <source>label.period_description</source>
-                <target>Period description</target>
+                <target>Opis ery</target>
             </trans-unit>
             <trans-unit id="label.period_edited_by">
                 <source>label.period_edited_by</source>
-                <target>Edited by</target>
+                <target>Edytowane przez</target>
             </trans-unit>
             <trans-unit id="label.period_name">
                 <source>label.period_name</source>
-                <target>Period's name</target>
+                <target>Nazwa ery</target>
             </trans-unit>
             <trans-unit id="label.piece_author">
                 <source>label.piece_author</source>
-                <target>Added by</target>
+                <target>Dodane przez</target>
             </trans-unit>
             <trans-unit id="label.piece_canon">
                 <source>label.piece_canon</source>
-                <target>Canons</target>
+                <target>Kanony</target>
             </trans-unit>
             <trans-unit id="label.piece_canons">
                 <source>label.piece_canons</source>
-                <target>Canons</target>
+                <target>Kanony</target>
             </trans-unit>
             <trans-unit id="label.piece_composer">
                 <source>label.piece_composer</source>
-                <target>Piece composer</target>
+                <target>Kompozytor utworu</target>
             </trans-unit>
             <trans-unit id="label.piece_description">
                 <source>label.piece_description</source>
-                <target>Piece description</target>
+                <target>Opis utworu</target>
             </trans-unit>
             <trans-unit id="label.piece_edited_by">
                 <source>label.piece_edited_by</source>
-                <target>Edited by</target>
+                <target>Edytowane przez</target>
             </trans-unit>
             <trans-unit id="label.piece_link">
                 <source>label.piece_link</source>
-                <target>YouTube link (with optional timestamp)</target>
+                <target>Link YouTube (z opcjonalnym timestampem)</target>
             </trans-unit>
             <trans-unit id="label.piece_name">
                 <source>label.piece_name</source>
-                <target>Piece name</target>
+                <target>Tytuł utworu</target>
             </trans-unit>
             <trans-unit id="label.piece_tags">
                 <source>label.piece_tags</source>
-                <target>Tags</target>
+                <target>Tagi</target>
             </trans-unit>
             <trans-unit id="label.piece_year">
                 <source>label.piece_year</source>
-                <target>Year of creation</target>
+                <target>Rok powstania</target>
             </trans-unit>
             <trans-unit id="label.piece_scale">
                 <source>label.piece_scale</source>
-                <target>Scale</target>
+                <target>Tonacja</target>
             </trans-unit>
             <trans-unit id="label.profile_image">
                 <source>label.profile_image</source>
-                <target>Profile image</target>
+                <target>Zdjęcie profilowe</target>
             </trans-unit>
             <trans-unit id="label.registered_at">
                 <source>label.registered_at</source>
-                <target>Registered at</target>
+                <target>Data rejestracji</target>
             </trans-unit>
             <trans-unit id="label.remember_me">
                 <source>label.remember_me</source>
-                <target>Remember me</target>
+                <target>Zapamiętaj mnie</target>
             </trans-unit>
             <trans-unit id="label.scale">
                 <source>label.scale</source>
-                <target>Scale</target>
+                <target>Tonacja</target>
             </trans-unit>
             <trans-unit id="label.scale_name">
                 <source>label.scale_name</source>
-                <target>Scale name</target>
+                <target>Tonacja</target>
             </trans-unit>
             <trans-unit id="label.tags">
                 <source>label.tags</source>
-                <target>Tags</target>
+                <target>Tagi</target>
             </trans-unit>
             <trans-unit id="label.updated_at">
                 <source>label.updated_at</source>
-                <target>Updated at</target>
+                <target>Zaktualizowano</target>
             </trans-unit>
             <trans-unit id="label.user_canons">
                 <source>label.user_canons</source>
-                <target>User canons</target>
+                <target>Kanony użytkownika</target>
             </trans-unit>
             <trans-unit id="label.user_composers">
                 <source>label.user_composers</source>
-                <target>User composers</target>
+                <target>Kompozytorzy dodani przez użytkownika</target>
             </trans-unit>
             <trans-unit id="label.user_email">
                 <source>label.user_email</source>
-                <target>Your email</target>
+                <target>Twój email</target>
             </trans-unit>
             <trans-unit id="label.user_experience">
                 <source>label.user_experience</source>
-                <target>Experience</target>
+                <target>Doświadczenie</target>
             </trans-unit>
             <trans-unit id="label.user_image">
                 <source>label.user_image</source>
-                <target>%name% profile image</target>
+                <target>Zdjęcie profilowe użytkownika %name%</target>
             </trans-unit>
             <trans-unit id="label.user_level">
                 <source>label.user_level</source>
-                <target>Level</target>
+                <target>Poziom</target>
             </trans-unit>
             <trans-unit id="label.user_name">
                 <source>label.user_name</source>
-                <target>User name</target>
+                <target>Nazwa użytkownika</target>
             </trans-unit>
             <trans-unit id="label.user_old_password">
                 <source>label.user_old_password</source>
-                <target>Your old password</target>
+                <target>Twoje stare hasło</target>
             </trans-unit>
             <trans-unit id="label.user_password">
                 <source>label.user_password</source>
-                <target>Your password</target>
+                <target>Twoje hasło</target>
             </trans-unit>
             <trans-unit id="label.user_pieces">
                 <source>label.user_pieces</source>
-                <target>User pieces</target>
+                <target>Utwory dodane przez użytkownika</target>
             </trans-unit>
             <trans-unit id="label.user_place">
                 <source>label.user_place</source>
-                <target>Place</target>
+                <target>Miejsce</target>
             </trans-unit>
             <trans-unit id="label.user_roles">
                 <source>label.user_roles</source>
-                <target>Role</target>
+                <target>Rola</target>
             </trans-unit>
 
             <trans-unit id="mail.confirm">
                 <source>mail.confirm</source>
-                <target>Confirm mail</target>
+                <target>Potwierdź email</target>
             </trans-unit>
             <trans-unit id="mail.confirm_mail_please">
                 <source>mail.confirm_mail_please</source>
-                <target>To be able to use Music History Canon without any restrictions, please confirm your email by clicking the link below:</target>
+                <target>Żeby korzystać z Kanonu Historii Muzyki bez ograniczeń, potwierdź swój email poprzez kliknięcie w link poniżej:</target>
             </trans-unit>
             <trans-unit id="mail.end_message">
                 <source>mail.end_message</source>
-                <target>See you soon on Music History Canon!</target>
+                <target>Do zobaczenia w Kanonie Historii Muzyki!</target>
             </trans-unit>
             <trans-unit id="mail.hello">
                 <source>mail.hello</source>
-                <target>Welcome to Music History Canon!</target>
+                <target>Witaj w Kanonie Historii Muzyki!</target>
             </trans-unit>
             <trans-unit id="mail.reset_mail">
                 <source>mail.reset_mail</source>
-                <target>A request to reset your password at Music History Canon was sent. If you want to reset the password, please click the link below.</target>
+                <target>Wysłano żądanie zresetowania Twojego hasła w Kanonie Historii Muzyki. Jeśli chcesz zresetować hasło, kliknij w poniższy link.</target>
             </trans-unit>
             <trans-unit id="mail.reset_password">
                 <source>mail.reset_password</source>
-                <target>Reset your password</target>
+                <target>Zresetuj swoje hasło</target>
             </trans-unit>
             <trans-unit id="mail.subject">
                 <source>mail.subject</source>
-                <target>Welcome!</target>
+                <target>Witaj!</target>
             </trans-unit>
             <trans-unit id="mail.subject_password_reset">
                 <source>mail.subject_password_reset</source>
-                <target>Reset your password - Music History Canon!</target>
+                <target>Zresetuj swoje hasło - Kanon Historii Muzyki</target>
             </trans-unit>
             <trans-unit id="mail.mail_will_expire_in">
                 <source>mail.mail_will_expire_in</source>
-                <target>Link in this mail will expire in </target>
+                <target>Link w tym mailu wygaśnie za </target>
             </trans-unit>
 
             <trans-unit id="menu.home">
                 <source>menu.home</source>
-                <target>Home</target>
+                <target>Strona główna</target>
             </trans-unit>
             <trans-unit id="menu.composers">
                 <source>menu.composers</source>
-                <target>Composers</target>
+                <target>Kompozytorzy</target>
             </trans-unit>
             <trans-unit id="menu.pieces">
                 <source>menu.pieces</source>
-                <target>Pieces</target>
+                <target>Utwory</target>
             </trans-unit>
             <trans-unit id="menu.periods">
                 <source>menu.periods</source>
-                <target>Periods</target>
+                <target>Ery</target>
             </trans-unit>
             <trans-unit id="menu.scales">
                 <source>menu.scales</source>
-                <target>Scales</target>
+                <target>Tonacje</target>
             </trans-unit>
             <trans-unit id="menu.canons">
                 <source>menu.canons</source>
-                <target>Canons</target>
+                <target>Kanony</target>
             </trans-unit>
             <trans-unit id="menu.users">
                 <source>menu.users</source>
-                <target>Leaderboard</target>
+                <target>Tablica wyników</target>
             </trans-unit>
             <trans-unit id="menu.flashcards">
                 <source>menu.flashcards</source>
-                <target>Flashcards</target>
+                <target>Fiszki</target>
             </trans-unit>
 
             <trans-unit id="message.access_denied">
                 <source>message.access_denied</source>
-                <target>You don't have permissions to view this page.</target>
+                <target>Nie posiadasz uprawnień do wyświetlania tej strony.</target>
             </trans-unit>
             <trans-unit id="message.added_to_friends">
                 <source>message.added_to_friends</source>
-                <target>Added to friends</target>
+                <target>Dodano do znajomych</target>
             </trans-unit>
             <trans-unit id="message.already_have_account">
                 <source>message.already_have_account</source>
-                <target>You already have an account?</target>
+                <target>Posiadasz już konto?</target>
             </trans-unit>
             <trans-unit id="message.created_successfully">
                 <source>message.created_successfully</source>
-                <target>Created successfully!</target>
+                <target>Utworzono pomyślnie!</target>
             </trans-unit>
             <trans-unit id="message.canon_has_pieces">
                 <source>message.canon_has_pieces</source>
-                <target>This canon contains pieces and can't be deleted!</target>
+                <target>W tym kanonie są jakieś utwory i nie może być usunięty!</target>
             </trans-unit>
             <trans-unit id="message.canon_is_empty">
                 <source>message.canon_is_empty</source>
-                <target>This canon is empty.</target>
+                <target>Ten kanon jest pusty.</target>
             </trans-unit>
             <trans-unit id="message.choose_canon">
                 <source>message.choose_canon</source>
-                <target>Choose a canon!</target>
+                <target>Wybierz kanon!</target>
             </trans-unit>
             <trans-unit id="message.composer_has_pieces">
                 <source>message.composer_has_pieces</source>
-                <target>This composer has pieces and can't be deleted!</target>
+                <target>Ten kompozytor ma przypisane utwory i nie można go usunąć!</target>
             </trans-unit>
             <trans-unit id="message.deleted_successfully">
                 <source>message.deleted_successfully</source>
-                <target>Deleted successfully!</target>
+                <target>Usunięto pomyślnie!</target>
             </trans-unit>
             <trans-unit id="message.edited_invalid_old_password">
                 <source>message.edited_invalid_old_password</source>
-                <target>Invalid old password</target>
+                <target>Nieprawidłowe stare hasło</target>
             </trans-unit>
             <trans-unit id="message.edited_successfully">
                 <source>message.edited_successfully</source>
-                <target>Edited successfully!</target>
+                <target>Edytowano pomyślnie!</target>
             </trans-unit>
             <trans-unit id="message.email_verified">
                 <source>message.email_verified</source>
-                <target>Email verified successfully!</target>
+                <target>Email został zweryfikowany poprawnie!</target>
             </trans-unit>
             <trans-unit id="message.empty_list">
                 <source>message.empty_list</source>
-                <target>List is empty.</target>
+                <target>Lista jest pusta.</target>
             </trans-unit>
             <trans-unit id="message.enter_your_email">
                 <source>message.enter_your_email</source>
-                <target>Please enter your email</target>
+                <target>Wpisz swój email</target>
             </trans-unit>
             <trans-unit id="message.error">
                 <source>message.error</source>
-                <target>Sorry, something went wrong.</target>
+                <target>Przepraszamy, coś poszło nie tak.</target>
             </trans-unit>
             <trans-unit id="message.forgot_password">
                 <source>message.forgot_password</source>
-                <target>Forgot password?</target>
+                <target>Zapomniałeś hasła?</target>
             </trans-unit>
             <trans-unit id="message.form_error">
                 <source>message.form_error</source>
-                <target>Invalid data!</target>
+                <target>Złe dane!</target>
             </trans-unit>
             <trans-unit id="message.item_not_found">
                 <source>message.item_not_found</source>
-                <target>Item not found</target>
+                <target>Nie znaleziono</target>
             </trans-unit>
             <trans-unit id="message.logged_in_as">
                 <source>message.logged_in_as</source>
-                <target>You are logged in as</target>
+                <target>Jesteś zalogowany jako</target>
             </trans-unit>
             <trans-unit id="message.logged_in_description">
                 <source>message.logged_in_description</source>
-                <target>Do you want to login to another account?</target>
+                <target>Chcesz zalogować się na inne konto?</target>
             </trans-unit>
             <trans-unit id="message.page_not_found">
                 <source>message.page_not_found</source>
-                <target>The page you were looking for was not found. Look for spelling mistakes and try again.</target>
+                <target>Strona, której szukasz, nie istnieje. Sprawdź literówki w adresie URL i spróbuj ponownie.</target>
             </trans-unit>
             <trans-unit id="message.password_changed">
                 <source>message.password_changed</source>
-                <target>Password has been changed successfully</target>
+                <target>Hasło zostało zmienione</target>
             </trans-unit>
             <trans-unit id="message.period_has_pieces">
                 <source>message.period_has_pieces</source>
-                <target>This period has pieces and can't be deleted!</target>
+                <target>Ta era ma utwory i nie można jej usunąć!</target>
             </trans-unit>
             <trans-unit id="message.piece_in_canons">
                 <source>message.piece_in_canons</source>
-                <target>This piece is used in some canons and can't be deleted!</target>
+                <target>Ten utwór jest używany w kanonach i nie może być usunięty!</target>
             </trans-unit>
             <trans-unit id="message.record_not_found">
                 <source>message.record_not_found</source>
-                <target>Record not found.</target>
+                <target>Nie znaleziono.</target>
             </trans-unit>
             <trans-unit id="message.registered_successfully">
                 <source>message.registered_successfully</source>
-                <target>Registered successfully</target>
+                <target>Zarejestrowano pomyślnie</target>
             </trans-unit>
             <trans-unit id="message.removed_from_friends">
                 <source>message.removed_from_friends</source>
-                <target>Removed from friends</target>
+                <target>Usunięto ze znajomych</target>
             </trans-unit>
             <trans-unit id="message.verify_email_first">
                 <source>message.verify_email_first</source>
-                <target>Verify your email first.</target>
+                <target>Najpierw zweryfikuj swój email.</target>
             </trans-unit>
 
             <trans-unit id="period.ancient">
                 <source>period.ancient</source>
-                <target>Ancient</target>
+                <target>Starożytność</target>
             </trans-unit>
             <trans-unit id="period.ancient_description">
                 <source>period.ancient_description</source>
-                <target>Music of ancient times was characterized by use of monophony, frequent improvisation and dominance of oral means.</target>
+                <target>Muzyka starożytnej Grecji charakteryzowała się użyciem monofonii, częstymi improwizacjami i dominacją ludzkiego głosu nad instrumentami.</target>
             </trans-unit>
             <trans-unit id="period.medieval">
                 <source>period.medieval</source>
-                <target>Medieval</target>
+                <target>Średniowiecze</target>
             </trans-unit>
             <trans-unit id="period.medieval_description">
                 <source>period.medieval_description</source>
-                <target>Medieval music was centered around the institution of the Church. Gregorian chants, music masses and choral music are its domain.</target>
+                <target>Muzyka średniowiecza była skupiona wokół instytucji Kościoła. Domeną średniowiecza były chorały gregoriańskie, msze muzyczne i muzyka chórlna.</target>
             </trans-unit>
             <trans-unit id="period.renaissance">
                 <source>period.renaissance</source>
-                <target>Renaissance</target>
+                <target>Renesans</target>
             </trans-unit>
             <trans-unit id="period.renaissance_description">
                 <source>period.renaissance_description</source>
-                <target>Music of renaissance was freed from strict medieval constraints of church music. Counterpoint and polyphony were very common.</target>
+                <target>Muzyka renesansu uwolniła się ze ścisłych ograniczeń muzyki kościelnej. Kontrapunkt i polifonia były bardzo popularne w tej erze.</target>
             </trans-unit>
             <trans-unit id="period.baroque">
                 <source>period.baroque</source>
-                <target>Baroque</target>
+                <target>Barok</target>
             </trans-unit>
             <trans-unit id="period.baroque_description">
                 <source>period.baroque_description</source>
-                <target>Music of baroque gave birth to the common-practice tonality. Basso continuo technique was used very often.</target>
+                <target>Muzyka baroku dała początek harmonii funkcyjnej. Popularna stała się technika nazywana basso continuo.</target>
             </trans-unit>
             <trans-unit id="period.classical">
                 <source>period.classical</source>
-                <target>Classical</target>
+                <target>Klasycyzm</target>
             </trans-unit>
             <trans-unit id="period.classical_description">
                 <source>period.classical_description</source>
-                <target>Classical period music had light and clear texture. Classic sonata and symphony forms were born.</target>
+                <target>Muzyka klasycyzmu miała lekką i przejrzystą fakturę. Narodziły się formy sonaty klasycznej i symfonii.</target>
             </trans-unit>
             <trans-unit id="period.early_romantic">
                 <source>period.early_romantic</source>
-                <target>Early romantic</target>
+                <target>Wczesny romantyzm</target>
             </trans-unit>
             <trans-unit id="period.early_romantic_description">
                 <source>period.early_romantic_description</source>
-                <target>Early romantic period was a bridge between Classical and Romantic eras, built by Ludvig van Beethoven.</target>
+                <target>Wczesny romantyzm był pomostem pomiędzy erą klasyczną i romantyczną, zbudowanym przez Ludwiga van Beethovena.</target>
             </trans-unit>
             <trans-unit id="period.romantic">
                 <source>period.romantic</source>
-                <target>Romantic</target>
+                <target>Romantyzm</target>
             </trans-unit>
             <trans-unit id="period.romantic_description">
                 <source>period.romantic_description</source>
-                <target>Romantic music was full of emotion and vigor. Musical pieces were often programmatic - they developed additional narrative by the means of music.</target>
+                <target>Muzyka romantyzmu była pełna emocji i wigoru. Utwory często były programowe - prowadziły dodatkową narrację przy użyciu środków muzycznych.</target>
             </trans-unit>
             <trans-unit id="period.contemporary">
                 <source>period.contemporary</source>
-                <target>Contemporary</target>
+                <target>Współczesność</target>
             </trans-unit>
             <trans-unit id="period.contemporary_description">
                 <source>period.contemporary_description</source>
-                <target>Music of 20th century to present. Dissonance, neoclassicism, serialism and spectralism are only a few terms related to this abundant era.</target>
+                <target>Muzyka XX wieku do współczesności. Dysonans, neoklasycyzm, serializm i spektralizm to tylko jedne z niewielu terminów związanych z tą obfitą muzycznie erą.</target>
             </trans-unit>
             <trans-unit id="period.unknown">
                 <source>period.unknown</source>
-                <target>Unknown</target>
+                <target>Nieznana</target>
             </trans-unit>
             <trans-unit id="period.unknown_description">
                 <source>period.unknown_description</source>
@@ -708,7 +708,7 @@
             </trans-unit>
             <trans-unit id="period.other">
                 <source>period.other</source>
-                <target>Other</target>
+                <target>Inna</target>
             </trans-unit>
             <trans-unit id="period.other_description">
                 <source>period.other_description</source>
@@ -721,337 +721,337 @@
             </trans-unit>
             <trans-unit id="role.user">
                 <source>role.user</source>
-                <target>User</target>
+                <target>Użytkownik</target>
             </trans-unit>
 
             <trans-unit id="scale.c_major">
                 <source>scale.c_major</source>
-                <target>C major</target>
+                <target>C-dur</target>
             </trans-unit>
             <trans-unit id="scale.c_minor">
                 <source>scale.c_minor</source>
-                <target>C minor</target>
+                <target>c-moll</target>
             </trans-unit>
             <trans-unit id="scale.g_major">
                 <source>scale.g_major</source>
-                <target>G major</target>
+                <target>G-dur</target>
             </trans-unit>
             <trans-unit id="scale.g_minor">
                 <source>scale.g_minor</source>
-                <target>G minor</target>
+                <target>g-moll</target>
             </trans-unit>
             <trans-unit id="scale.d_major">
                 <source>scale.d_major</source>
-                <target>D major</target>
+                <target>D-dur</target>
             </trans-unit>
             <trans-unit id="scale.d_minor">
                 <source>scale.d_minor</source>
-                <target>D minor</target>
+                <target>d-moll</target>
             </trans-unit>
             <trans-unit id="scale.a_major">
                 <source>scale.a_major</source>
-                <target>A major</target>
+                <target>A-dur</target>
             </trans-unit>
             <trans-unit id="scale.a_minor">
                 <source>scale.a_minor</source>
-                <target>A minor</target>
+                <target>a-moll</target>
             </trans-unit>
             <trans-unit id="scale.e_major">
                 <source>scale.e_major</source>
-                <target>E major</target>
+                <target>E-dur</target>
             </trans-unit>
             <trans-unit id="scale.e_minor">
                 <source>scale.e_minor</source>
-                <target>E minor</target>
+                <target>e-moll</target>
             </trans-unit>
             <trans-unit id="scale.b_major">
                 <source>scale.b_major</source>
-                <target>B major</target>
+                <target>H-dur</target>
             </trans-unit>
             <trans-unit id="scale.b_minor">
                 <source>scale.b_minor</source>
-                <target>B minor</target>
+                <target>H-moll</target>
             </trans-unit>
             <trans-unit id="scale.f_sharp_major">
                 <source>scale.f_sharp_major</source>
-                <target>F♯ major</target>
+                <target>F♯-dur</target>
             </trans-unit>
             <trans-unit id="scale.f_sharp_minor">
                 <source>scale.f_sharp_minor</source>
-                <target>F♯ minor</target>
+                <target>f♯-moll</target>
             </trans-unit>
             <trans-unit id="scale.c_sharp_major">
                 <source>scale.c_sharp_major</source>
-                <target>C♯ major</target>
+                <target>C♯-dur</target>
             </trans-unit>
             <trans-unit id="scale.c_sharp_minor">
                 <source>scale.c_sharp_minor</source>
-                <target>C♯ minor</target>
+                <target>c♯-moll</target>
             </trans-unit>
             <trans-unit id="scale.f_major">
                 <source>scale.f_major</source>
-                <target>F major</target>
+                <target>F-dur</target>
             </trans-unit>
             <trans-unit id="scale.f_minor">
                 <source>scale.f_minor</source>
-                <target>F minor</target>
+                <target>f-moll</target>
             </trans-unit>
             <trans-unit id="scale.b_flat_major">
                 <source>scale.b_flat_major</source>
-                <target>B♭ major</target>
+                <target>B-dur</target>
             </trans-unit>
             <trans-unit id="scale.b_flat_minor">
                 <source>scale.b_flat_minor</source>
-                <target>B♭ minor</target>
+                <target>b-moll</target>
             </trans-unit>
             <trans-unit id="scale.e_flat_major">
                 <source>scale.e_flat_major</source>
-                <target>E♭ major</target>
+                <target>Es-dur</target>
             </trans-unit>
             <trans-unit id="scale.e_flat_minor">
                 <source>scale.e_flat_minor</source>
-                <target>E♭ minor</target>
+                <target>e-moll</target>
             </trans-unit>
             <trans-unit id="scale.a_flat_major">
                 <source>scale.a_flat_major</source>
-                <target>A♭ major</target>
+                <target>As-dur</target>
             </trans-unit>
             <trans-unit id="scale.a_flat_minor">
                 <source>scale.a_flat_minor</source>
-                <target>A♭ minor</target>
+                <target>as-moll</target>
             </trans-unit>
             <trans-unit id="scale.d_flat_major">
                 <source>scale.d_flat_major</source>
-                <target>D♭ major</target>
+                <target>Des-dur</target>
             </trans-unit>
             <trans-unit id="scale.d_flat_minor">
                 <source>scale.d_flat_minor</source>
-                <target>D♭ minor</target>
+                <target>des-moll</target>
             </trans-unit>
             <trans-unit id="scale.g_flat_major">
                 <source>scale.g_flat_major</source>
-                <target>G♭ major</target>
+                <target>G♭-dur</target>
             </trans-unit>
             <trans-unit id="scale.g_flat_minor">
                 <source>scale.g_flat_minor</source>
-                <target>G♭ minor</target>
+                <target>ges-moll</target>
             </trans-unit>
             <trans-unit id="scale.chromatic">
                 <source>scale.chromatic</source>
-                <target>chromatic</target>
+                <target>chromatyczna</target>
             </trans-unit>
             <trans-unit id="scale.pentatonic">
                 <source>scale.pentatonic</source>
-                <target>pentatonic</target>
+                <target>pentatonika</target>
             </trans-unit>
             <trans-unit id="scale.whole_tone">
                 <source>scale.whole_tone</source>
-                <target>whole-tone</target>
+                <target>całotonowa</target>
             </trans-unit>
             <trans-unit id="scale.acoustic">
                 <source>scale.acoustic</source>
-                <target>acoustic</target>
+                <target>akustyczna</target>
             </trans-unit>
             <trans-unit id="scale.ionian">
                 <source>scale.ionian</source>
-                <target>ionian</target>
+                <target>jońska</target>
             </trans-unit>
             <trans-unit id="scale.dorian">
                 <source>scale.dorian</source>
-                <target>dorian</target>
+                <target>dorycka</target>
             </trans-unit>
             <trans-unit id="scale.phrygian">
                 <source>scale.phrygian</source>
-                <target>phrygian</target>
+                <target>frygijska</target>
             </trans-unit>
             <trans-unit id="scale.lydian">
                 <source>scale.lydian</source>
-                <target>lydian</target>
+                <target>lidyjska</target>
             </trans-unit>
             <trans-unit id="scale.mixolydian">
                 <source>scale.mixolydian</source>
-                <target>mixolydian</target>
+                <target>miksolidyjska</target>
             </trans-unit>
             <trans-unit id="scale.aeolian">
                 <source>scale.aeolian</source>
-                <target>aeolian</target>
+                <target>eolska</target>
             </trans-unit>
             <trans-unit id="scale.locrian">
                 <source>scale.locrian</source>
-                <target>locrian</target>
+                <target>lokrycka</target>
             </trans-unit>
             <trans-unit id="scale.blues">
                 <source>scale.blues</source>
-                <target>blues</target>
+                <target>bluesowa</target>
             </trans-unit>
             <trans-unit id="scale.atonal">
                 <source>scale.atonal</source>
-                <target>atonal</target>
+                <target>atonalna</target>
             </trans-unit>
             <trans-unit id="scale.unknown">
                 <source>scale.unknown</source>
-                <target>unknown</target>
+                <target>nieznana</target>
             </trans-unit>
             <trans-unit id="scale.other">
                 <source>scale.other</source>
-                <target>other</target>
+                <target>inna</target>
             </trans-unit>
 
             <trans-unit id="title.access_denied">
                 <source>title.access_denied</source>
-                <target>403 - Access denied!</target>
+                <target>403 - Brak dostępu!</target>
             </trans-unit>
             <trans-unit id="title.canon_create">
                 <source>title.canon_create</source>
-                <target>Create new canon</target>
+                <target>Dodaj nowy kanon</target>
             </trans-unit>
             <trans-unit id="title.canon_delete">
                 <source>title.canon_delete</source>
-                <target>Delete canon %name%?</target>
+                <target>Usunąć kanon %name%?</target>
             </trans-unit>
             <trans-unit id="title.canon_details">
                 <source>title.canon_details</source>
-                <target>%name% - details</target>
+                <target>%name% - szczegóły</target>
             </trans-unit>
             <trans-unit id="title.canon_edit">
                 <source>title.canon_edit</source>
-                <target>Edit canon %name%</target>
+                <target>Edytuj kanon %name%</target>
             </trans-unit>
             <trans-unit id="title.canon_list">
                 <source>title.canon_list</source>
-                <target>List of canons</target>
+                <target>Lista kanonów</target>
             </trans-unit>
             <trans-unit id="title.composer_create">
                 <source>title.composer_create</source>
-                <target>Create new composer</target>
+                <target>Dodaj nowego kompozytora</target>
             </trans-unit>
             <trans-unit id="title.composer_delete">
                 <source>title.composer_delete</source>
-                <target>Delete composer %name%?</target>
+                <target>Usuńąć kompozytora %name%?</target>
             </trans-unit>
             <trans-unit id="title.composer_details">
                 <source>title.composer_details</source>
-                <target>%name% - details</target>
+                <target>%name% - szczegóły</target>
             </trans-unit>
             <trans-unit id="title.composer_edit">
                 <source>title.composer_edit</source>
-                <target>Edit composer %name%</target>
+                <target>Edytuj kompozytora %name%</target>
             </trans-unit>
             <trans-unit id="title.composer_list">
                 <source>title.composer_list</source>
-                <target>List of composers</target>
+                <target>Lista kompozytorów</target>
             </trans-unit>
             <trans-unit id="title.error">
                 <source>title.error</source>
-                <target>Error occurred!</target>
+                <target>Wystąpił błąd!</target>
             </trans-unit>
             <trans-unit id="title.index">
                 <source>title.index</source>
-                <target>Home page</target>
+                <target>Strona główna</target>
             </trans-unit>
             <trans-unit id="title.flashcards">
                 <source>title.flashcards</source>
-                <target>Flashcards</target>
+                <target>Fiszki</target>
             </trans-unit>
             <trans-unit id="title.flashcards_learn">
                 <source>title.flashcards_learn</source>
-                <target>Flashcards - %name%</target>
+                <target>Fiszki - %name%</target>
             </trans-unit>
             <trans-unit id="title.page_not_found">
                 <source>title.page_not_found</source>
-                <target>404 - Page was not found!</target>
+                <target>404 - Strony nie odnaleziono!</target>
             </trans-unit>
             <trans-unit id="title.period_list">
                 <source>title.period_list</source>
-                <target>List of periods</target>
+                <target>Lista utworów</target>
             </trans-unit>
             <trans-unit id="title.period_details">
                 <source>title.period_details</source>
-                <target>%name% - details</target>
+                <target>%name% - szczegóły</target>
             </trans-unit>
             <trans-unit id="title.piece_canons">
                 <source>title.piece_canons</source>
-                <target>Piece canons</target>
+                <target>Kanony utworu</target>
             </trans-unit>
             <trans-unit id="title.piece_composer">
                 <source>title.piece_composer</source>
-                <target>Piece composer</target>
+                <target>Kompozytor</target>
             </trans-unit>
             <trans-unit id="title.piece_create">
                 <source>title.piece_create</source>
-                <target>Create new piece</target>
+                <target>Dodaj nowy utwór</target>
             </trans-unit>
             <trans-unit id="title.piece_delete">
                 <source>title.piece_delete</source>
-                <target>Delete piece %name%?</target>
+                <target>Usunąć utwór %name%?</target>
             </trans-unit>
             <trans-unit id="title.piece_details">
                 <source>title.piece_details</source>
-                <target>%name% - details</target>
+                <target>%name% - szczegóły</target>
             </trans-unit>
             <trans-unit id="title.piece_edit">
                 <source>title.piece_edit</source>
-                <target>Edit piece %name%</target>
+                <target>Edytuj utwór %name%</target>
             </trans-unit>
             <trans-unit id="title.piece_list">
                 <source>title.piece_list</source>
-                <target>List of pieces</target>
+                <target>Lista utworów</target>
             </trans-unit>
             <trans-unit id="title.piece_tags">
                 <source>title.piece_tags</source>
-                <target>Piece tags</target>
+                <target>Tagi utworu</target>
             </trans-unit>
             <trans-unit id="title.reset_password">
                 <source>title.reset_password</source>
-                <target>Reset your password</target>
+                <target>Zresetuj hasło</target>
             </trans-unit>
             <trans-unit id="title.reset_password_email_sent">
                 <source>title.reset_password_email_sent</source>
-                <target>Reset password email was sent</target>
+                <target>Wysłano email do zresetowania hasła</target>
             </trans-unit>
             <trans-unit id="title.register">
                 <source>title.register</source>
-                <target>Register</target>
+                <target>Rejestracja</target>
             </trans-unit>
             <trans-unit id="title.scale_details">
                 <source>title.scale_details</source>
-                <target>%name% - details</target>
+                <target>%name% - szczegóły</target>
             </trans-unit>
             <trans-unit id="title.scale_list">
                 <source>title.scale_list</source>
-                <target>List of scales</target>
+                <target>Lista tonacji</target>
             </trans-unit>
             <trans-unit id="title.sign_in">
                 <source>title.sign_in</source>
-                <target>Sign in</target>
+                <target>Logowanie</target>
             </trans-unit>
             <trans-unit id="title.user_canons">
                 <source>title.user_canons</source>
-                <target>Canons of user %name%</target>
+                <target>Kanony użytkownika %name%</target>
             </trans-unit>
             <trans-unit id="title.user_composers">
                 <source>title.user_composers</source>
-                <target>Composers added by %name%</target>
+                <target>Kompozytorzy dodani przez uzytkownika %name%</target>
             </trans-unit>
             <trans-unit id="title.user_details">
                 <source>title.user_details</source>
-                <target>%name% - details</target>
+                <target>%name% - szczegóły</target>
             </trans-unit>
             <trans-unit id="title.user_edit">
                 <source>title.user_edit</source>
-                <target>%name% - edit data</target>
+                <target>%name% - edycja danych</target>
             </trans-unit>
             <trans-unit id="title.user_list">
                 <source>title.user_list</source>
-                <target>Leaderboard</target>
+                <target>Tabela wyników</target>
             </trans-unit>
             <trans-unit id="title.user_pieces">
                 <source>title.user_pieces</source>
-                <target>Pieces added by %name%</target>
+                <target>Utwory dodane przez użytkownika %name%</target>
             </trans-unit>
             <trans-unit id="title.user_profile_image">
                 <source>title.user_profile_image</source>
-                <target>Change profile image</target>
+                <target>Zmień zdjęcie profilowe</target>
             </trans-unit>
         </body>
     </file>

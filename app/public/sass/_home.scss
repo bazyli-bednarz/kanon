@@ -12,6 +12,24 @@
   &__text {
     @include responsive_margin(0, 2rem, 2rem, 2rem);
   }
+  &__tags {
+    white-space: nowrap;
+    @include responsive_margin(0.5rem, 0.5rem, 0.5rem, 0.5rem);
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+      width: min-content;
+      background-color: $color-main;
+      border-radius: 100vh;
+      transition: 0.3s;
+      @include responsive_padding(0.5rem, 0.5rem, 0.5rem, 0.5rem);
+      @include shadow();
+      &:hover {
+        background-color: $color-main-dark;
+      }
+    }
+  }
   &__player {
     width: 100%;
     @media all and (min-width: 990px){

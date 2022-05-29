@@ -6,5 +6,8 @@ parameters:
     - message: Message content,
 #}
 <div class="alert alert-{{ type }}" role="alert">
-    {{ message }}
+    <p>{{ message }}</p>
+    <button class="close-flash" title="{{ 'action.close'|trans }}">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
 </div>

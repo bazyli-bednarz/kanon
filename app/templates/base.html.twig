@@ -30,13 +30,7 @@
     {% endblock %}
 </head>
 <body>
-{# <div class="message-box"> #}
-{# {% include 'default/_flash_messages.html.twig' %} #}
-{# </div> #}
 <div class="wrapper">
-    <div class="container-fluid">
-        {% include 'default/_flash_messages.html.twig' %}
-    </div>
     <div class="container-fluid">
         <header class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -46,7 +40,6 @@
                 </button>
                 <a href="{{ url('index') }}" class="navbar-brand"><i
                             class="fa-solid fa-compact-disc"></i> {{ 'app_name'|trans }}</a>
-                {# {% if app.user %} #}
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item{% if app.request.attributes.get( '_route' ) starts with 'composer' %} active{% endif %}">
@@ -127,6 +120,9 @@
                 </div>
             </nav>
         </header>
+        <div class="container-fluid">
+            {% include 'default/_flash_messages.html.twig' %}
+        </div>
         <main class="main">
             {% block body %}{% endblock %}
         </main>
@@ -154,6 +150,7 @@
 
     <script src="{{ asset('js/levelProgress.js') }}"></script>
     <script src="{{ asset('js/toggleInfo.js') }}"></script>
+    <script src="{{ asset('js/closeFlash.js') }}"></script>
     <script>
         $(document).ready(function () {
             $('.selectize').selectize({

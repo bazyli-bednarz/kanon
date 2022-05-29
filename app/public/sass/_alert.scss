@@ -1,0 +1,19 @@
+.alert {
+  @include flexbox(row, space-between, center);
+  .close-flash {
+    border: none;
+    background: transparent;
+  }
+  &--closed {
+    animation: hide 1s both;
+  }
+  p {
+    margin: 0;
+  }
+
+}
+
+.wrapper--closed {
+  margin: 0;
+  padding: 0;
+}
