@@ -15,7 +15,6 @@ parameters:
             <th>{{ knp_pagination_sortable(pagination, 'label.user_name'|trans, 'user.name') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.user_level'|trans, 'user.level') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.registered_at'|trans, 'user.createdAt') }}</th>
-            <th>{{ 'label.actions'|trans }}</th>
         </tr>
         </thead>
         <tbody>
@@ -25,16 +24,11 @@ parameters:
                     <img class="user-image user-image--small"
                          src="{{ asset('images/avatars/' ~ user.image) ~ '.jpg' }}"
                          alt="{{ 'label.user_image'|trans({'%name%': user.name|default('')}) }}">
-                    <span>{{ user.name }}</span>
+                    <span><a href="{{ url('user_show', {slug: user.slug}) }}" title="{{ 'action.view'|trans }}: {{ user.name }}">{{ user.name }}</a></span>
                 </td>
                 <td>{{ user.level }}</td>
                 <td>{{ user.createdAt|format_datetime('short', 'short', locale=app.request.locale) }}</td>
 
-                <td>
-                    <a href="{{ url('user_show', {slug: user.slug}) }}" title="{{ 'action.view'|trans }}: {{ user.name }}">
-                        <i class="fa-solid fa-eye" aria-label="{{ 'action.view'|trans }}: {{ user.name }}"></i>
-                    </a>
-                </td>
             </tr>
         {% endfor %}
         </tbody>

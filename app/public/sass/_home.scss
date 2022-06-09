@@ -81,11 +81,11 @@
     width: 70%;
     @include flexbox(column, center, center);
     margin: auto;
+    @include responsive_padding(3rem, 0, 3rem, 0);
 
-    @media all and (min-width: 950px){
+    @media all and (min-width: 1200px){
       @include flexbox(row, center, center);
       width: 50%;
-      @include responsive_padding(3rem, 5rem, 3rem, 5rem);
     }
 
     .image--medium {

@@ -13,17 +13,13 @@ parameters:
         <thead>
         <tr>
             <th>{{ knp_pagination_sortable(pagination, 'label.scale_name'|trans, 'scale.name') }}</th>
-            <th>{{ 'label.actions'|trans }}</th>
         </tr>
         </thead>
         <tbody>
         {% for scale in pagination.items %}
             <tr>
-                <td>{{ scale.name|trans }}</td>
-                <td>
-                    <a href="{{ url('scale_show', {slug: scale.slug}) }}" title="{{ 'action.view'|trans }} {{ scale.name|trans }}">
-                        <i class="fa-solid fa-eye" aria-label="{{ 'action.view'|trans }} {{ scale.name|trans }}"></i>
-                    </a>
+                <td><a href="{{ url('scale_show', {slug: scale.slug}) }}" title="{{ 'action.view'|trans }} {{ scale.name|trans }}">
+                        {{ scale.name|trans }}</a>
                 </td>
             </tr>
         {% endfor %}

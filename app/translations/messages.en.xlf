@@ -153,6 +153,10 @@
                 <source>info.about-project</source>
                 <target>This web application was designed and created by Bazyli Bednarz. This service is an integral part of a bachelor's thesis (major: Electronic Information Processing), prepared under the direction of prof. dr hab. Jerzy Konior at the Faculty Of Management and Social Communication, Jagiellonian University.</target>
             </trans-unit>
+            <trans-unit id="info.and">
+                <source>info.and</source>
+                <target>and</target>
+            </trans-unit>
             <trans-unit id="info.application">
                 <source>info.application</source>
                 <target>Welcome to Music History Canon! This application is for music students and enjoyers, who want to discover greatest music pieces in history!</target>
@@ -289,6 +293,14 @@
             <trans-unit id="label.email">
                 <source>label.email</source>
                 <target>Email</target>
+            </trans-unit>
+            <trans-unit id="label.last_name">
+                <source>label.last_name</source>
+                <target>last name</target>
+            </trans-unit>
+            <trans-unit id="label.name">
+                <source>label.name</source>
+                <target>Name</target>
             </trans-unit>
             <trans-unit id="label.new_password">
                 <source>label.new_password</source>
@@ -485,13 +497,17 @@
             </trans-unit>
             <trans-unit id="mail.subject_password_reset">
                 <source>mail.subject_password_reset</source>
-                <target>Reset your password - Music History Canon!</target>
+                <target>Reset your password – Music History Canon!</target>
             </trans-unit>
             <trans-unit id="mail.mail_will_expire_in">
                 <source>mail.mail_will_expire_in</source>
                 <target>Link in this mail will expire in </target>
             </trans-unit>
 
+            <trans-unit id="menu.about">
+                <source>menu.about</source>
+                <target>About</target>
+            </trans-unit>
             <trans-unit id="menu.home">
                 <source>menu.home</source>
                 <target>Home</target>
@@ -700,7 +716,7 @@
             </trans-unit>
             <trans-unit id="period.romantic_description">
                 <source>period.romantic_description</source>
-                <target>Romantic music was full of emotion and vigor. Musical pieces were often programmatic - they developed additional narrative by the means of music.</target>
+                <target>Romantic music was full of emotion and vigor. Musical pieces were often programmatic – they developed additional narrative by the means of music.</target>
             </trans-unit>
             <trans-unit id="period.contemporary">
                 <source>period.contemporary</source>
@@ -911,7 +927,7 @@
 
             <trans-unit id="title.access_denied">
                 <source>title.access_denied</source>
-                <target>403 - Access denied!</target>
+                <target>403 – Access denied!</target>
             </trans-unit>
             <trans-unit id="title.canon_create">
                 <source>title.canon_create</source>
@@ -923,7 +939,7 @@
             </trans-unit>
             <trans-unit id="title.canon_details">
                 <source>title.canon_details</source>
-                <target>%name% - details</target>
+                <target>%name% – details</target>
             </trans-unit>
             <trans-unit id="title.canon_edit">
                 <source>title.canon_edit</source>
@@ -943,7 +959,7 @@
             </trans-unit>
             <trans-unit id="title.composer_details">
                 <source>title.composer_details</source>
-                <target>%name% - details</target>
+                <target>%name% – details</target>
             </trans-unit>
             <trans-unit id="title.composer_edit">
                 <source>title.composer_edit</source>
@@ -967,11 +983,11 @@
             </trans-unit>
             <trans-unit id="title.flashcards_learn">
                 <source>title.flashcards_learn</source>
-                <target>Flashcards - %name%</target>
+                <target>Flashcards – %name%</target>
             </trans-unit>
             <trans-unit id="title.page_not_found">
                 <source>title.page_not_found</source>
-                <target>404 - Page was not found!</target>
+                <target>404 – Page was not found!</target>
             </trans-unit>
             <trans-unit id="title.period_list">
                 <source>title.period_list</source>
@@ -979,7 +995,7 @@
             </trans-unit>
             <trans-unit id="title.period_details">
                 <source>title.period_details</source>
-                <target>%name% - details</target>
+                <target>%name% – details</target>
             </trans-unit>
             <trans-unit id="title.piece_canons">
                 <source>title.piece_canons</source>
@@ -999,7 +1015,7 @@
             </trans-unit>
             <trans-unit id="title.piece_details">
                 <source>title.piece_details</source>
-                <target>%name% - details</target>
+                <target>%name% – details</target>
             </trans-unit>
             <trans-unit id="title.piece_edit">
                 <source>title.piece_edit</source>
@@ -1027,7 +1043,7 @@
             </trans-unit>
             <trans-unit id="title.scale_details">
                 <source>title.scale_details</source>
-                <target>%name% - details</target>
+                <target>%name% – details</target>
             </trans-unit>
             <trans-unit id="title.scale_list">
                 <source>title.scale_list</source>
@@ -1047,11 +1063,11 @@
             </trans-unit>
             <trans-unit id="title.user_details">
                 <source>title.user_details</source>
-                <target>%name% - details</target>
+                <target>%name% – details</target>
             </trans-unit>
             <trans-unit id="title.user_edit">
                 <source>title.user_edit</source>
-                <target>%name% - edit data</target>
+                <target>%name% – edit data</target>
             </trans-unit>
             <trans-unit id="title.user_list">
                 <source>title.user_list</source>

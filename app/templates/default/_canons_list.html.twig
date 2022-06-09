@@ -15,30 +15,27 @@ parameters:
             <th>{{ knp_pagination_sortable(pagination, 'label.canon_name'|trans, 'canon.name') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.canon_author'|trans, 'canon.author') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.canon_description'|trans, 'canon.description') }}</th>
-            <th>{{ 'label.actions'|trans }}</th>
         </tr>
         </thead>
         <tbody>
         {% for canon in pagination.items %}
             <tr>
-                <td>{{ canon.name }}</td>
-                <td><a href="{{ url('user_show', {slug: canon.author.slug}) }}">{{ canon.author.name }}</a></td>
-                <td>{{ canon.description }}</td>
-                <td>
-                    <a href="{{ url('canon_show', {slug: canon.slug}) }}" title="{{ 'action.view'|trans }}: {{ canon.name }}">
-                        <i class="fa-solid fa-eye" aria-label="{{ 'action.view'|trans }}: {{ canon.name }}"></i>
-                    </a>
+                <td><a href="{{ url('canon_show', {slug: canon.slug}) }}"
+                       title="{{ 'action.view'|trans }}: {{ canon.name }}">{{ canon.name }}</a>
                     {% if is_granted('EDIT', canon) %}
-                    <a href="{{ url('canon_edit', {slug: canon.slug}) }}" title="{{ 'action.edit'|trans }}">
-                        <i class="fa-solid fa-pen-to-square" aria-label="{{ 'action.edit'|trans }}: {{ canon.name }}"></i>
-                    </a>
+                        <a href="{{ url('canon_edit', {slug: canon.slug}) }}" title="{{ 'action.edit'|trans }}">
+                            <i class="fa-solid fa-pen-to-square"
+                               aria-label="{{ 'action.edit'|trans }}: {{ canon.name }}"></i></a>
                     {% endif %}
                     {% if is_granted('DELETE', canon) %}
-                    <a href="{{ url('canon_delete', {slug: canon.slug}) }}" title="{{ 'action.delete'|trans }}">
-                        <i class="fa-solid fa-trash-can" aria-label="{{ 'action.delete'|trans }}: {{ canon.name }}"></i>
-                    </a>
+                        <a href="{{ url('canon_delete', {slug: canon.slug}) }}" title="{{ 'action.delete'|trans }}">
+                            <i class="fa-solid fa-trash-can"
+                               aria-label="{{ 'action.delete'|trans }}: {{ canon.name }}"></i>
+                        </a>
                     {% endif %}
                 </td>
+                <td><a href="{{ url('user_show', {slug: canon.author.slug}) }}">{{ canon.author.name }}</a></td>
+                <td>{{ canon.description }}</td>
             </tr>
         {% endfor %}
         </tbody>

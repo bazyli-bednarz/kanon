@@ -16,22 +16,16 @@ parameters:
             <th>{{ knp_pagination_sortable(pagination, 'label.period_start_year'|trans, 'period.startYear') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.period_end_year'|trans, 'period.endYear') }}</th>
             <th>{{ knp_pagination_sortable(pagination, 'label.period_description'|trans, 'period.description') }}</th>
-            <th>{{ 'label.actions'|trans }}</th>
         </tr>
         </thead>
         <tbody>
         {% for period in pagination.items %}
             <tr>
-                <td>{{ period.name|trans }}</td>
+                <td><a href="{{ url('period_show', {slug: period.slug}) }}" title="{{ 'action.view'|trans }}: {{ period.name|trans }}">{{ period.name|trans }}</a></td>
                 <td>{{ period.startYear }}</td>
                 <td>{{ period.endYear }}</td>
                 <td>{{ period.description|trans }}</td>
 
-                <td>
-                    <a href="{{ url('period_show', {slug: period.slug}) }}" title="{{ 'action.view'|trans }}: {{ period.name|trans }}">
-                        <i class="fa-solid fa-eye" aria-label="{{ 'action.view'|trans }}: {{ period.name|trans }}"></i>
-                    </a>
-                </td>
             </tr>
         {% endfor %}
         </tbody>

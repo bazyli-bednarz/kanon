@@ -99,17 +99,6 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 
-  tbody {
-    tr {
-      td:last-of-type {
-        white-space: nowrap;
-
-        a {
-          text-decoration: none;
-        }
-      }
-    }
-  }
 
   &--scales {
     display: table;
@@ -144,7 +133,19 @@ h1, h2, h3, h4, h5, h6 {
       white-space: normal;
     }
   }
+
+  &--composers, &--pieces {
+    tbody {
+      tr {
+        td:first-of-type {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
 }
+
+
 
 i {
   &.fa-eye {
